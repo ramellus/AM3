@@ -1,0 +1,445 @@
+\documentclass[Completo.tex]{subfiles}
+\begin{document}
+\chapter{Successioni e serie di funzioni}
+\section{SUCCESSIONI DI FUNZIONI}
+\subsection{Convergenza in spazi metrici}
+\begin{Def}
+	Uno \textit{spazio metrico} è una coppia (X, $d$) dove X è un insieme e $d$ è una funzione definita su X$^2$ a valori reali che rispetta i seguenti assiomi:
+	\begin{itemize}
+		\item $\forall x, y \in X, \ d(x,y) \geq 0$ e $d(x,y) = 0 \iff x = y$,
+		\item $\forall x,y \in X, \ d(x,y) = d(y,x)$,
+		\item $\forall x, y, z \in X, \ d(x,y) \leq d(x,z) + d(y,z)$ (\textit{disuguaglianza triangolare}, $\mathsf{DT}$).
+	\end{itemize}
+\end{Def}
+\begin{Def} 
+	Una successione $x_n$ a valori in (X, $d$) \textit{converge a $\overline{x}$} se
+	\begin{equation*}
+	\forall r > 0 \ \exists N \in \bb[N] \ \forall n \geq N, \ d(x_n, \overline{x}) < r
+	\end{equation*}
+\end{Def}
+\begin{Def}
+	Una successione $x_n$ è \textit{di Cauchy} se 
+	\begin{equation*}
+	\forall r > 0 \ \exists N \in \bb[N] \ \forall n \geq N, \ d(x_n, d_{n+1}) < r
+	\end{equation*}
+\end{Def}
+\begin{Th}
+	Ogni successione convergente è di Cauchy.
+\end{Th}
+\begin{Def}
+	Sia (X, $d$) spazio metrico, allora se ogni successione di Cauchy è convergente si dice che X è \textit{completo}.
+\end{Def}
+\begin{Ex}
+	$\bb[R]^{N}$ con qualsivoglia distanza è completo. Se A $\sneq \bb[R]^{N}$ (o $\bb[C]^{N}$) è compatto, allora C(A) = \{$f: A \ra \bb[R]^{N}$ continua\} con la distanza 
+	\begin{equation*}
+	d(f,g) = \max\limits_{x \in A} \Vert f(x)-g(x) \Vert
+	\end{equation*}
+	è uno spazio metrico completo.
+\end{Ex}
+\subsection{Convergenza in spazi di funzioni}
+\begin{Oss}
+	L'esempio di C(A) merita più attenzione: in questo spazio, la convergenza di una successione $f_n$ di funzioni ad una funzione $\overline{f}$ assume questa forma:
+	\begin{equation*}
+		\forall r > 0 \ \exists N \in \bb[N] \ \forall n \geq N: \ d(f_n, \overline{f}) = \max\limits_{x \in A} \Vert f_n(x)-\overline{f}(x) \Vert < r
+	\end{equation*}
+	Osserviamo che però richiedere che il \textit{massimo} di quella norma sia minore di $r$ su A è equivalente a richiedere che, per ogni elemento di A, la norma della differenza fra le immagini di $f_n$ ed $\overline{f}$ sia minore di $r$. In altre parole, la definizione precedente è equivalente a:
+	\begin{equation*}
+			\forall r > 0 \ \exists N \in \bb[N] \ \forall n \geq N \ \forall x \in A: \ \Vert f_n(x)-\overline{f}(x) \Vert < r
+	\end{equation*}
+	Se l'esistenza del massimo (e dunque la coerenza della definizione di distanza su C(A)) richiede la continuità delle funzioni, la definizione appena scritta non richiede alcuna condizione di regolarità e può essere, perciò, generalizzata.
+\end{Oss}
+\begin{Def}
+	Consideriamo $f_n, f: A \sseq \bb[R] \ra \bb[R]$. Allora diciamo che $f_n$ \textit{converge uniformemente a f su A} se vale la seguente condizione:
+	\begin{equation*}
+	\forall r > 0 \ \exists N \in \bb[N] \ \forall n \geq N \ \forall x \in A: \ \Vert f_n(x) - f(x) \Vert < r.
+	\end{equation*}
+	Equivalentemente,
+	\begin{equation*}
+	\forall r > 0 \ \exists N \in \bb[N] \ \forall n \geq N: \sup\limits_{x \in A}\Vert f_n(x) - f(x) \Vert < r.
+	\end{equation*}
+\end{Def}
+\begin{Oss}
+	La convergenza è detta \textit{uniforme} per due motivi: anzitutto, l'$N$ la cui esistenza è richiesta dalla definizione non dipende dal punto $x \in A$, e vale perciò per tutto $A$ \textit{uniformemente}. Inoltre è detta tale in contrasto con un'altra definizione di convergenza, che è la convergenza delle successioni di numeri reali che si ottengono \textit{fissando} un punto $x \in A$.
+\end{Oss}
+\begin{Def}
+	Siano $f_n, f: A \sseq \bb[R] \ra \bb[R]$. Allora diciamo che $f_n$ \textit{converge puntualmente ad f in A} se
+	\begin{equation*}
+	\forall x \in A \ \forall r > 0 \ \exists N \in \bb[N] \ \forall n \geq N: \ \Vert f_n(x) - f(x) \Vert < r.
+	\end{equation*}
+	In questo caso si ha in effetti $N = N(r, x)$, mentre nel caso di una convergenza uniforme $N$ va a dipendere solamente da $r$.
+\end{Def}
+\begin{Oss}
+	La convergenza uniforme su A implica quella puntuale in ogni punto di A nel modo ovvio.
+\end{Oss}
+\begin{Ex}
+	Sia $f_n: (0, 1) \ra (0, 1), \ f_n(x) = x^n$. Allora per ogni $x$ in (0,1) $\lim\limits_{n \ra +\infty} f_n(x) = 0$, ovvero $f_n$ converge puntualmente a $f(x) \equiv 0$. Osserviamo che $\Vert f_n(x) - f(x)\Vert = \Vert f_n(x)\Vert = f_n(x) = x^n$, e che $x^n < r$ se e solo se $n > \frac{\log(r)}{\log(x)}$. Tuttavia, $\sup\limits_{x \in (0, 1)} \frac{\log(r)}{\log(x)} = +\infty$, dunque non è possibile trovare un $N$ massimale che permetta alla successione di convergere uniformemente a $f(x)$. Se anziché (0, 1) si fosse preso (0, $a$) con $a$ < 1, allora ci sarebbe stata convergenza uniforme. 
+\end{Ex}
+\begin{Th}[Criterio di Cauchy]
+	$f_n$ converge uniformemente su $A$ se e solo se
+	\begin{equation*}
+	\forall r > 0 \ \exists N \in \bb[N] \ \forall m, n \geq N \ \forall x \in A: \Vert f_n(x) - f_m(x)\Vert < r.
+	\end{equation*}
+\end{Th}
+\subsection{Proprietà della convergenza uniforme}
+\begin{eTh}
+	Siano $f_n: A \sneq \bb[R] \ra \bb[R]$ che convergono uniformemente a $f$. Allora valgono le seguenti proprietà:
+	\begin{itemize}
+		\item $f_n$ limitate $\implies$ $f$ limitata,
+		\item $f_n$ continue $\implies$ $f$ continua
+		\item (\textbf{scambio del limite}) x* punto di accumulazione per A, esiste finito $\lim\limits_{x \ra x*} f_n(x)$ per ogni n $\geq 1 \implies$ esistono finiti e sono uguali i seguenti limiti:
+		\begin{equation*}
+		\lim\limits_{n \ra +\infty} \lim\limits_{x \ra x*} f_n(x) = \lim\limits_{x \ra x*} \lim\limits_{n \ra +\infty} f_n(x)
+		\end{equation*}
+	\end{itemize}
+\end{eTh}
+\begin{proof}
+	Partiamo dalla limitatezza. \\
+	Sia $c_n$ tale che per ogni $x$ in A, $\Vert f_n(x)\Vert \leq c_n$. Per la definizione di convergenza uniforme, esiste un $N_1$ tale che, per ogni $x$ in $A$, $\Vert f_{N_1}(x) - f(x)\Vert < 1$. Allora si ha che:
+	\begin{equation*}
+	\Vert f(x)\Vert \leq \Vert f(x) - f_{N_1}(x)\Vert + \Vert f_{N_1}(x)\Vert \leq 1 + c_{N_1}.
+	\end{equation*}
+	Per quanto riguarda la continuità, l'ipotesi che ogni $f_n$ sia continua equivale a dire che (indichiamo la distanza sulle variabili con $d_n$ per evidenziare la dipendenza da $n$):
+	\begin{equation*}
+	\forall n \in \bb[N] \ \forall r > 0 \ \exists d_n > 0 \ \forall x, y \in A: \Vert x - y \Vert < d_n \implies \Vert f_n(x) - f_n(y) \Vert < \frac{r}{3}
+	\end{equation*}
+	Per il criterio di Cauchy, chiedere che $f_n$ converga uniformemente equivale a richiedere che
+	\begin{equation*}
+	\forall r > 0 \ \exists N_1 \in \bb[N] \ \forall n,m \geq N_1 \ \forall x \in A: \Vert f_n(x) - f_m(x)\Vert < \frac{r}{3}
+	\end{equation*}
+	Equivalentemente,
+	\begin{equation*}
+	\forall r > 0 \ \exists N_2 \in \bb[N] \ \forall n \geq N_2 \ \forall x \in A: \Vert f_n(x) - f(x) \Vert < \frac{r}{3}
+	\end{equation*}
+	Si ha dunque che preso comunque $r > 0$ e definito $N = \max(N_1, N_2)$, se $x, y \in A$ sono tali che $\Vert x-y\Vert < d_{N}$, allora
+	\begin{align*}
+ \Vert f(x) - f(y) \Vert & \leq \Vert f(x) - f_{N}(x) \Vert + \Vert f_{N}(x) - f_{N}(y)\Vert + \Vert f_{N}(y) - f(y) \Vert \\
+& \leq \frac{r}{3} + \frac{r}{3} + \frac{r}{3} \\
+& = r
+	\end{align*}
+	Sia infine $\lambda_n = \lim\limits_{x \ra x*} f_n(x)$. Mostriamo che $\lambda_n$ converge precisamente a $\lim\limits_{x \ra x*} f(x)$. Sia dunque $r > 0$, allora dal momento che esiste finito il limite, si ha che:
+	\begin{equation*}
+	\exists d_n > 0 \ \forall x \in A: \Vert x-x^{*} \Vert < d_n \implies \Vert f_n(x) - \lambda_n \Vert < \frac{r}{3}.
+	\end{equation*}
+	Inoltre le $f_n$ convergono uniformemente a $f$, dunque si ha che:
+	\begin{equation*}
+	\exists N_1 \in \bb[N] \ \forall n,m \geq N_1 \ \forall x \in A: \Vert f_n(x) - f_m(x) \Vert < \frac{r}{3}.
+	\end{equation*}
+	Siano $n, m \geq N_1$ e $x \in A$ tale che $\Vert x-x^{*}\Vert < \min(d_n, d_m)$, allora
+	\begin{align*}
+	\Vert \lambda_n - \lambda_m \Vert &\leq \Vert \lambda_n - f_n(x) \Vert + \Vert f_n(x) - f_m(x)\Vert + \Vert f_m(x) - \lambda_m \Vert \\
+	&\leq \frac{r}{3} + \frac{r}{3} + \frac{r}{3} \\
+	& = r
+	\end{align*}
+	dunque per il criterio di Cauchy la successione $\lambda_n$ converge, sia $\lambda$ il suo limite. Mostriamo dunque che $\lim\limits_{x \ra x*} f(x) = \lambda$. Sia $N_2$ come da definizione classica di convergenza uniforme, $N_3$ come da definizione di convergenza di $\lambda_n$ a $\lambda$ e sia $N = \max(N_2, N_3)$. Sia poi $x \in A$ tale che $\Vert x - x^{*}\Vert < d_{N}$, allora
+	\begin{align*}
+	\Vert f(x) - \lambda \Vert &\leq \Vert f(x) - f_{N}(x) \Vert + \Vert f_{N}(x) - \lambda_n \Vert + \Vert \lambda_{N} - \lambda \Vert \\
+	&\leq \frac{r}{3} + \frac{r}{3} + \frac{r}{3} \\
+	&= r.
+	\end{align*}
+\end{proof}
+\begin{Ex}
+	La convergenza puntuale non è sufficiente a garantire che la limitatezza passi al limite, infatti sia $f_n: (0, 1) \ra \bb[R]$, $f_n(x) = n$ se $0 < x < \frac{1}{n}$, $f_n(x) = \frac{1}{x}$ se $\frac{1}{n} < x < 1$. Allora $f_n$ converge puntualmente ad $f(x) = \frac{1}{x}$, che non è limitata (e in effetti non c'è convergenza uniforme).
+\end{Ex}
+\begin{Ex}
+	La convergenza puntuale non garantisce nemmeno il trasporto della continuità. Come controesempio, sia $f_n(x) = x^n$. Abbiamo che, per $n \ra +\infty$, il limite non esiste per $x \leq -1$, esiste e vale $+\infty$ se $x > 1$, 1 se $x = 1$, 0 se $-1 < x < 1$. Dunque $f_n(x)$ converge puntualmente su (-1, 1] a $f(x)$ costantemente uguale a 0 su (-1, 1) e uguale a 1 per $x = 1$ che, al contrario di ogni $f_n$, non è continua. In effetti non si ha convergenza uniforme su (-1, 1]: per ogni $n \geq 0, \ \sup\limits_{x \in (-1,1]} \Vert x^n - f(x) \Vert = 1$, per cui non c'è uniforme convergenza. Su un qualsiasi $(a, b)$, per $-1<a<b<1$, si avrebbe uniforme convergenza.
+\end{Ex}
+\begin{eTh}
+	Siano $f_n: (a,b) \ra \bb[R]$ derivabili su $(a,b)$. Allora se esiste $x^{*} \in (a,b)$ tale per cui $f_n(x^{*})$ converge e $f'_n$ converge uniformemente su $(a,b)$, allora esiste $f: (a,b) \ra \bb[R]$ tale per cui $f_n$ converge uniformemente su $(a,b)$ ad $f$, e questa $f$ è derivabile con derivata $f'(x) = \lim\limits_{n \ra +\infty} f'_n(x)$.
+\end{eTh}
+\begin{proof}
+	Mostriamo che le $f_n$ convergono uniformemente su $(a,b)$ ad una funzione $f$: per farlo, utilizziamo il criterio di Cauchy. Sia dunque $\varepsilon > 0$. I dati che abbiamo sono che $f_n(x_0)$ converge, dunque (per Cauchy) esisterà un $N_1(\varepsilon, x_0)$ per cui, presi $n, m \geq N_1$,
+	\begin{equation*}
+	\vert f_n(x_0) - f_m(x_0) \vert < \frac{\varepsilon}{2}.
+	\end{equation*}
+	Inoltre, le $f'_n$ convergono uniformemente su $(a,b)$, per cui (per Cauchy) si avrà che esiste un $N_2 = N_2(\varepsilon)$ tale che, presi $n, m \geq N_2$ e $x \in (a,b)$,
+	\begin{equation*}
+	\vert f'_n(x) - f'_m(x) \vert < \min\{\varepsilon, \frac{\varepsilon}{2(b-a)}\}.
+	\end{equation*}
+	A questo punto possiamo mostrare che le $f_n$ convergono uniformemente nel modo seguente: sia $x \in (a,b)$ e $n, m \geq \max\{N_1, N_2\}$, allora
+	\begin{align*}
+	&\vert f_n(x) - f_m(x) \vert\\
+	& \leq \vert f_n(x) - f_m(x) - (f_n(x_0) - f_m(x_0)) \vert + \vert f_n(x_0) - f_m(x_0) \vert\\
+	&< \vert f_n(x) - f_m(x) - (f_n(x_0) - f_m(x_0))\vert + \frac{\varepsilon}{2}.
+	\end{align*}
+	Possiamo applicare il teorema di Lagrange alla funzione $f_n(x) - f_m(x) - (f_n(x_0)-f_m(x_0))$. Risulta che esiste un $\psi \in (a,b)$ tale che
+	\begin{equation*}
+	(f_n(x) - f_m(x) - (f_n(x_0)-f_m(x_0))) = (f'_n(\psi) - f'_m(\psi))(x-x_0).
+	\end{equation*}
+	Dunque, tornando alla maggiorazione che stavamo facendo, dal momento che $N_2$ non dipende da $x_0$ possiamo procedere a maggiorare anche in $\psi$ e otteniamo:
+	\begin{equation*}
+	\vert f_n(x) - f_m(x) \vert < \vert f'_n(\psi) - f'_m(\psi) \vert \vert x - x_0 \vert + \frac{\varepsilon}{2} < \varepsilon.
+	\end{equation*}
+	Risulta quindi che le $f_n$ convergano uniformemente ad una certa funzione $f$. \\
+	Ora, sia $y \in (a,b)$. Se $f$ fosse derivabile in $y$, si avrebbe per definizione
+	\begin{equation*}
+	f'(y) = \lim_{x \ra y} \frac{f(x) - f(y)}{x-y}.
+	\end{equation*}
+	D'altro canto, $f$ è il limite delle $f_n$, dunque si avrebbe
+	\begin{equation*}
+	f'(y) = \lim_{x \ra y} \frac{\lim_{n \ra +\infty} f_n(x) - f_n(y)}{x-y} = \lim_{x \ra y} \lim_{n \ra +\infty} \frac{f_n(x) - f_n(y)}{x-y}.
+	\end{equation*}
+	Viceversa,
+	\begin{equation*}
+	\lim_{n \ra +\infty} f'_n(y) = \lim_{n \ra +\infty} \lim_{x \ra y} \frac{f_n(x) - f_n(y)}{x-y}.
+	\end{equation*}
+	La tesi si riduce dunque ad un'applicazione del teorema dello scambio dei limiti. Anzitutto, verifichiamo le ipotesi: devono esistere i limiti interni, ed infatti
+	\begin{equation*}
+	\lim_{x \ra y} \frac{f_n(x)-f_n(y)}{x-y}
+	\end{equation*}
+	esiste per la derivabilità delle $f_n$, e
+	\begin{equation*}
+	\lim_{n \ra +\infty}\frac{f_n(x)-f_n(y)}{x-y} = \frac{1}{x-y}\lim_{n \ra +\infty}(f_n(x) - f_n(y))
+	\end{equation*}
+	esiste per la convergenza delle $f_n$. Dobbiamo ancora mostrare che la successione
+	\begin{equation*}
+	g_n(x) := \frac{f_n(x) - f_n(y)}{x-y}
+	\end{equation*}
+	converga uniformemente su $(a,b) \setminus \{y\}$. Di nuovo, sia $\varepsilon > 0$, allora esiste $N = N(\varepsilon)$ per cui per ogni $n, m \geq N$,
+	\begin{equation*}
+	\vert f'_n(x) - f'_m(x) \vert < \varepsilon.
+	\end{equation*} 
+	Cerchiamo di utilizzare il criterio di Cauchy: siano $n, m \geq N$,
+	\begin{equation*}
+	\vert g_n(x) - g_m(x) \vert = \left\vert \frac{f_n(x) - f_m(x) - (f_n(y) - f_m(y))}{x-y} \right\vert
+	\end{equation*}
+	e, per il teorema di Lagrange, esiste $\xi \in (a,b) \setminus \{y\}$ tale per cui
+	\begin{equation*}
+	(f_n(x) - f_m(x) - (f_n(y) - f_m(y))) = (f'_n(\xi) - f'_m(\xi))(x-y).
+	\end{equation*}
+	Allora si ha che
+	\begin{equation*}
+	\vert g_n(x) - g_m(x) \vert = \vert f'_n(\xi) - f'_m(\xi) \vert < \varepsilon.
+	\end{equation*}
+\end{proof}
+\begin{eTh}
+	Sia data una successione $f_n$ di funzioni limitate ed integrabili su $[a,b]$ che converge uniformemente a $f$. Allora anche $f$ è integrabile e risulta
+	\begin{equation*}
+	\lim_{n \ra +\infty} \int_{a}^{b} f_n(x) \ \mathrm{d}x = \int_{a}^{b} \lim_{n \ra +\infty} f_n(x) \ \mathrm{d}x = \int_{a}^{b} f(x) \ \mathrm{d}x.
+	\end{equation*}
+\end{eTh}
+\begin{proof}
+	$f$ risulta limitata perché lo sono le $f_n$. Sia $\eu[D]$ una partizione di $[a,b]$ in $\Delta_i = (x_{i-1}, x_i)$ per $i = 1, 2, ... k$, allora
+	\begin{equation*}
+		\vert S(\eu[D], f) - S(\eu[D], f_n) \vert = \left\vert \sum_{i = 1}^{k} (\sup_{\Delta_i} f - \sup_{\Delta_i} f_n)(t_i - t_{i-1})\right\vert \leq \sum_{i = 1}^{k} \sup_{\Delta_i} \vert f-f_n \vert (t_i - t_{i-1}).
+	\end{equation*}
+	Ora per ogni $\varepsilon > 0$ esiste un $N$ tale che $\sup_{[a,b]} \vert f-f_N \vert < \frac{\varepsilon}{3}$, da cui
+	\begin{equation*}
+	\vert S(\eu[D], f) - S(\eu[D], f_N) \vert \leq \sum_{i = 1}^{k} \sup_{\Delta_i} \vert f-f_N \vert (t_i - t_{i-1}) < \frac{\varepsilon}{3} \sum_{i = 1}^{k} (t_i - t_{i-1}) = \frac{\varepsilon}{3}(b-a).
+	\end{equation*}
+	Analogamente,
+	\begin{equation*}
+	\vert s(\eu[D], f) - s(\eu[D], f_N) \vert < \frac{\varepsilon}{3} (b-a)
+	\end{equation*}
+	da cui, noto che esiste una $\eu[D]$ per cui $\vert S(\eu[D], f) - s(\eu[D], f) \vert < \frac{\varepsilon}{3}(b-a)$, possiamo verificare che
+	\begin{align*}
+	& \vert S(\eu[D], f) - s(\eu[D], f) \vert \\
+	& \leq \vert S(\eu[D], f) - S(\eu[D], f_N) \vert + \vert S(\eu[D], f_N) - s(\eu[D], f_N) \vert + \vert s(\eu[D], f) - s(\eu[D], f_N) \vert \\
+	& < \varepsilon (b-a)
+	\end{align*}
+	e così anche $f$ è integrabile. Inoltre,
+	\begin{equation*}
+	\left\vert \int_{a}^{b} f_n(x) \ \mathrm{d}x - \int_{a}^{b} f(x) \ \mathrm{d}x \right\vert \leq \int_{a}^{b} \vert f_n(x) - f(x) \vert \ \mathrm{d}x \leq (b-a) \sup_{[a,b]} \vert f_n - f \vert
+	\end{equation*}
+	e facendo tendere $n \ra +\infty$, questa quantità tende a zero quindi in particolare tende a zero la differenza fra i due limiti, da cui la tesi.
+\end{proof}
+\section{SERIE DI FUNZIONI}
+\begin{Def}
+	Sia (X, $\Vert \cdot \Vert$) uno spazio normato. Sia $x_n$ una successione a valori in X. Diciamo che la serie $\sum_{n = 0}^{+\infty} x_n$ \textit{converge} se converge la successione $S_k = \sum_{n=0}^{k} x_n$ e chiamiamo il suo limite la \textit{somma} della serie.
+\end{Def}
+\begin{Def}
+	Diciamo che una serie $\sum_{n = 0}^{+\infty} x_n$  \textit{converge assolutamente} (o \textit{totalmente}) se converge la serie $\sum_{n = 0}^{+\infty} \Vert x_n \Vert$.
+\end{Def}
+\begin{eTh}
+	Sia (X, $\Vert \cdot \Vert$) uno spazio normato completo, allora ogni serie totalmente convergente è convergente.
+\end{eTh}
+\begin{Def}
+	Sia $\sf[Hom]$($\bb[R]^{M}, \bb[R]^{N}$) lo spazio delle funzioni da $\bb[R]^{M}$ in $\bb[R]^{N}$ con la norma dell'estremo superiore. Allora diciamo che una serie a valori in questo spazio \textit{converge uniformemente} se converge uniformemente la successione delle sue ridotte, ed analogamente \textit{converge puntualmente} se converge puntualmente la successione delle sue ridotte.
+\end{Def}
+\begin{Oss}
+	Si applicano tutte le conseguenze della convergenza uniforme trasferendo proprietà dalle funzioni alla funzione somma; in particolare vale la proprietà seguente.
+\end{Oss}
+\subsection{Derivabilità ed integrabilità}
+\begin{eTh}
+	Siano $f_n$: $(a,b) \ra \bb[R]$ derivabili su $(a,b)$. Se esiste $x^{*} \in (a,b)$ tale che $\sum_{n=0}^{+\infty} f_n(x^{*})$ converge e $\sum_{n=0}^{+\infty} f'_n$ converge uniformemente su $(a,b)$, allora esiste $f$: $(a,b) \ra \bb[R]$ derivabile tale che $\sum_{n=0}^{+\infty} f_n$ vi converge uniformemente su $(a,b)$ e si ha che
+	\begin{equation*}
+		f'(x) = \sum\limits_{n=0}^{+\infty} f'_n.
+	\end{equation*}
+\end{eTh}
+\begin{proof}
+	Applicando il teorema di scambio di limite e derivata alle successioni di ridotte:
+	\begin{equation*}
+	f'(x) = \lim\limits_{n \ra +\infty} \frac{d}{dx}(\sum\limits_{k=0}^{n} f_k(x)) = \lim\limits_{n \ra +\infty} \sum\limits_{k=0}^{n} \frac{d}{dx}f_k(x) = \sum\limits_{n=0}^{+\infty} f'_n(x)
+	\end{equation*}
+\end{proof}
+\begin{eTh}
+	Sia $f_n$ una successione di funzioni limitate ed integrabili sull'intervallo (a,b): se la serie $\sum_{n=1}^{+\infty} f_n(x)$ converge uniformemente in $(a,b)$ con somma $f(x)$, allora $f$ è integrabile e si ha
+	\begin{equation*}
+	\int_{a}^{b} f(x) \ \mathrm{d}x = \sum_{n=1}^{+\infty} \int_{a}^{b} f_n(x) \ \mathrm{d}x.
+	\end{equation*}
+\end{eTh}
+\begin{proof}
+	Per definizione, $f(x) = \lim_{n \ra +\infty} \sum_{k=1}^{n} f_n(x)$. Applicando il teorema di scambio limite-integrale,
+	\begin{equation*}
+	\int_{a}^{b} \lim_{n \ra +\infty} \sum_{k=1}^{n} f_k(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{a}^{b} \sum_{k=1}^{n} f_k(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \sum_{k=1}^{n} \int_{a}^{b} f_k(x) \ \mathrm{d}x = \sum_{n=1}^{+\infty} \int_{a}^{b} f_n(x) \ \mathrm{d}x.
+	\end{equation*}
+\end{proof}
+\section{SERIE DI POTENZE}
+\begin{Def}
+	Sia $a_n$ una successione a valori in $\bb[C]$, allora una \textit{serie di potenze} è una serie di funzioni della forma, per $z_0 \in \bb[C]$ fissato, $\sum_{n=0}^{+\infty} a_n(z-z_0)^n$. Chiamiamo $z_0$ il \textit{centro} della serie.
+\end{Def}
+\begin{Oss}
+	Modulo una traslazione si può sempre considerare $z_0 = 0$.
+\end{Oss}
+\begin{eTh}
+	Sia $\sum_{n=0}^{+\infty} a_nz^n$ una serie di potenze in campo complesso. Allora:
+	\begin{itemize}
+		\item converge in $z=0$,
+		\item se esiste $z_1 \neq 0$ tale che $\sum_{n=0}^{+\infty} a_nz_1^n$ converge, allora converge assolutamente per ogni $z_2$ tale che $\vert z_2 \vert < \vert z_1 \vert$,
+		\item se esiste $z_3$ tale che $\sum_{n=0}^{+\infty} a_nz_3^n$ non converge, allora la serie non converge per qualunque $z_4$ con $\vert z_4 \vert > \vert z_3 \vert$.
+	\end{itemize}
+\end{eTh}
+\begin{proof}
+	Per il primo punto, osserviamo che la successione delle ridotte in $z = 0$ è la successione costante in $a_0$, che dunque converge. \\
+	Per il secondo punto, sia $z_1 \neq 0$ tale che $\sum_{n=0}^{+\infty} a_nz_1^n$ converge, e sia $z_2$ con $\vert z_2 \vert > \vert z_1 \vert$. Dalla convergenza abbiamo che $\forall r > 0 \ \exists N_r \in \bb[N] \ \forall n \geq N_r: \vert a_nz_1^n \vert < r$. In particolare, posto $r = 1$, si ha che esiste $N_1$ tale che per ogni $n \geq N_1$, $\vert a_n \vert < \frac{1}{\vert z_1 \vert^n}$. Si ha perciò che:
+	\begin{equation*}
+	\vert a_n z_2^n \vert < \vert a_n \vert \vert z_2 \vert^n < \frac{1}{\vert z_1 \vert^n} \vert z_2 \vert^n = \left(\frac{\vert z_2 \vert}{\vert z_1 \vert}\right)^n = \alpha^n
+	\end{equation*}
+	per $\alpha \in \bb[R]^+$. Dal momento che $\alpha < 1$, si ha che $\sum_{n=0}^{+\infty} \alpha^n$ converge e dunque la convergenza (per confronto) della serie $\sum_{n=0}^{+\infty} a_nz_2^n$. \\
+	Infine, per il terzo punto si supponga che la serie converga in $z_4$ con $\vert z_4 \vert > \vert z_3 \vert$. Allora per il secondo punto dovrà convergere anche in $z_3$, che è assurdo.
+\end{proof}
+Conseguenza della precedente proposizione è che i domini di convergenza saranno sempre palle aperte centrate in zero. Possiamo dunque definire:
+\begin{Def}
+	Il \textit{raggio di convergenza} di una serie è
+	\begin{equation*}
+	\sup\{\vert z \vert: z \in \bb[C], \ \sum\limits_{n=0}^{+\infty} a_n z^n \ \text{converge}\}.
+	\end{equation*}
+\end{Def}
+\begin{Oss}
+	L'esistenza di tale numero è garantita dal fatto che l'insieme in questione è non vuoto (contiene sempre almeno lo zero). Se tale estremo superiore è $+\infty$, allora la serie converge su tutto $\bb[C]$. Rimane da studiare cosa succeda sulla frontiera del dominio di convergenza.
+\end{Oss}
+\subsection{Teoremi di convergenza}
+\begin{Th}[d'Alembert]
+	Sia $a_n \neq 0$ definitivamente per $n \ra +\infty$. Se esiste
+	\begin{equation*}
+	L = \lim\limits_{n \ra +\infty} \frac{a_{n+1}}{a_n}
+	\end{equation*}
+	allora si ha che il raggio di convergenza della serie $\sum\limits_{n=0}^{+\infty} a_n z^n$ è:
+	\begin{itemize}
+		\item R = $+\infty$, se L = 0;
+		\item R = $\frac{1}{L}$, se $0 < L < +\infty$;
+		\item R = 0, se L = $+\infty$.
+	\end{itemize}
+\end{Th}
+\begin{proof}
+	Si applica il criterio del rapporto alla serie dei moduli.
+\end{proof}
+\begin{eTh}[Cauchy-Hadamard]
+	Sia $\lambda = \limsup_{n \ra +\infty} \vert a_n \vert^{\frac{1}{n}}$. Allora si ha che:
+	\begin{itemize}
+		\item se $\lambda = 0$, la serie di potenze converge su tutto $\bb[C]$;
+		\item se $\lambda = +\infty$, la serie converge solamente per $z = 0$;
+		\item se 0 < $\lambda < +\infty$, il raggio di convergenza è $\frac{1}{\lambda}$.
+		\end{itemize}
+\end{eTh}
+\begin{proof}
+	Poniamoci nel caso di $\lambda \in (0, +\infty)$. Sia $\rho = \frac{1}{\lambda}$. Mostriamo che c'è convergenza dentro $B_{\rho}(0)$ e non fuori. \\
+	Sia $z \in \bb[C]$ tale che $\vert z \vert \neq 0$ e $\vert z \vert < \rho$. Quest'ultima relazione si può riscrivere come $\lambda < \frac{1}{\vert z \vert}$. Per la densità dei reali esiste $\lambda'$ compreso fra $\lambda$ e $\frac{1}{\vert z \vert}$. Essendo che $\lambda$ è il $\limsup_{n \ra +\infty} \vert a_n \vert^{\frac{1}{n}}$, esisterà un $N$ tale che, per ogni $n \geq N$, $\vert a_n \vert^{\frac{1}{n}} < \lambda'$. Ma allora $\vert a_n z^n \vert = (\vert a_n \vert^{\frac{1}{n}} \vert z \vert)^n < (\lambda' \vert z \vert)^n$, e poiché $\lambda' \vert z \vert < 1$ la serie $\sum_{n = 1}^{+\infty} (\lambda' \vert z \vert)^n$ converge e, per confronto, converge anche la serie di potenze in esame. Se invece $\rho < \vert z \vert$, esistono infiniti $n$ tali per cui $\frac{1}{\vert z \vert} < \vert a_n \vert^{\frac{1}{n}}$, equivalentemente per cui $\vert a_n \vert^{\frac{1}{n}} \vert z \vert > 1$ ovvero, elevando alla $n$, $\vert a_n \vert \vert z \vert^n > 1$. In particolare il $\liminf_{n \ra +\infty} \vert a_n z^n \vert$ sarà maggiore o uguale a 1, per cui il limite di $\vert a_n z^n \vert$ non potrà essere zero, e la serie non potrà convergere. \\
+	\textbf{TBD: gli altri due casi}
+\end{proof}
+\begin{Ex} Un esempio per ciascuno dei tre casi:
+	\begin{itemize}
+		\item per $\sum{n=0}^{+\infty} \frac{z^n}{n!}$ si ha $L = 0$, ovvero la serie converge su tutto $\bb[C]$;
+		\item per $\sum_{n=0}^{+\infty} n! z^n$ si ha $L = +\infty$, ovvero convergenza solo per $z = 0$;
+		\item per $\sum_{n=0}^{+\infty} \frac{z^n}{n^{\alpha}}$ si ha $L = 1$, ovvero convergenza assoluta sulla palla aperta di raggio 1. 
+	\end{itemize}
+Sorge dunque spontanea la domanda: che succede per $\vert z \vert = 1$?
+\end{Ex}
+Non esiste un criterio generale per la frontiera. Si presentano tutti i casi possibili:
+\begin{Ex}
+	\begin{equation*}
+	\sum\limits_{n=0}^{+\infty} z^n
+	\end{equation*}
+Se $\vert z \vert = 1$, $\lim_{n \ra +\infty} \vert z_n \vert = 1 \neq 0$. La serie non può convergere, perché se lo facesse $lim_{n \ra +\infty} z^n = 0$ e di conseguenza andrebbe a zero anche la successione dei moduli.
+\end{Ex}
+\begin{Ex}
+	\begin{equation*}
+	\sum\limits_{n=1}^{+\infty} \frac{z^n}{n^{\alpha}}, \ \alpha > 1
+	\end{equation*}
+	Se $\vert z \vert = 1$, la serie dei moduli assume la forma
+	\begin{equation*}
+		\sum\limits_{n=1}^{+\infty} \left\vert \frac{z^n}{n^{\alpha}} \right\vert = 	\sum\limits_{n=1}^{+\infty} \frac{1}{n^{\alpha}}
+	\end{equation*}
+	che converge, dunque si ha convergenza assoluta anche sulla frontiera.
+\end{Ex}
+Il caso che segue è il più complesso; prima di affrontarlo, richiamiamo un teorema che ci servirà.
+\begin{Th}[Abel-Dirichlet]
+	Sia data $\sum_{n=1}^{+\infty} c_n b_n$, con $b_n \in \bb[R]^+$ decrescente a zero, $c_n \in \bb[C]$ tale che esista $\mathcal{C} > 0$ per cui, $\forall n \geq 0$, $\vert\sum_{k = 1}^{n}  c_k\vert  < \mathcal{C}$. Allora $\sum_{n=0}^{+\infty} c_n b_n$ converge.\end{Th}
+\begin{Ex}
+	\begin{equation*}
+		\sum\limits_{n=1}^{+\infty} \frac{z^n}{n^{\alpha}}, \ 0 < \alpha < 1
+	\end{equation*}
+	Con un argomento simile all'esempio precedente si osserva che sulla frontiera non c'è convergenza assoluta. Rimane da testare la convergenza semplice. Osserviamo che se ci restringiamo a $\bb[R]$ allora per $z = 1$ non si ha convergenza e per $z = -1$ si ha convergenza per il criterio di Leibniz. Il criterio di Abel-Dirichlet appena enunciato è una generalizzazione di Leibniz che possiamo applicare al caso complesso: sia $b_n = \frac{1}{n^{\alpha}}$, $c_n = z^n$. Per $z \neq 1$, $\sum_{k = 1}^{n} c_k = \frac{1-z^{n+1}}{1-z} -1 = \frac{z-z^{n+1}}{1-z}$. Si ha dunque che:
+	\begin{equation*}
+	\left\vert \sum_{k = 1}^{n} c_k \right\vert \leq \frac{\vert z \vert + \vert z^{n+1} \vert}{\vert 1-z \vert} = \frac{2}{\vert 1-z \vert}
+	\end{equation*}
+	Abbiamo trovato una maggiorazione indipendente da $n$, dunque per il criterio di Abel-Dirichlet possiamo concludere che abbiamo convergenza (semplice). \\
+	Riassumendo, la serie in esame converge assolutamente per $\vert z \vert < 1$, converge semplicemente per $\vert z \vert = 1, z \neq 1$ e non converge per $z = 1$ o $\vert z \vert > 1$.
+\end{Ex}
+La convergenza uniforme richiede un argomento più delicato. Prima di enunciare e dimostrare il teorema, richiamiamo un risultato che servirà a dimostrarlo:
+\begin{Lemma}[Criterio di Weierstrass]
+	Sia $f_n: A \sset \bb[C] \ra \bb[C]$. Se esiste una successione $c_n \in \bb[R]$ tale che $\vert f_n(z) \vert \leq c_n$ per ogni $z \in A$ ed ogni $n \geq 0$, e $\sum_{n = 1}^{+\infty} c_n$ converge, allora $\sum_{n=1}^{+\infty} f_n(z)$ converge uniformemente su A.
+\end{Lemma}
+\begin{eTh}
+	Sia data $\sum_{n=1}^{+\infty} a_n z^n$ serie di potenze con raggio di convergenza 0 < $R < +\infty$. Allora la serie converge \textit{uniformemente} solo su ogni insieme $D \sset \bb[C]$ compattamente contenuto in $B_R(0)$, ovverosia tale che $\overline{D} \sset B_R(0)$. Se la serie converge \textit{assolutamente} anche sulla frontiera di $B_R(0)$, allora la serie converge uniformemente su tutto $\overline{B_R(0)}$.
+\end{eTh}
+\begin{Oss}
+	Se R = $+\infty$, si ha convergenza uniforme su ogni sottoinsieme di $\bb[C]$ limitato.
+\end{Oss}
+\begin{proof}
+	Dal momento che $\overline{D} \sset B_R(0)$, esiste $w \in \bb[C]$ tale che $\vert z \vert \leq \vert w \vert < R$ per ogni $z \in \overline{D}$. Allora $\vert a_n z^n \vert \leq \vert a_n \vert \vert w \vert^n = \vert a_n w^n \vert$. Quest'ultima converge ed è la $c_n$ richiesta dal criterio di Weierstrass, dunque si ha convergenza uniforme su D. Un argomento del tutto analogo può essere ripetuto nel caso in cui si abbia convergenza assoluta sulla frontiera scegliendo un $w \in \pd B_R(0)$.
+\end{proof}
+Se la convergenza è solamente in \textit{qualche} punto della frontiera, abbiamo un risultato parziale:
+\begin{eTh}[Abel]
+	Sia data $\sum_{n=1}^{+\infty} a_n z^n$ serie di potenze di raggio 0 < $R < +\infty$. Sia $z_0 \in \pd B_R(0)$ tale che $\sum_{n=1}^{+\infty} a_n (z_0)^n$ converge, e sia $z_0 = R\exp(i\theta_0)$. Allora risulta definita $f(z_0) = \sum_{n=1}^{+\infty} a_n (z_0)^n$, c'è convergenza uniforme su $\Sigma_0 =$ \{$z \in \bb[C]: z = \rho\exp(i\theta_0), \ 0 \leq \rho \leq R$\} e si ha che $\lim_{\rho \ra R^{-}} f(\rho\exp(i\theta_0)) = f(z_0)$.
+\end{eTh}
+\begin{proof}
+	Assumiamo, senza perdere di generalità, $\theta_0 = 0$ e $R = 1$. Abbiamo dunque che converge la serie numerica $\sum_{n=1}^{+\infty} a_n = f(1)$, ed è definita per ogni $x \in [0,1)$ la funzione $f(x) = \sum_{n=1}^{+\infty} a_n x^n$. Poniamo $S_n = \sum_{k=1}^{n} a_k$. \\
+	\textbf{TBD}.
+\end{proof}
+\subsection{Continuità, derivabilità ed integrabilità}
+\begin{eTh}
+	Sia $\sum_{n=1}^{+\infty} a_n z^n$ una serie di potenze con raggio di convergenza $R > 0$. Allora risulta definita su $B_R(0)$ la funzione somma, $f(z) = \sum_{n=1}^{+\infty} a_n z^n$ ed è continua.
+\end{eTh}
+\begin{proof}
+	Per definizione, $f(z) = \lim_{n \ra +\infty} \sum_{k=1}^{n} a_k z^k$ --- è, cioè, il limite di una successione di polinomi, ovvero il limite di una successione di funzioni continue. Tuttavia, la convergenza uniforme non è garantita su tutto $B_R(0)$, e pertanto la continuità potrebbe non passare al limite. Possiamo però, preso $z \in B_R(0)$, recuperare una palla aperta centrata nell'origine che sia del tutto contenuta in $B_R(0)$ (la cui frontiera pertanto non intersechi quella di $B_R(0)$) e che contenga anche $z$, ad esempio scegliendo $R' = \frac{\vert z \vert + R}{2}$. In questo modo si ha convergenza uniforme su $B_{R'}(0)$, e la continuità in quanto concetto locale è garantita in $z$ dai teoremi di passaggio al limite per successioni di funzioni.
+\end{proof}
+Enunciamo e dimostriamo il teorema di derivabilità nel caso reale.
+\begin{eTh}
+	Sia $\sum_{n=1}^{+\infty} a_n x^n$ una serie di potenze a valori reali con raggio di convergenza $R > 0$. Allora risulta definita su $B_R(0)$ la funzione somma, questa è $C^{\infty}((-R, R))$ e si ha che $a_k = \frac{f^{(k)}(0)}{k!}$.
+\end{eTh}
+\begin{proof}
+	Iniziamo a lavorare per poter applicare il teorema di derivazione termine a termine per le serie di funzioni. La serie delle derivate ha la forma $\sum_{n=1}^{+\infty} n a_n z^{n-1}$ che può essere riscritta nella forma canonica delle serie di potenze come $\sum_{n=0}^{+\infty} (n+1) a_{n+1} z^n$. Denotiamo con $b_n = (n+1) a_{n+1}$. Allora si ha che $\lambda = \limsup_{n \ra +\infty} \vert b_n \vert^{\frac{1}{n}} = \limsup_{n \ra +\infty} (n+1)^{\frac{1}{n}} (\vert a_{n+1} \vert^{n+1})^{\frac{n+1}{n}} = \limsup_{n \ra +\infty} \vert a_{n+1} \vert^{n+1} = R$, ovvero la serie delle derivate ha il medesimo raggio di convergenza della serie di partenza. Allora preso $D$ compattamente contenuto in $B_R(0)$, in $z \in D$ c'è convergenza uniforme della serie delle derivate. Inoltre, essendo nel cerchio di convergenza abbiamo convergenza in almeno un punto della serie di potenze. Possiamo applicare il teorema di derivazione termine a termine ed otteniamo la derivabilità della funzione somma e che la sua derivata sia la somma delle derivate. In particolare, $f'(0) = a_1$. Iterando questo processo su $f'(x)$ otteniamo che $f$ è $C^{+\infty}((-R, R))$ e la relazione richiesta fra $a_k$ ed $f^{(k)}(0)$. 
+\end{proof}
+\subsection{Funzioni analitiche e sviluppi di Taylor}
+\begin{Def}
+	Una funzione $f: A \sset \bb[R] \ra \bb[R]$ si dice analitica in 0 se è sviluppabile in serie di Taylor in un qualche intorno di 0. Si dirà analitica in A se è sviluppabile in serie di Taylor in un intorno di ogni punto di A.
+\end{Def}
+\begin{eTh}
+	Sia $f: A \sset \bb[R] \ra \bb[R] \in C^{+\infty}((-R,R))$ tale che esiste $M > 0$ per cui, definitivamente in $n$,
+	\begin{equation*}
+	\sup_{(-R,R)} \vert f^{(n)}(x) \vert \leq M n! R^{-n}.
+	\end{equation*}
+	Allora $f$ è analitica nell'origine.
+\end{eTh}
+\begin{proof}
+	Scriviamo il resto del polinomio di Taylor in forma di Lagrange:
+	\begin{equation*}
+	E_n(x) = \frac{f^{(n+1)}(\psi)}{(n+1)!} x^{n+1}.
+	\end{equation*}
+	Per $n$ abbastanza grande, risulta
+	\begin{equation*}
+	\vert E_n(x) \vert \leq \frac{M \ (n+1)! \ R^{-(n+1)}\ \vert x \vert^{n+1}}{(n+1)!} = M \left(\frac{\vert x \vert}{R}\right)^{n+1}
+	\end{equation*}
+	per $x \in (-R, R)$, dunque $\frac{\vert x \vert}{R} < 1$ e il limite tende a zero.
+\end{proof}
+\end{document}

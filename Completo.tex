@@ -1,0 +1,77 @@
+\documentclass{amsbook}
+\usepackage[margin=1in]{geometry}
+\usepackage{
+	amsmath,
+	amsfonts,
+	palatino,
+	amssymb,
+	epstopdf,
+	yfonts,
+	graphicx,
+	dsfont,
+	graphicx,
+	xcolor,
+	subfiles,
+	titletoc
+}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[mathscr]{eucal}
+
+% fonts
+\def\eu[#1]{\EuScript{#1}}
+\def\sf[#1]{\mathsf{#1}}
+\def\bb[#1]{\mathbb{#1}}
+\def\mb[#1]{\mathbold{#1}}
+% theorem styles
+\newtheoremstyle{theoremdd}% name
+{3\parskip}%      Space above
+{\parskip}%      Space below
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\scshape}% Thm head font
+{.}%        Punctuation after thm head
+{1ex}%     Space after thm head: " " = normal interword space;
+%   \newline = linebreak
+{\llap{{\thmnumber{\small{#2}}}\hskip2mm}\thmname{#1}\thmnote{\slshape{ \lowercase{(#3)}}}}% Thm head spec (can be left empty, meaning `normal')
+\newtheoremstyle{esame}% name
+{3\parskip}%      Space above
+{\parskip}%      Space below
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\scshape}% Thm head font
+{}%        Punctuation after thm head
+{1ex}%     Space after thm head: " " = normal interword space;
+%   \newline = linebreak
+{\llap{{\color{red}\thmnumber{\small{#2}}}\hskip2mm}\thmname{#1}\thmnote{\slshape{ \lowercase{(#3)}}}}% Thm head spec (can be left empty, meaning `normal')
+
+% Theorem Styles
+\theoremstyle{theoremdd}
+\newtheorem{Th}{teorema}
+\newtheorem{Lemma}[Th]{lemma}
+\newtheorem{Prop}[Th]{proposizione}
+\newtheorem{Cor}[Th]{corollario}
+\newtheorem*{Def}{definizione}%[section]
+\newtheorem*{Oss}{osservazione}%[section]
+\newtheorem*{Ex}{esempio}%[section]
+\newtheorem*{Rem}{nota}%[section]
+\theoremstyle{esame}
+\newtheorem{eTh}[Th]{teorema}%[section]
+
+\def\la{\leftarrow}
+\def\ra{\rightarrow}
+\def\sseq{\subseteq}
+\def\sset{\subset}
+\def\sneq{\subsetneq}
+\def\pd{\partial}
+\title{Analisi Matematica 3}
+\author{Simone Ramello}
+\setcounter{tocdepth}{3}
+\setcounter{section}{1}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\subfile{Draft}
+	\subfile{MT}
+\end{document}
