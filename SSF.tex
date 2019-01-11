@@ -81,7 +81,7 @@
 	\end{equation*}
 \end{Th}
 \subsection{Proprietà della convergenza uniforme}
-\begin{eTh}
+\begin{eTh}[limitatezza, continuita' e scambio del limite]
 	Siano $f_n: A \sneq \bb[R] \ra \bb[R]$ che convergono uniformemente a $f$. Allora valgono le seguenti proprietà:
 	\begin{itemize}
 		\item $f_n$ limitate $\implies$ $f$ limitata,
@@ -143,7 +143,7 @@
 \begin{Ex}
 	La convergenza puntuale non garantisce nemmeno il trasporto della continuità. Come controesempio, sia $f_n(x) = x^n$. Abbiamo che, per $n \ra +\infty$, il limite non esiste per $x \leq -1$, esiste e vale $+\infty$ se $x > 1$, 1 se $x = 1$, 0 se $-1 < x < 1$. Dunque $f_n(x)$ converge puntualmente su (-1, 1] a $f(x)$ costantemente uguale a 0 su (-1, 1) e uguale a 1 per $x = 1$ che, al contrario di ogni $f_n$, non è continua. In effetti non si ha convergenza uniforme su (-1, 1]: per ogni $n \geq 0, \ \sup\limits_{x \in (-1,1]} \Vert x^n - f(x) \Vert = 1$, per cui non c'è uniforme convergenza. Su un qualsiasi $(a, b)$, per $-1<a<b<1$, si avrebbe uniforme convergenza.
 \end{Ex}
-\begin{eTh}
+\begin{eTh}[derivabilita']
 	Siano $f_n: (a,b) \ra \bb[R]$ derivabili su $(a,b)$. Allora se esiste $x^{*} \in (a,b)$ tale per cui $f_n(x^{*})$ converge e $f'_n$ converge uniformemente su $(a,b)$, allora esiste $f: (a,b) \ra \bb[R]$ tale per cui $f_n$ converge uniformemente su $(a,b)$ ad $f$, e questa $f$ è derivabile con derivata $f'(x) = \lim\limits_{n \ra +\infty} f'_n(x)$.
 \end{eTh}
 \begin{proof}
@@ -211,7 +211,7 @@
 	\vert g_n(x) - g_m(x) \vert = \vert f'_n(\xi) - f'_m(\xi) \vert < \varepsilon.
 	\end{equation*}
 \end{proof}
-\begin{eTh}
+\begin{eTh}[integrabilita']
 	Sia data una successione $f_n$ di funzioni limitate ed integrabili su $[a,b]$ che converge uniformemente a $f$. Allora anche $f$ è integrabile e risulta
 	\begin{equation*}
 	\lim_{n \ra +\infty} \int_{a}^{b} f_n(x) \ \mathrm{d}x = \int_{a}^{b} \lim_{n \ra +\infty} f_n(x) \ \mathrm{d}x = \int_{a}^{b} f(x) \ \mathrm{d}x.
@@ -252,6 +252,17 @@
 \begin{eTh}
 	Sia (X, $\Vert \cdot \Vert$) uno spazio normato completo, allora ogni serie totalmente convergente è convergente.
 \end{eTh}
+\begin{proof}
+	Sia $\sum_{n=1}^{+\infty} a_n$ una serie totalmente convergente --- ovverosia, converge la serie a valori reali $\sum_{n=1}^{+\infty} \Vert a_n \Vert$. In particolare, questo significa che la successione $S_n = \sum_{k=1}^{n} \Vert a_k \Vert$ è di Cauchy, ovvero che per ogni $\varepsilon > 0$ esiste un $N$ tale per cui, preso $p \geq N$ e $q > 0$, si ha
+	\begin{equation*}
+	\Vert a_p \Vert + \Vert a_{p+1} \Vert + ... + \Vert a_{p+q} \Vert < \varepsilon.
+	\end{equation*}
+	Siano dunque $N$, $p$ e $q$ come appena detto, allora
+	\begin{equation*}
+	\Vert a_p + a_{p+1} + ... + a_{p+q} \Vert \leq \Vert a_p \Vert + \Vert a_{p+1} \Vert + ... + \Vert a_{p+q} \Vert < \varepsilon.
+	\end{equation*}
+	Questo mostra che la successione $P_n = \sum_{k=1}^{n} a_k$ è di Cauchy, ed essendo lo spazio di Banach risulta convergente.
+\end{proof}
 \begin{Def}
 	Sia $\sf[Hom]$($\bb[R]^{M}, \bb[R]^{N}$) lo spazio delle funzioni da $\bb[R]^{M}$ in $\bb[R]^{N}$ con la norma dell'estremo superiore. Allora diciamo che una serie a valori in questo spazio \textit{converge uniformemente} se converge uniformemente la successione delle sue ridotte, ed analogamente \textit{converge puntualmente} se converge puntualmente la successione delle sue ridotte.
 \end{Def}
@@ -344,7 +355,8 @@ Conseguenza della precedente proposizione è che i domini di convergenza saranno
 \begin{proof}
 	Poniamoci nel caso di $\lambda \in (0, +\infty)$. Sia $\rho = \frac{1}{\lambda}$. Mostriamo che c'è convergenza dentro $B_{\rho}(0)$ e non fuori. \\
 	Sia $z \in \bb[C]$ tale che $\vert z \vert \neq 0$ e $\vert z \vert < \rho$. Quest'ultima relazione si può riscrivere come $\lambda < \frac{1}{\vert z \vert}$. Per la densità dei reali esiste $\lambda'$ compreso fra $\lambda$ e $\frac{1}{\vert z \vert}$. Essendo che $\lambda$ è il $\limsup_{n \ra +\infty} \vert a_n \vert^{\frac{1}{n}}$, esisterà un $N$ tale che, per ogni $n \geq N$, $\vert a_n \vert^{\frac{1}{n}} < \lambda'$. Ma allora $\vert a_n z^n \vert = (\vert a_n \vert^{\frac{1}{n}} \vert z \vert)^n < (\lambda' \vert z \vert)^n$, e poiché $\lambda' \vert z \vert < 1$ la serie $\sum_{n = 1}^{+\infty} (\lambda' \vert z \vert)^n$ converge e, per confronto, converge anche la serie di potenze in esame. Se invece $\rho < \vert z \vert$, esistono infiniti $n$ tali per cui $\frac{1}{\vert z \vert} < \vert a_n \vert^{\frac{1}{n}}$, equivalentemente per cui $\vert a_n \vert^{\frac{1}{n}} \vert z \vert > 1$ ovvero, elevando alla $n$, $\vert a_n \vert \vert z \vert^n > 1$. In particolare il $\liminf_{n \ra +\infty} \vert a_n z^n \vert$ sarà maggiore o uguale a 1, per cui il limite di $\vert a_n z^n \vert$ non potrà essere zero, e la serie non potrà convergere. \\
-	\textbf{TBD: gli altri due casi}
+	Sia ora $\lambda = 0$: allora preso comunque $z \in \bb[C]$ di norma non nulla risulta che esistono infiniti $n$ per cui $\vert a_n \vert^{\frac{1}{n}} < \frac{1}{\vert z \vert}$, da cui $\vert a_n \vert^{\frac{1}{n}} \vert z \vert < 1$ e, per confronto, la serie $\sum_{n=1}^{+\infty} \vert a_n \vert \vert z \vert^{n}$ converge. \\
+	Se infine $\lambda = +\infty$, sia $z \in \bb[C]$ con $\vert z \vert > 0$, allora esistono infiniti $n$ per cui $\vert a_n \vert^{\frac{1}{n}} > \frac{1}{\vert z \vert}$, da cui $\vert a_n \vert^{\frac{1}{n}} \vert z \vert > 1$ e dunque il limite di $\vert a_n z^n \vert$ non potrà mai tendere a zero.
 \end{proof}
 \begin{Ex} Un esempio per ciascuno dei tre casi:
 	\begin{itemize}
@@ -403,8 +415,23 @@ Se la convergenza è solamente in \textit{qualche} punto della frontiera, abbiam
 	Sia data $\sum_{n=1}^{+\infty} a_n z^n$ serie di potenze di raggio 0 < $R < +\infty$. Sia $z_0 \in \pd B_R(0)$ tale che $\sum_{n=1}^{+\infty} a_n (z_0)^n$ converge, e sia $z_0 = R\exp(i\theta_0)$. Allora risulta definita $f(z_0) = \sum_{n=1}^{+\infty} a_n (z_0)^n$, c'è convergenza uniforme su $\Sigma_0 =$ \{$z \in \bb[C]: z = \rho\exp(i\theta_0), \ 0 \leq \rho \leq R$\} e si ha che $\lim_{\rho \ra R^{-}} f(\rho\exp(i\theta_0)) = f(z_0)$.
 \end{eTh}
 \begin{proof}
-	Assumiamo, senza perdere di generalità, $\theta_0 = 0$ e $R = 1$. Abbiamo dunque che converge la serie numerica $\sum_{n=1}^{+\infty} a_n = f(1)$, ed è definita per ogni $x \in [0,1)$ la funzione $f(x) = \sum_{n=1}^{+\infty} a_n x^n$. Poniamo $S_n = \sum_{k=1}^{n} a_k$. \\
-	\textbf{TBD}.
+	Assumiamo, senza perdere di generalità, $\theta_0 = 0$ e $R = 1$. Abbiamo dunque che converge la serie numerica $\sum_{n=1}^{+\infty} a_n = f(1)$, ed è definita per ogni $x \in [0,1)$ la funzione $f(x) = \sum_{n=1}^{+\infty} a_n x^n$. Poniamo $S_n = \sum_{k=1}^{n} a_k$. La formula di sommazione per parti ci permette di dire che
+	\begin{equation*}
+	\sum_{n=p}^{q} a_n x^n = \sum_{n=p}^{q-1}S_n (x^n - x^{n+1}) + S_q x^q - S_{p-1}x^p. 
+	\end{equation*} 
+	Inoltre si ha che
+	\begin{equation*}
+	\sum_{n=p}^{q-1} S(x^n-x^n+1) + Sx^q - Sx^p = 0,
+	\end{equation*}
+	da cui
+	\begin{equation*}
+	\sum_{n=p}^{q} a_n x^n = \sum_{n=p}^{q-1}(S_n - S)(x^n - x^{n+1}) + (S_q - S)x^q - (S_{p-1} - S)x^p,
+	\end{equation*}
+	e poiché per ogni $\varepsilon > 0$ esiste un $p_0$ tale che per ogni $p \geq p_0$ si ha $\vert S_p - S \vert < \varepsilon$, allora
+	\begin{equation*}
+	\left\vert \sum_{n=p}^{q} a_n x^n \right\vert \leq \varepsilon\left\vert \sum_{n=p}^{q-1} (x^n - x^{n+1}) + x^q + x^p \right\vert = 2x^p \varepsilon \leq 2 \varepsilon.
+	\end{equation*}
+	Abbiamo provato, tramite il criterio di Cauchy, la convergenza uniforme di $\sum_{n=1}^{+\infty} a_n x^n$ per $x \in [0,1]$. Pertanto la sua somma è continua sull'intervallo.
 \end{proof}
 \subsection{Continuità, derivabilità ed integrabilità}
 \begin{eTh}
