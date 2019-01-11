@@ -140,11 +140,23 @@ Diciamo che (X, $\eu[M]$, $\mu$) è uno \textit{spazio di misura}.
 		\begin{equation*}
 		\mu\left(\bigcup_{n =1}^{+\infty} A_n\right) = \lim_{n \ra +\infty} \mu(A_n).
 		\end{equation*}
-		\item Consideriamo la successione di eventi $B_n = (A_n)^{c}$. Si tratta di una successione crescente, e si ha che $\mu(\cup_{n=1}^{+\infty} B_n) = \mu(\cup_{n=1}^{+\infty} (A_n)^{c}) = \mu((\cap_{n=1}^{+\infty} A_n)^{c})$. Per finito-additività, $\mu(X) = \mu((\cap_{n=1}^{+\infty} A_n)^{c}) + \mu(\cap_{n=1}^{+\infty} A_n)$. Ora, per quanto mostrato in (5) si ha che $\mu((\cap_{n=1}^{+\infty} A_n)^{c}) = \lim_{n \ra +\infty} \mu(B_n) = \lim_{n \ra +\infty} \mu((A_n)^{c})$. Inoltre, $\mu(X) = \mu(A_n) + \mu((A_n)^{c})$: passando al limite, $\mu(X) = \lim_{n \ra +\infty} \mu(A_n) + \mu((A_n)^{c}) = \lim_{n \ra +\infty} \mu(A_n) + \lim_{n \ra +\infty} \mu((A_n)^{c})$. In definitiva otteniamo la seguente uguaglianza,
+		\item Per ogni $n$ risulta $\mu(A_n) < +\infty$ (dal momento che ogni $A_n$ è contenuto in $A_1$ e quest'ultimo ha misura finita). Consideriamo dunque la decomposizione $A_1 = A_n \cup ((A_n)^{c}\cap A_1)$: siccome sono insiemi disgiunti di misura finita possiamo scrivere
 		\begin{equation*}
-		\lim_{n \ra +\infty} \mu(A_n) + \lim_{n \ra +\infty} \mu((A_n)^{c}) = \lim_{n \ra +\infty} \mu((A_n)^{c}) + \mu(\cap_{n=1}^{+\infty} A_n),
+		\mu(A_n) = \mu(A_1) - \mu((A_n)^{c}\cap A_1).
 		\end{equation*}
-		da cui segue la tesi.
+		Mandando al limite otteniamo
+		\begin{equation*}
+		\lim_{n \ra +\infty} \mu(A_n) = \mu(A_1) - \lim_{n \ra +\infty} \mu((A_n)^{c}\cap A_1).
+		\end{equation*}
+		Ora chiamiamo $B_n = (A_n)^{c} \cap A_1$. Si ha che $B_n$ è una successione crescente, dunque per (5) risulta
+		\begin{align*}
+		& \lim_{n \ra +\infty} \mu((A_n)^{c}\cap A_1) = \mu\left( \bigcup_{n =1}^{+\infty} ((A_n)^{c} \cap A_1)\right) = \\
+		& \mu(A_1 \cap \cup_{n=1}^{+\infty}(A_n)^{c}) = \mu(A_1 \cap (\cap_{n=1}^{+\infty} A_n)^{c}) = \mu(A_1) - \mu(\cap_{n=1}^{+\infty} A_n)
+		\end{align*}
+		andando a sostituire nella seconda equazione,
+		\begin{equation*}
+		\lim_{n \ra +\infty} \mu(A_n) = \mu(A_1) - \mu(A_1) + \mu(\cap_{n=1}^{+\infty} A_n) = \mu(\cap_{n=1}^{+\infty} A_n).
+		\end{equation*}
 	\end{enumerate}
 \end{proof}
 \begin{Oss}
@@ -243,6 +255,23 @@ Estendiamo ora la misura appena definita, definendo la \textit{misura esterna} d
 		\item esiste un boreliano D, D $\sset$ E, tale che $m_N^{*}$(E$\setminus$D) = 0,
 	\end{enumerate}
 \end{eTh}
+\begin{proof}
+	Iniziamo da $\sf[(1)] \ra \sf[(2)]$. Anzitutto supponiamo $m_N^{*}(E)$ finita: per definizione di misura esterna, per ogni $\varepsilon > 0$ esiste un ricoprimento in parallelepipedi (aperti) \{$\eu[P]_n$\} di E tali che $m_N^{*}(\cup_{n} \eu[P]_n) < m_N^{*}(E) + \varepsilon$. Dal momento che la misura di E è finita possiamo manipolare algebricamente la disequazione fino ad ottenere
+	\begin{equation*}
+	m_N^{*}((\cup_{n} \eu[P]_n) \setminus E) < \varepsilon.
+	\end{equation*}
+	Consideriamo dunque come aperto $A = \cup_{n} \eu[P]_n$ ed otteniamo la tesi. Sia ora $m_N^{*}(E) = +\infty$. Sia \{$Q_n$\} una partizione di $\bb[R]^{N}$ in parallelepipedi. Definiamo $E_n = E \cap Q_n$ una decomposizione di E nei $Q_n$, e osserviamo che per ogni $n$, $E_n \sseq E$, dunque sono sottoinsiemi di $\bb[R]^{N}$ misurabili (in quanto intersezione finita di sottoinsiemi misurabili) e di misura finita. Allora vale quanto appena mostrato e per ogni $n$ possiamo trovare $A_n \supseteq E_n$ tale che $m_N^{*}(A_n \setminus E_n) < \frac{\varepsilon}{2^{n+1}}$. Possiamo dunque chiamare $A = \cup_{n} A_n$, e verificare che
+	\begin{align*}
+	& m_N^{*}((\cup_{n} A_n) \setminus E) = m_N^{*}((\cup_{n} A_n) \cap E^{c}) = m_N^{*}((\cup_{n} A_n) \cap (\cup_{k} E_k)^{c})) = \\
+	& m_N^{*}((\cup_{n} A_n) \cap (\cap_{k} E_k^{c})) = m_N^{*}(\cup_{n} (A_n \cap (\cap_{k} E_k^{c})))
+	\end{align*}
+	e notando che per ogni $n$, $A_n \cap (\cap_{k} E_k^{c}) \sseq A_n \cap E_n^{c}$ concludiamo, per monotonia e sub-additività, che
+	\begin{align*}
+	& m_N^{*}((\cup_{n} A_n) \setminus E) = m_N^{*}((\cup_{n} A_n) \cap E^{c}) = \\
+	&m_N^{*}(\cup_{n} (A_n \cap (\cap_{k} E_k^{c}))) \leq m_N^{*}(\cup_{n} A_n \cap E_n^{c}) \leq \sum_{n} m_N^{*}(A_n \cap E_n^{c}) = \varepsilon.
+	\end{align*}
+	Per mostrare che $\sf[(2)] \ra \sf[(3)]$, consideriamo quanto appena visto e costruiamo una successione $U_n$ di aperti tali che $m_N^{*}(U_n \setminus E) < \frac{1}{n}$. Sia $U = \cap_{n=1}^{+\infty} U_n$, allora per ogni $n$ risulta $m_N^{*}(U \setminus E) \leq m_N^{*}(U_n \setminus E) = \frac{1}{n}$ per monotonia; essendo $m_N^{*}(U \setminus E) < \frac{1}{n}$ per ogni $n$ questi non può essere che uguale a zero. Mostriamo ora che $\sf[(3)] \ra \sf[(1)]$: $U \setminus E$ risulta misurabile in quanto di misura nulla, e $E = U \setminus (U \setminus E)$, dunque E è misurabile. Per mostrare che $\sf[(1)] \ra \sf[(4)]$, $\sf[(4)] \ra \sf[(5)]$ e $\sf[(5)] \ra \sf[(1)]$ ripetiamo gli argomenti precedenti per $E^{c}$.
+\end{proof}
 \subsection{Insiemi patologici}
 In questa sezione costruiremo due insiemi per così dire \textit{patologici}: l'insieme di Vitali e quello di Cantor. Il primo mostrerà l'esistenza di insiemi non Lebesgue-misurabili, mentre al secondo si dovrà un esempio di insieme non numerabile (in effetti della cardinalità del continuo) di misura nulla.
 \begin{Def}
