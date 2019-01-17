@@ -4,913 +4,913 @@
 	\section{TEORIA DELLA MISURA ASTRATTA}
 	\subsection{Definizioni preliminari}
 	\begin{Def}
-	Sia X un insieme, allora $\eu[M] \sset \eu[P]$(X) è una \textit{$\sigma$-algebra} se $X \in \eu[M]$ ed inoltre è chiusa per complementi ed unioni numerabili.
-\end{Def}
-\begin{Def}
-	Diciamo che la coppia (X, $\eu[M]$), dove X è un insieme ed $\eu[M]$ una $\sigma$-algebra, definisce uno \textit{spazio misurabile}. Gli elementi di $\eu[M]$ sono detti insiemi misurabili.
-\end{Def}
-\begin{Prop}
-	Sia $\eu[M]$ una $\sigma$-algebra, allora $\eu[M]$ è chiusa per intersezioni finite o numerabili, per unioni finite e contiene $\emptyset$.
-\end{Prop}
-\begin{eTh}
-	Se (X, $\eu[M]$) è uno spazio misurabile ed è data una funzione $f$: X $\ra$ Y, allora è indotta la struttura di spazio misurabile su Y tramite la $\sigma$-algebra
-	\begin{equation*}
-	\eu[M]_f = \{E \sset Y: f^{-1}(E) \in \eu[M]\}.
-	\end{equation*}
-\end{eTh}
-\begin{proof}
-	Mostriamo che $\eu[M]_f$ è in effetti una $\sigma$-algebra. In particolare, $f^{-1}$(Y) = X $\in \eu[M]$, dunque Y $\in \eu[M]_f$. Inoltre, per ogni E $\sset$ Y si ha $f^{-1}$(E$^{c}$) = ($f^{-1}$(E))$^{c}$, dunque $\eu[M]_f$ è chiusa per complementi. Analogamente, quali che siano $A_n \sset Y$,
-	\begin{equation*}
-	f^{-1}\left(\bigcup\limits_{n \in \bb[N]}A_n\right) = \bigcup\limits_{n \in \bb[N]} f^{-1}(A_n)
-	\end{equation*}
-\end{proof}
-\begin{Def}
-	Siano (X, $\eu[M]$) uno spazio misurabile ed (Y, $\tau$) uno spazio topologico. Allora diciamo che $f$: X $\ra$ Y è una \textit{funzione misurabile} se ogni preimmagine di aperto è misurabile. In altre parole, se per ogni E $\in \tau$, $f^{-1}$(E) $\in \eu[M]$.
-\end{Def}
-\begin{Def}
-	Sia (Y, $\tau$) uno spazio topologico, allora i \textit{boreliani di Y} (denotati con $\sf[bor]$(Y)) sono la più piccola $\sigma$-algebra contenente gli insiemi aperti di Y.
-\end{Def}
-\begin{eTh}
-	Siano (X, $\eu[M]$) uno spazio misurabile ed (Y, $\tau$) uno spazio topologico. Allora si ha che:
-	\begin{enumerate}
-		\item $f$ è misurabile se e solo se per ogni B boreliano di Y, $f^{-1}$(B) è misurabile;
-		\item se in particolare Y = [-$\infty$, +$\infty$], allora $f$ è misurabile se e solo se per ogni $\alpha \in \bb[R]$, $f^{-1}((\alpha, +\infty])$ è misurabile.
-	\end{enumerate}
-\end{eTh}
-\begin{proof}
-	Per quanto riguarda \textbf{(1)}, i boreliani contengono tutti gli aperti di Y, dunque l'implicazione da destra verso sinistra non necessita di dimostrazione. Viceversa, osserviamo che $\tau$ $\sset \eu[M]_f$ per definizione di misurabilità, dunque poiché i boreliani sono la più piccola $\sigma$-algebra a contenere gli aperti, $\sf[bor]$(Y) $\sset \eu[M]_f$. \\
-	Quanto a \textbf{(2)}, se $f$ è misurabile allora le preimmagini di aperti sono insiemi misurabili, e gli insiemi della forma $(\alpha, +\infty]$ sono aperti nella topologia standard di Y. Se invece ogni insieme di questa forma è misurabile, sia A un aperto di Y. Una base per la topologia di Y è fornita da insiemi della forma $(\alpha, \beta)$, $(\alpha, +\infty]$ oppure $[-\infty, \beta)$ per $\alpha$ e $\beta$ numeri reali, perciò A è dato da un'unione numerabile di insiemi siffatti. È dunque sufficiente mostrare che tutte e tre le tipologie sono misurabili. Poiché $(\alpha, +\infty]$ è misurabile per ipotesi, allora lo è anche $[-\infty, \alpha)$, in quanto
-	\begin{equation*}
-	[-\infty, \alpha) = \bigcup\limits_{n \in \bb[N]} \left[-\infty, \alpha-\frac{1}{n}\right) = \bigcup\limits_{n \in \bb[N]} \left(\left(\alpha-\frac{1}{n}, +\infty\right]\right)^{c}.
-	\end{equation*}
-	Infine, per ogni $\alpha$ e $\beta$ reali si ha che $(\alpha, \beta) = [-\infty, \beta) \cap (\alpha, +\infty]$.
-\end{proof}
-\begin{Prop}
-	Sia (X, $\eu[M]$) uno spazio misurabile, Y ed Z spazi topologici, allora se $f$: X $\ra$ Y è misurabile e $g$: Y $\ra$ Z è continua, $g \circ f$ è misurabile.
-\end{Prop}
-\begin{Prop}
-	Sia (X, $\eu[M]$) uno spazio misurabile, e sia $f$: X $\ra \bb[C]$, allora si ha che:
-	\begin{enumerate}
-		\item se $f$ = $u$ + i$v$ ed $u$, $v$: X $\ra \bb[R]$ sono misurabili, $f$ è misurabile;
-		\item se $f$ è misurabile, sono misurabili anche $\bb[R]e$($f$) e $\Im$($f$);
-		\item se $f$ è misurabile, e $g$: X $\ra \bb[C]$ è un'altra funzione misurabile, allora sono misurabili $f+g$ ed $fg$;
-		\item se $f$ è misurabile, allora esiste $\alpha_f$: X $\ra \bb[C]$ misurabile tale che $\vert \alpha_f(x) \vert$ = 1 e $f(x)$ = $\alpha_f(x) \vert f(x) \vert$ per ogni $x \in$ X.
-	\end{enumerate}
-\end{Prop}
-\begin{Prop}
-	Sia (X, $\eu[M]$) uno spazio misurabile, e siano $f_n$: X $\ra [-\infty, +\infty]$ misurabili $\forall n \geq 1$, allora si ha che sono misurabili anche $\liminf f_n$, $\limsup f_n$, $\inf f_n$, $\sup f_n$, $f^{+} = \max(f, 0)$, $f^{-} = \min(f, 0)$ e se $\lim_{n \ra +\infty} f_n(x) = f(x)$ per ogni $x \in$ X, $f$ è misurabile.
-\end{Prop}
-\subsection{Funzioni semplici}
-\begin{Def}
+		Sia X un insieme, allora $\eu[M] \sset \eu[P]$(X) è una \textit{$\sigma$-algebra} se $X \in \eu[M]$ ed inoltre è chiusa per complementi ed unioni numerabili.
+	\end{Def}
+	\begin{Def}
+		Diciamo che la coppia (X, $\eu[M]$), dove X è un insieme ed $\eu[M]$ una $\sigma$-algebra, definisce uno \textit{spazio misurabile}. Gli elementi di $\eu[M]$ sono detti insiemi misurabili.
+	\end{Def}
+	\begin{Prop}
+		Sia $\eu[M]$ una $\sigma$-algebra, allora $\eu[M]$ è chiusa per intersezioni finite o numerabili, per unioni finite e contiene $\emptyset$.
+	\end{Prop}
+	\begin{eTh}
+		Se (X, $\eu[M]$) è uno spazio misurabile ed è data una funzione $f$: X $\ra$ Y, allora è indotta la struttura di spazio misurabile su Y tramite la $\sigma$-algebra
+		\begin{equation*}
+		\eu[M]_f = \{E \sset Y: f^{-1}(E) \in \eu[M]\}.
+		\end{equation*}
+	\end{eTh}
+	\begin{proof}
+		Mostriamo che $\eu[M]_f$ è in effetti una $\sigma$-algebra. In particolare, $f^{-1}$(Y) = X $\in \eu[M]$, dunque Y $\in \eu[M]_f$. Inoltre, per ogni E $\sset$ Y si ha $f^{-1}$(E$^{c}$) = ($f^{-1}$(E))$^{c}$, dunque $\eu[M]_f$ è chiusa per complementi. Analogamente, quali che siano $A_n \sset Y$,
+		\begin{equation*}
+		f^{-1}\left(\bigcup\limits_{n \in \bb[N]}A_n\right) = \bigcup\limits_{n \in \bb[N]} f^{-1}(A_n)
+		\end{equation*}
+	\end{proof}
+	\begin{Def}
+		Siano (X, $\eu[M]$) uno spazio misurabile ed (Y, $\tau$) uno spazio topologico. Allora diciamo che $f$: X $\ra$ Y è una \textit{funzione misurabile} se ogni preimmagine di aperto è misurabile. In altre parole, se per ogni E $\in \tau$, $f^{-1}$(E) $\in \eu[M]$.
+	\end{Def}
+	\begin{Def}
+		Sia (Y, $\tau$) uno spazio topologico, allora i \textit{boreliani di Y} (denotati con $\sf[bor]$(Y)) sono la più piccola $\sigma$-algebra contenente gli insiemi aperti di Y.
+	\end{Def}
+	\begin{eTh}
+		Siano (X, $\eu[M]$) uno spazio misurabile ed (Y, $\tau$) uno spazio topologico. Allora si ha che:
+		\begin{enumerate}
+			\item $f$ è misurabile se e solo se per ogni B boreliano di Y, $f^{-1}$(B) è misurabile;
+			\item se in particolare Y = [-$\infty$, +$\infty$], allora $f$ è misurabile se e solo se per ogni $\alpha \in \bb[R]$, $f^{-1}((\alpha, +\infty])$ è misurabile.
+		\end{enumerate}
+	\end{eTh}
+	\begin{proof}
+		Per quanto riguarda \textbf{(1)}, i boreliani contengono tutti gli aperti di Y, dunque l'implicazione da destra verso sinistra non necessita di dimostrazione. Viceversa, osserviamo che $\tau$ $\sset \eu[M]_f$ per definizione di misurabilità, dunque poiché i boreliani sono la più piccola $\sigma$-algebra a contenere gli aperti, $\sf[bor]$(Y) $\sset \eu[M]_f$. \\
+		Quanto a \textbf{(2)}, se $f$ è misurabile allora le preimmagini di aperti sono insiemi misurabili, e gli insiemi della forma $(\alpha, +\infty]$ sono aperti nella topologia standard di Y. Se invece ogni insieme di questa forma è misurabile, sia A un aperto di Y. Una base per la topologia di Y è fornita da insiemi della forma $(\alpha, \beta)$, $(\alpha, +\infty]$ oppure $[-\infty, \beta)$ per $\alpha$ e $\beta$ numeri reali, perciò A è dato da un'unione numerabile di insiemi siffatti. È dunque sufficiente mostrare che tutte e tre le tipologie sono misurabili. Poiché $(\alpha, +\infty]$ è misurabile per ipotesi, allora lo è anche $[-\infty, \alpha)$, in quanto
+		\begin{equation*}
+		[-\infty, \alpha) = \bigcup\limits_{n \in \bb[N]} \left[-\infty, \alpha-\frac{1}{n}\right) = \bigcup\limits_{n \in \bb[N]} \left(\left(\alpha-\frac{1}{n}, +\infty\right]\right)^{c}.
+		\end{equation*}
+		Infine, per ogni $\alpha$ e $\beta$ reali si ha che $(\alpha, \beta) = [-\infty, \beta) \cap (\alpha, +\infty]$.
+	\end{proof}
+	\begin{Prop}
+		Sia (X, $\eu[M]$) uno spazio misurabile, Y ed Z spazi topologici, allora se $f$: X $\ra$ Y è misurabile e $g$: Y $\ra$ Z è continua, $g \circ f$ è misurabile.
+	\end{Prop}
+	\begin{Prop}
+		Sia (X, $\eu[M]$) uno spazio misurabile, e sia $f$: X $\ra \bb[C]$, allora si ha che:
+		\begin{enumerate}
+			\item se $f$ = $u$ + i$v$ ed $u$, $v$: X $\ra \bb[R]$ sono misurabili, $f$ è misurabile;
+			\item se $f$ è misurabile, sono misurabili anche $\bb[R]e$($f$) e $\Im$($f$);
+			\item se $f$ è misurabile, e $g$: X $\ra \bb[C]$ è un'altra funzione misurabile, allora sono misurabili $f+g$ ed $fg$;
+			\item se $f$ è misurabile, allora esiste $\alpha_f$: X $\ra \bb[C]$ misurabile tale che $\vert \alpha_f(x) \vert$ = 1 e $f(x)$ = $\alpha_f(x) \vert f(x) \vert$ per ogni $x \in$ X.
+		\end{enumerate}
+	\end{Prop}
+	\begin{Prop}
+		Sia (X, $\eu[M]$) uno spazio misurabile, e siano $f_n$: X $\ra [-\infty, +\infty]$ misurabili $\forall n \geq 1$, allora si ha che sono misurabili anche $\liminf f_n$, $\limsup f_n$, $\inf f_n$, $\sup f_n$, $f^{+} = \max(f, 0)$, $f^{-} = \min(f, 0)$ e se $\lim_{n \ra +\infty} f_n(x) = f(x)$ per ogni $x \in$ X, $f$ è misurabile.
+	\end{Prop}
+	\subsection{Funzioni semplici}
+	\begin{Def}
 		Sia (X, $\eu[M]$) uno spazio misurabile, allora $f$: X $\ra \bb[C]$ si dice \textit{semplice} se $\sf[img](f)$ è un sottoinsieme finito. In tal caso, $f$ ammette una \textit{decomposizione standard}: dal momento che $\sf[img](f)$ = \{s$_1$, ... s$_n$\}, definiamo A$_i$ = $f^{-1}$(s$_i$) e possiamo scrivere, per ogni $x \in$ X,
 		\begin{equation*}
 		f(x) = \sum\limits_{i=1}^{n} s_i \chi_{A_i}(x),
 		\end{equation*}
 		dove con $\chi_{A_i}$ s'intende la funzione indicatrice dell'insieme A$_i$.
-\end{Def}
-\begin{Prop}
-	Sia $f$ semplice con decomposizione come sopra, allora $f$ è misurabile se e solo se lo sono gli insiemi A$_i$.
-\end{Prop}
-\begin{eTh}[Approssimazione mediante funzioni semplici]
-	Sia (X, $\eu[M]$) spazio misurabile. Allora:
-	\begin{enumerate}
-		\item se $f$: X $\ra [0, +\infty]$ è misurabile, esiste una successione \{S$_n$\} di funzioni semplici e misurabili tali che S$_n(x) \ra f(x)$ ed inoltre 0 $\leq$ S$_1(x) \leq$ S$_2(x) \leq$ ... S$_n(x) \leq$ S$_{n+1}(x) \leq$ ... $f(x)$;
-		\item se $f$: X $\ra \bb[C]$ è misurabile, esiste una successione \{S$_n$\} di funzioni semplici e misurabili tali che S$_n(x) \ra f(x)$ ed inoltre 0 $\leq \vert S_1(x) \vert \leq \vert S_2(x) \vert \leq ... \vert S_n(x) \vert \leq \vert S_{n+1}(x) \vert \leq ... \vert f(x) \vert$.
-	\end{enumerate}
-\end{eTh}
-\begin{proof}
-	\textbf{(1)}: per ogni $n \in \bb[N]$ possiamo suddividere $[0, +\infty]$ in $n 2^n$ intervalli:
-	\begin{equation*}
-	[0, +\infty] = \left[0, \frac{1}{2^n}\right) \cup \left[\frac{1}{2^n}, \frac{2}{2^n}\right) \cup ... \cup \left[\frac{n2^n - 1}{2^n},n\right) \cup [n, +\infty].
-	\end{equation*}
-	Definiamo i seguenti insiemi: F$_n$ = $f^{-1}([n, +\infty])$, E$_{n,i}$ = $f^{-1}(\left[\frac{i-1}{2^n}, \frac{i}{2^n}\right])$. In questo modo, possiamo definire, per ogni $x \in$ X ed $n\geq1$, la successione di funzioni che approssimerà $f$:
-	\begin{equation*}
-	S_n(x) = \sum\limits_{i=1}^{n2^n}\frac{i-1}{2^n} \chi_{E_{n,i}}(x) + n\chi_{F_n}(x).
-	\end{equation*}
-	S$_n$ è una funzione semplice, dunque è misurabile se e solo se lo sono gli insiemi su cui ammette valori, ovvero F$_n$ e E$_{n,i}$. Questi ultimi sono preimmagini di boreliani, dunque sono misurabili. \\
-	Mostriamo dunque che si tratta di una successione crescente. Avendo scelto come estremi degli intervalli della partizione punti della forma $\frac{1}{2^n}$, ad ogni successiva iterazione del procedimento (e.g., nel passare da S$_1$ ad S$_2$) l'insieme $[0, +\infty]$ viene diviso in più sottointervalli e, su alcuni di essi, il valore della funzione aumenta. Perciò si osserva che la successione di funzioni è crescente (là dove il valore rimane lo stesso, due funzioni a passi diversi hanno lo stesso valore, mentre altrove quella al passo $n+1$-esimo ha valore maggiore di quella al passo $n$-esimo). \\
-	Infine, sia $x \in$ X. Allora se $f(x) = +\infty$ si ha che per ogni $n$, $f(x) > n$, per cui S$_n$(x) = $n$ per ogni $n\geq1$. Segue che $\lim_{n \ra +\infty}S_n(x)$ = $\lim_{n \ra +\infty} n$ = $+\infty$ = $f(x)$. Se invece $f(x) < +\infty$, per ogni $n > f(x)$ esiste un $j$ tale che $f(x) \in \left[\frac{j-1}{2^n}, \frac{j}{2^n}\right) = \left[S_n(x), S_n(x) + \frac{1}{2^n}\right)$, dunque $0 \leq f(x) - S_n(x) \lneq \frac{1}{2^n}$. Per il teorema del confronto segue la convergenza puntuale di S$_n$ ad $f$.
-\end{proof}
-\subsection{Misure}
-\begin{Def}
-	Sia (X, $\eu[M]$) uno spazio misurabile. Allora $\mu$: $\eu[M] \ra [0, +\infty]$ si dice \textit{misura} se rispetta i seguenti due assiomi:
-	\begin{enumerate}
-		\item ($\sigma$-additività) per ogni famiglia numerabile di insiemi \{A$_n$\} a due a due disgiunti, $\mu(\bigcup_{n \in \bb[N]} A_n) = \sum_{n \in \bb[N]} \mu(A_n)$,
-		\item esiste un A $\in \eu[M]$ tale che $\mu(A) \lneq +\infty$.
-	\end{enumerate}
-Diciamo che (X, $\eu[M]$, $\mu$) è uno \textit{spazio di misura}.
-\end{Def}
-\begin{eTh}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, allora:
-	\begin{enumerate}
-		\item $\mu(\emptyset)$ = 0,
-		\item se \{A$_i$, $i$ = 1, ... $n$\} è una famiglia finita di insiemi  misurabili a due a due disgiunti,  $\mu(\bigcup_{i=1}^{n} A_i) = \sum_{i =1}^{n} \mu(A_i)$,
-		\item se A $\sseq$ B, allora $\mu(A) \leq \mu(B)$,
-		\item se \{A$_n$\} è una famiglia numerabile di insiemi misurabili, allora
+	\end{Def}
+	\begin{Prop}
+		Sia $f$ semplice con decomposizione come sopra, allora $f$ è misurabile se e solo se lo sono gli insiemi A$_i$.
+	\end{Prop}
+	\begin{eTh}[Approssimazione mediante funzioni semplici]
+		Sia (X, $\eu[M]$) spazio misurabile. Allora:
+		\begin{enumerate}
+			\item se $f$: X $\ra [0, +\infty]$ è misurabile, esiste una successione \{S$_n$\} di funzioni semplici e misurabili tali che S$_n(x) \ra f(x)$ ed inoltre 0 $\leq$ S$_1(x) \leq$ S$_2(x) \leq$ ... S$_n(x) \leq$ S$_{n+1}(x) \leq$ ... $f(x)$;
+			\item se $f$: X $\ra \bb[C]$ è misurabile, esiste una successione \{S$_n$\} di funzioni semplici e misurabili tali che S$_n(x) \ra f(x)$ ed inoltre 0 $\leq \vert S_1(x) \vert \leq \vert S_2(x) \vert \leq ... \vert S_n(x) \vert \leq \vert S_{n+1}(x) \vert \leq ... \vert f(x) \vert$.
+		\end{enumerate}
+	\end{eTh}
+	\begin{proof}
+		\textbf{(1)}: per ogni $n \in \bb[N]$ possiamo suddividere $[0, +\infty]$ in $n 2^n$ intervalli:
 		\begin{equation*}
-			\mu\left(\bigcup_{n \in \bb[N]} A_n\right) \leq \sum_{n \in \bb[N]} \mu(A_n),
+		[0, +\infty] = \left[0, \frac{1}{2^n}\right) \cup \left[\frac{1}{2^n}, \frac{2}{2^n}\right) \cup ... \cup \left[\frac{n2^n - 1}{2^n},n\right) \cup [n, +\infty].
 		\end{equation*}
-		\item sia \{A$_n$\} una famiglia numerabile di insiemi misurabili tali che per ogni $i < j$, A$_i \sseq$ A$_j$. Allora $\mu(\cup_{n\geq1}A_n) = \lim_{n \ra +\infty} \mu(A_n)$,
-		\item sia \{A$_n$\} una famiglia numerabile di insiemi misurabili tali che per ogni $i < j$, A$_i \supseteq$ A$_j$. Allora se $\mu(A_1) < +\infty$, $\mu(\cap_{n\geq1}A_n) = \lim_{n \ra +\infty} \mu(A_n)$.
-	\end{enumerate}
-\end{eTh}
-\begin{proof}
-	\begin{enumerate}
-		\item Per definizione di misura, esiste un sottoinsieme di X di misura finita. Lo si chiami $B$. Allora si definisca la successione di insiemi misurabili $A_n$ nel modo seguente: se $n = 1$, $A_n = B$; altrimenti, $A_n = \emptyset$. Si tratta di una successione di insiemi a due a due disgiunti, e dunque per $\sigma$-additività:
+		Definiamo i seguenti insiemi: F$_n$ = $f^{-1}([n, +\infty])$, E$_{n,i}$ = $f^{-1}(\left[\frac{i-1}{2^n}, \frac{i}{2^n}\right])$. In questo modo, possiamo definire, per ogni $x \in$ X ed $n\geq1$, la successione di funzioni che approssimerà $f$:
 		\begin{equation*}
-		\mu\left(\bigcup_{n =1}^{+\infty} A_n\right) = \sum_{n = 1}^{+\infty} \mu(A_n).
+		S_n(x) = \sum\limits_{i=1}^{n2^n}\frac{i-1}{2^n} \chi_{E_{n,i}}(x) + n\chi_{F_n}(x).
 		\end{equation*}
-		Tuttavia, il primo membro è effettivamente la sola misura di $B$, e si ottiene:
-		\begin{equation*}
-		\mu(B) = \mu(B) + \sum_{n=2}^{+\infty} \mu(\emptyset),
-		\end{equation*}
-		da cui segue necessariamente che $\mu(\emptyset) = 0$.
-		\item Sia B$_k$ definita nel modo seguente: se $k \leq n$, B$_k =$ A$_k$; se $k > n$, B$_k = \emptyset$. Segue che $\mu(\cup_{k=1}^{\infty} B_k) = \mu(\cup_{k=1}^{n} A_k)= \sum_{k=1}^{\infty} \mu(A_k) = \sum_{k=1}^{n} \mu(A_k)$.
-		\item Dal momento che B = $ A \cup (B-A)$ e questi due sono disgiunti, $\mu(B) = \mu(A) + \mu(B-A) \geq \mu(A)$ perché la misura prende valori positivi.
-		\item Definiamo B$_1 = A_1$, B$_2$ = $A_2 \cap (A_1)^{c}$, B$_3 = A_3 \cap (A_2)^{c} \cap (A_1)^{c}$ e così via. I B$_k$ risultanti sono disgiunti e sono contenuti nei rispettivi $A_k$, inoltre la loro unione è esattamente l'unione di tutti gli A$_k$, dunque per monotonia $\mu(\cup_{k=1}^{\infty}A_k) = \mu(\cup_{k=1}^{\infty} B_k) = \sum_{k=1}^{\infty} \mu(B_k) \leq \sum_{k=1}^{\infty} \mu(A_k)$.
-		\item Consideriamo la successione di insiemi definita da $B_1 = A_1$, $B_2 = A_2 \cap (A_1)^{c}$, $B_3 = A_3 \cap (A_2)^{c} \cap (A_1)^{c}$ e così via; allora risulta che siano tutti a due a due disgiunti e che dunque, per \textit{finito}-additività, valga per ogni $n$:
-		\begin{equation*}
-		\sum_{k=1}^{n} \mu(B_k) = \mu(A_n).
-		\end{equation*}
-		Mandando al limite, per $n \ra +\infty$, otteniamo:
-		\begin{equation*}
-		\sum_{k=1}^{+\infty} \mu(B_k) = \lim_{n \ra +\infty} \mu(A_n),
-		\end{equation*}
-		tuttavia l'unione di tutti i $B_k$ è uguale all'unione di tutti gli $A_n,$ da cui
-		\begin{equation*}
-		\mu\left(\bigcup_{n =1}^{+\infty} A_n\right) = \lim_{n \ra +\infty} \mu(A_n).
-		\end{equation*}
-		\item Per ogni $n$ risulta $\mu(A_n) < +\infty$ (dal momento che ogni $A_n$ è contenuto in $A_1$ e quest'ultimo ha misura finita). Consideriamo dunque la decomposizione $A_1 = A_n \cup ((A_n)^{c}\cap A_1)$: siccome sono insiemi disgiunti di misura finita possiamo scrivere
-		\begin{equation*}
-		\mu(A_n) = \mu(A_1) - \mu((A_n)^{c}\cap A_1).
-		\end{equation*}
-		Mandando al limite otteniamo
-		\begin{equation*}
-		\lim_{n \ra +\infty} \mu(A_n) = \mu(A_1) - \lim_{n \ra +\infty} \mu((A_n)^{c}\cap A_1).
-		\end{equation*}
-		Ora chiamiamo $B_n = (A_n)^{c} \cap A_1$. Si ha che $B_n$ è una successione crescente, dunque per (5) risulta
-		\begin{align*}
-		& \lim_{n \ra +\infty} \mu((A_n)^{c}\cap A_1) = \mu\left( \bigcup_{n =1}^{+\infty} ((A_n)^{c} \cap A_1)\right) = \\
-		& \mu(A_1 \cap \cup_{n=1}^{+\infty}(A_n)^{c}) = \mu(A_1 \cap (\cap_{n=1}^{+\infty} A_n)^{c}) = \mu(A_1) - \mu(\cap_{n=1}^{+\infty} A_n)
-		\end{align*}
-		andando a sostituire nella seconda equazione,
-		\begin{equation*}
-		\lim_{n \ra +\infty} \mu(A_n) = \mu(A_1) - \mu(A_1) + \mu(\cap_{n=1}^{+\infty} A_n) = \mu(\cap_{n=1}^{+\infty} A_n).
-		\end{equation*}
-	\end{enumerate}
-\end{proof}
-\begin{Oss}
-	Per la proprietà \textbf{(6)} è necessario assumere che $\mu(A_1) < +\infty$, infatti sia ($\bb[R], \eu[L](\bb[R]), \mu$) lo spazio di misura dei reali con la misura di Lebesgue (che nel caso di intervalli coincide con la loro lunghezza). Allora A$_n$ = [$n, +\infty$) rispetta le ipotesi in (6) tranne che $\mu(A_1) = +\infty$ e si ha che $\cap_{n\geq1}A_n = \emptyset$, dunque $\mu(\cap_{n\geq1}A_n) = 0$, mentre $\lim_{n \ra +\infty} \mu(A_n) = +\infty$.
-\end{Oss}
-\begin{Ex}
-	(X, $\eu[P]$(X), $\delta$) è, fissato $x_0 \in$ X, uno spazio di misura secondo la \textit{misura di Dirac concentrata in $x_0$} definita come $\delta(A)$ = $\chi_A(x_0)$. \\
-	($\bb[N]$, $\eu[P]$($\bb[N]$), $\mathsf{c}$) è uno spazio di misura secondo la \textit{misura conteggio} definita nel modo seguente: se E $\sset \bb[N]$ è finito, $\mathsf{c}$(E) = $\sf[card]$(E); se E è infinito, $\mathsf{c}$(E) = $+\infty$.
-\end{Ex}
-
-\subsection{Proprietà quasi-ovunque e misure complete}
-Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $\phi(x)$ una formula al prim'ordine nella variabile libera $x$. Diciamo che \textit{$\phi(x)$ vale quasi-ovunque su X}, in breve \textit{$\phi(x)$ q.o.}, se esiste un sottoinsieme misurabile E di misura nulla tale per cui
-\begin{equation*}
-(X, \eu[M], \mu) \vDash \phi \left[\frac{x}{y}\right] \iff y \in X\setminus E.
-\end{equation*}
-\begin{Def}
-	Sia $f_n$: X $\ra \bb[C]$ una successione di funzioni. Diremo che la successione \textit{converge q.o.} se esiste $f$: X $\ra \bb[C]$ ed E $\in \eu[M]$ tali che $\mu$(E) = 0 e $f_n(x) \ra f(x)$ per ogni $x \in X\setminus E$.
-\end{Def}
-La convergenza q.o. porta al limite alcune proprietà utili solo in presenza di particolari misure.
-\begin{Def}
-	Una misura $\mu$ si dice \textit{completa} se, preso comunque un insieme misurabile E con misura nulla, ogni suo sottoinsieme è misurabile e ha misura nulla.
-\end{Def}
-\begin{Rem}
-	Ogni misura $\mu$ ammette un \textit{completamento} costruito nel modo seguente: anzitutto, si aggiungono alla $\sigma$-algebra $\eu[M]$ tutti i sottoinsiemi di insiemi di misura nulla. Dopodiché si definisce $\overline{\mu}$ estendendo $\mu$ e assegnando valore zero a tutti gli insiemi appena aggiunti. Per questo motivo, l'integrazione rispetto a questa misura è assolutamente identica a quella rispetto a $\mu$ e, pertanto, si può in generale sempre assumere che la misura sia completa.
-\end{Rem}
-\begin{Prop}
-	Sia (X, $\eu[M]$, $\mu$)  uno spazio di misura con $\mu$ completa, allora:
-	\begin{enumerate}
-		\item se $f = g$ q.o., e $g$ è misurabile, $f$ è misurabile,
-		\item se $f_n$ sono misurabili e convergono q.o. a $f$, allora $f$ è misurabile.
-	\end{enumerate}
-\end{Prop}
-\subsection{Assoluta continuità}
-\begin{Def}
-	Sia $\mu$: $\eu[M] \ra [0, +\infty]$ una misura. \\
-	$\mu$ si dice \textit{finita} se $\mu$(X) < $+\infty$. $\mu$ si dice \textit{$\sigma$-finita} se esiste una successione di insiemi misurabili \{X$_n$\} tali che $\cup_{n\geq1}$X$_n$ = X e si ha che $\mu$(X$_n$) < $+\infty$. \\
-	Sia poi $\lambda$: $\eu[M] \ra +\infty$ un'altra misura. Allora $\lambda$ è \textit{assolutamente continua rispetto a $\mu$} se per ogni E $\in \eu[M]$, $\mu$(E) = 0 $\implies$ $\lambda$(E) = 0.
-\end{Def}
-\begin{Th}
-	Siano $\mu$, $\lambda$ due misure e sia $\lambda$ finita. Allora $\lambda$ è assolutamente continua rispetto a $\mu$ se e solo se $\forall \epsilon > 0 \ \exists \delta > 0$ tale che $\forall E \in \eu[M]$, $\mu$(E) < $\delta$ $\implies$ $\lambda$(E) < $\epsilon$.
-\end{Th}
-\begin{proof}
-	\textbf{TBD}
-\end{proof}
-\section{MISURA DI LEBESGUE}
-Costruiamo passo a passo una misura molto importante nella teoria dell'integrazione, la già citata \textit{misura di Lebesgue}. Iniziamo dagli insiemi cosiddetti elementari, ovvero sottoinsiemi di $\bb[R]^{N}$ della forma $\Pi_{i=1}^N I_i$, dove $I_i$ è un intervallo limitato (chiuso, aperto o né chiuso né aperto). Supponiamo che gli $I_i$ abbiano come estremi i numeri reali $a_i$ e $b_i$, allora definiamo sull'insieme $\eu[E]$ degli insiemi elementari la misura $\nu$: $\eu[E] \ra (0, +\infty)$. Se P $\in \eu[E]$ ha la forma $\Pi_{i=1}^N I_i$, allora $\nu(P) = \Pi_{i=1}^{N} (b_i-a_i)$. \\
-Estendiamo ora la misura appena definita, definendo la \textit{misura esterna} di un insieme, che chiameremo $m_N^{*}$: $\eu[P]$($\bb[R]^{N}$) $\ra [0, +\infty]$. Per E $\sset \bb[R]^{N}$, $m_N^{*}$(E) = $\inf$\{$\sum_{n \in \bb[N]} \nu(P_n)$, con E $\sset \bigcup_{n \in \bb[N]} P_n$ e $P_n \in \eu[E]$ aperto\}. La misura esterna è dotata di alcune proprietà:
-\begin{Prop}
-	\begin{enumerate}
-		\item $m_N^{*}(\emptyset) = 0$,
-		\item $m_N^{*}(\{x\}) = 0$ per qualunque $x \in \bb[R]^{N}$,
-		\item se E $\sset$ F, $m_N^{*}(E) \leq m_N^{*}(F)$,
-		\item $m_N^{*}(\bigcup_{n \in \bb[N]}E_n) \leq \sum_{n=1}^{+\infty} m_N^{*}(E_n)$,
-		\item se $P \in \eu[E]$, $m_N^{*}(P) = \nu(P)$.
-	\end{enumerate}
-\end{Prop}
-\begin{Def}
-	E $\sset \bb[R]^{N}$ è \textit{misurabile secondo Lebesgue} se preso comunque A $\sset \bb[R]^{N}$,
-	\begin{equation*}
-	m_N^{*}(A) = m_N^{*}(A\cap E) + m_N^{*}(A \cap E^{c}).
-	\end{equation*}
-\end{Def}
-\begin{Def}
-	Chiamiamo $\eu[L](\bb[R]^{N})$ l'insieme dei sottoinsiemi di $\bb[R]^{N}$ misurabili, e per questi definiamo la \textit{misura di Lebesgue} $m_N$ ponendola uguale a $m_N^{*}$.
-\end{Def}
-\begin{Th}
-	Sia $m_N$ la misura di Lebesgue N-dimensionale su $\bb[R]^{N}$, allora:
-	\begin{enumerate}
-		\item $\eu[L](\bb[R]^{N})$ è una $\sigma$-algebra,
-		\item $\eu[L](\bb[R]^{N})$ contiene gli aperti e, dunque, i boreliani di $\bb[R]^{N}$,
-		\item $m_N$ è una misura su $\eu[L](\bb[R]^{N})$.
-	\end{enumerate}
-\end{Th}
-\subsection{Misura e numerabilità}
-\begin{Prop}
-	Sia A $\sset \bb[R]^{N}$ numerabile, allora A è misurabile e $m_N$(A) = 0.
-\end{Prop}
-\begin{Prop}
-	L'insieme di Cantor ha misura nulla.
-\end{Prop}
-\subsection{Misura e topologia}
-\begin{Prop}
-	Scelto comunque $\epsilon > 0$, esiste un aperto A denso in $\bb[R]^{N}$ tale che $m_N$(A) < $\epsilon$.
-\end{Prop}
-\begin{Prop}
-	Scelto comunque $\epsilon > 0$, esiste un chiuso B mai denso (i.e., con interno della chiusura vuoto) tale che $m_N$(B) $\geq 1-\epsilon$.
-\end{Prop}
-\subsection{Proprietà di regolarità}
-\begin{eTh}
-	Sono equivalenti,
-	\begin{enumerate}
-		\item E misurabile,
-		\item per ogni $\epsilon > 0$, esiste un aperto A $\supset$ E tale che $m_N^{*}$(A$\setminus$E) < $\epsilon$,
-		\item esiste un boreliano B, B $\supset$ E, tale che $m_N^{*}$(B$\setminus$E) = 0,
-		\item per ogni $\epsilon > 0$, esiste un chiuso C, C $\sset$ E, tale che $m_N^{*}$(E$\setminus$C) < $\epsilon$,
-		\item esiste un boreliano D, D $\sset$ E, tale che $m_N^{*}$(E$\setminus$D) = 0,
-	\end{enumerate}
-\end{eTh}
-\begin{proof}
-	Iniziamo da $\sf[(1)] \ra \sf[(2)]$. Anzitutto supponiamo $m_N^{*}(E)$ finita: per definizione di misura esterna, per ogni $\varepsilon > 0$ esiste un ricoprimento in parallelepipedi (aperti) \{$\eu[P]_n$\} di E tali che $m_N^{*}(\cup_{n} \eu[P]_n) < m_N^{*}(E) + \varepsilon$. Dal momento che la misura di E è finita possiamo manipolare algebricamente la disequazione fino ad ottenere
-	\begin{equation*}
-	m_N^{*}((\cup_{n} \eu[P]_n) \setminus E) < \varepsilon.
-	\end{equation*}
-	Consideriamo dunque come aperto $A = \cup_{n} \eu[P]_n$ ed otteniamo la tesi. Sia ora $m_N^{*}(E) = +\infty$. Sia \{$Q_n$\} una partizione di $\bb[R]^{N}$ in parallelepipedi. Definiamo $E_n = E \cap Q_n$ una decomposizione di E nei $Q_n$, e osserviamo che per ogni $n$, $E_n \sseq E$, dunque sono sottoinsiemi di $\bb[R]^{N}$ misurabili (in quanto intersezione finita di sottoinsiemi misurabili) e di misura finita. Allora vale quanto appena mostrato e per ogni $n$ possiamo trovare $A_n \supseteq E_n$ tale che $m_N^{*}(A_n \setminus E_n) < \frac{\varepsilon}{2^{n+1}}$. Possiamo dunque chiamare $A = \cup_{n} A_n$, e verificare che
-	\begin{align*}
-	& m_N^{*}((\cup_{n} A_n) \setminus E) = m_N^{*}((\cup_{n} A_n) \cap E^{c}) = m_N^{*}((\cup_{n} A_n) \cap (\cup_{k} E_k)^{c})) = \\
-	& m_N^{*}((\cup_{n} A_n) \cap (\cap_{k} E_k^{c})) = m_N^{*}(\cup_{n} (A_n \cap (\cap_{k} E_k^{c})))
-	\end{align*}
-	e notando che per ogni $n$, $A_n \cap (\cap_{k} E_k^{c}) \sseq A_n \cap E_n^{c}$ concludiamo, per monotonia e sub-additività, che
-	\begin{align*}
-	& m_N^{*}((\cup_{n} A_n) \setminus E) = m_N^{*}((\cup_{n} A_n) \cap E^{c}) = \\
-	&m_N^{*}(\cup_{n} (A_n \cap (\cap_{k} E_k^{c}))) \leq m_N^{*}(\cup_{n} A_n \cap E_n^{c}) \leq \sum_{n} m_N^{*}(A_n \cap E_n^{c}) = \varepsilon.
-	\end{align*}
-	Per mostrare che $\sf[(2)] \ra \sf[(3)]$, consideriamo quanto appena visto e costruiamo una successione $U_n$ di aperti tali che $m_N^{*}(U_n \setminus E) < \frac{1}{n}$. Sia $U = \cap_{n=1}^{+\infty} U_n$, allora per ogni $n$ risulta $m_N^{*}(U \setminus E) \leq m_N^{*}(U_n \setminus E) = \frac{1}{n}$ per monotonia; essendo $m_N^{*}(U \setminus E) < \frac{1}{n}$ per ogni $n$ questi non può essere che uguale a zero. Mostriamo ora che $\sf[(3)] \ra \sf[(1)]$: $U \setminus E$ risulta misurabile in quanto di misura nulla, e $E = U \setminus (U \setminus E)$, dunque E è misurabile. Per mostrare che $\sf[(1)] \ra \sf[(4)]$, $\sf[(4)] \ra \sf[(5)]$ e $\sf[(5)] \ra \sf[(1)]$ ripetiamo gli argomenti precedenti per $E^{c}$.
-\end{proof}
-\subsection{Insiemi patologici}
-In questa sezione costruiremo due insiemi per così dire \textit{patologici}: l'insieme di Vitali e quello di Cantor. Il primo mostrerà l'esistenza di insiemi non Lebesgue-misurabili, mentre al secondo si dovrà un esempio di insieme non numerabile (in effetti della cardinalità del continuo) di misura nulla.
-\begin{Def}
-	L'\textit{assioma della scelta} ($\sf[AC]$) afferma che, preso comunque un insieme X, esiste una funzione (detta \textit{funzione di scelta}) $f$: $\eu[P]$(X)$\setminus \{\emptyset\}$ $\ra$ X che assegna ad ogni sottoinsieme A di X un suo elemento.
-\end{Def}
-\begin{Def}
-	Si consideri [0,1] e vi si introduca la seguente relazione di equivalenza: $x \sim y$ se e solo se $x-y \in \bb[Q]$. Si chiami $\eu[A] \sset \eu[P]$([0,1]) il quoziente dato da [0,1] rispetto alla relazione d'equivalenza $\sim$.
-\end{Def}
-Per $\sf[AC]$, esiste una funzione di scelta $f$ da $\eu[P]$([0,1])$\setminus$\{$\emptyset$\} in [0,1]. Si consideri $g$ definita come la restrizione di $f$ ad $\eu[A]$. Definiamo così,
-\begin{Def}
-	L'\textit{insieme di Vitali} $\bb[V]$ è l'immagine dell'insieme $\eu[A]$ sotto $g$, ovvero
-	\begin{equation*}
-	\bb[V] = \{g([x]_{\sim}), \ x \in [0,1]\}
-	\end{equation*}
-\end{Def}
-Si osservi che $\bb[V] \sset$ [0,1]. Inoltre si ha che $\sf[card](\bb[V]) \gneq \sf[card](\bb[N])$. \\
-Sia ora $q_n$ un'enumerazione di $\bb[Q] \cap [-1,1]$, e si consideri per ogni $n \in \bb[N]$:
-\begin{equation*}
-\bb[V]_n = \bb[V] + q_n.
-\end{equation*}
-Si ha che, presi $q_{n_1} \neq q_{n_2}$, allora $\bb[V]_{n_1} \cap \bb[V]_{n_2} = \emptyset$ e, inoltre, [0,1] $\sset \cup_{n \in \bb[N]}(\bb[V]_{n}) \sset [-1,2]$, per cui per monotonia:
-\begin{equation*}
-1 = m^{*}([0,1]) \leq m^{*}\left(\bigcup_{n \in \bb[N]} \bb[V]_n \right) \leq m^{*}([-1,2]) = 3.
-\end{equation*}
-Si supponga ora $\bb[V]$ misurabile, allora sono misurabili anche tutti i $\bb[V]_n$, dunque lo è la loro unione $\cup_{n \in \bb[N]}(\bb[V]_{n})$. Dal momento che sono disgiunti, si avrebbe che $m(\cup_{n \in \bb[N]}(\bb[V]_{n})) = \sum_{n=1}^{+\infty}m(\bb[V]_n) = \sum_{n=1}^{+\infty}m(\bb[V])$ che è pari a 0 se m($\bb[V]$) = 0, oppure è +$\infty$ se m($\bb[V]$) > 0. In entrambi i casi si contraddicono i limiti imposti poco sopra dalle misure esterne. Si conclude che $\bb[V]$ non può essere misurabile. \\
---- Insieme di Cantor (\textbf{TBD})
-\subsection{Completezza ed altre proprietà}
-\begin{Prop}
-	La misura di Lebesgue che stiamo per definire è completa.
-\end{Prop}
-\begin{proof}
-	\textbf{TBD}
-\end{proof}
-\section{TEORIA DELL'INTEGRAZIONE}
-Iniziamo a definire l'integrale esteso secondo Lebesgue nel caso di funzioni semplici, positive e misurabili. Utilizzando i teoremi di approssimazione, estenderemo poi la definizione.
-\begin{Def}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $S$: X $\ra [0, +\infty)$ una funzione semplice misurabile. Sia data la sua decomposizione standard $S(x)$ = $\sum_{i = 1}^{n} \alpha_i \chi_{A_i}(x)$, con A$_i$ = $S^{-1}$(\{$\alpha_i$\}). Definiamo allora l'\textit{integrale esteso ad X} di $S$ come
-	\begin{equation*}
-	\int_X S \ \mathrm{d}\mu = \sum\limits_{i=1}^{n} \alpha_i \mu(A_i).
-	\end{equation*}
-\end{Def}
-\begin{Oss}
-	L'integrale appena definito è un elemento dell'insieme $[0, +\infty]$. Dal momento che si può avere, per qualche $j$, $\alpha_j$ = 0 e $\mu(A_j) = +\infty$, si pone per convenzione che $0 \cdot +\infty = 0$. Inoltre, se $S$ è una funzione costantemente uguale a $s$, allora l'integrale esteso di $S$ ad X è semplicemente $s \mu(X)$, ed in particolare se $s = 1$ si ha che l'integrale restituisce la misura di X.
-\end{Oss}
-\begin{Def}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $f$: X $\ra [0, +\infty]$ una funzione  misurabile. Definiamo $\Sigma_f$ l'insieme \{$s: X \ra [0, +\infty)$: $s$ è semplice, misurabile e su tutto X si ha $s \leq f$\}. Allora l'\textit{integrale esteso ad X} di $f$ è definito come
-	\begin{equation*}
-	\int_X f \ \mathrm{d}\mu = \sup\limits_{S \in \Sigma_f} \int_X S \ \mathrm{d}\mu.
-	\end{equation*}
- \end{Def}
-\begin{Oss}
-	Questa definizione coincide, nel caso di una funzione semplice, con quella data poco sopra, infatti se $S$ è semplice allora l'estremo superiore è realizzato da $S$ stessa.
-\end{Oss}
-\begin{Def}
-	Estendiamo infine la definizione di integrale ad insiemi E $\sneq X$. In questo caso, se $S$ è semplice, misurabile e positiva (finita) si ha che
-	\begin{equation*}
-		\int_E S \ \mathrm{d}\mu = \sum_{i = 1}^{n} \alpha_i \mu(A_i \cap E),
-	\end{equation*}
-	e così, per $f$ funzione misurabile positiva,
-	\begin{equation*}
-	\int_E f \ \mathrm{d}\mu = \sup\limits_{S \in \Sigma_f} \int_E S \ \mathrm{d}\mu.
-	\end{equation*}
-\end{Def}
-\begin{Prop}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e siano $f$, $g$: X $\ra [0, +\infty]$ misurabili, A, B $\in \eu[M]$, $\lambda > 0$. Allora:
-	\begin{enumerate}
-		\item $f \leq g \implies \int_A f \ \mathrm{d}\mu \leq \int_A g \ \mathrm{d}\mu$,
-		\item $A \sset B \implies \int_A f \ \mathrm{d}\mu \leq \int_B f \ \mathrm{d}\mu$,
-		\item $\int_A \lambda f \ \mathrm{d}\mu = \lambda \int_A f \ \mathrm{d}\mu$,
-		\item $\mu(A) = 0 \implies \int_A f \ \mathrm{d}\mu = 0$.
-	\end{enumerate}
-\end{Prop}
-\begin{proof}
-	\textbf{TBD}
-\end{proof}
-\subsection{Integrale di funzioni complesse}
-\begin{Def}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e sia $f$: X $\ra \bb[C]$ misurabile. Allora $f$ si dice \textit{integrabile} (oppure \textit{sommabile}) rispetto a $\mu$ se
-	\begin{equation*}
-	\int_X \vert f \vert \ \mathrm{d}\mu < +\infty.
-	\end{equation*}
-	Indichiamo l'insieme delle funzioni integrabili rispetto a $\mu$ con $\eu[L]^1(\mu)$.
-\end{Def}
-\begin{Def}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura ed $f \in \eu[L]^1(\mu)$. Siano $u$ = $\bb[R]e f$ e $v$ = $\Im f$. Si ha $f$ = $u$ + i$v$ = ($u^{+} - u^{-}$) + i($v^{+} - v^{-}$), con tutte le funzioni in gioco a valori positivi. In particolare, $f$ è misurabile e dunque lo sono anche $u^{\pm}$ e $v^{\pm}$, e poiché 0 $\leq u^{\pm} \leq \vert u \vert \leq \vert f \vert$ e 0 $\leq v^{\pm} \leq \vert v \vert \leq \vert f \vert$, dal fatto che $f$ è integrabile si ha che anche $u^{\pm}$ e $v^{\pm}$ lo sono. Si pone perciò
-	\begin{equation*}
-	\int_X f \ \mathrm{d}\mu = \int_X u^{+} \ \mathrm{d}\mu - \int_X u^{-} \ \mathrm{d}\mu + \mathrm{i} \left( \int_X v^{+} \ \mathrm{d}\mu - \int_X v^{-} \ \mathrm{d}\mu \right).
-	\end{equation*}
-\end{Def}
-\begin{Ex}
-	Se $\mu$(X) < $+\infty$ e $f$ è limitata e misurabile, allora $f$ è integrabile.
-\end{Ex}
-\begin{Prop}
-	$\eu[L]^1(\mu)$ è uno spazio vettoriale rispetto alle usuali operazioni su funzioni, e l'integrale appena definito è lineare.
-\end{Prop}
-\begin{Prop}
-	Per ogni $f \in \eu[L]^1(\mu)$,
-	\begin{equation*}
-	\left\vert \int_X f \ \mathrm{d}\mu \right\vert \leq \int_X \vert f \vert \ \mathrm{d}\mu.
-	\end{equation*}
-\end{Prop}
-\subsection{Passaggio al limite sotto il segno di integrale}
-\subsubsection{Teorema di convergenza monotona e conseguenze}
-\begin{eTh}[Convergenza monotona, o di Beppo Levi]
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e siano $f_n$, $f$: X $\ra [0, +\infty]$ tali che
-	\begin{enumerate}
-		\item $f_n$ è misurabile per qualsiasi $n \geq 1$, 
-		\item $\lim_{n \ra +\infty} f_n(x) = f(x)$ per qualunque $x \in$ X e
-		\item 0 $\leq f_n(x) \leq f_{n+1}(x)$ per ogni $n \geq 1$ ed $x \in$ X.
-	\end{enumerate}
-	Allora si ha che $f$ è misurabile e
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu.
-	\end{equation*}
-\end{eTh}
-Prima di procedere con la dimostrazione, mostriamo un lemma ausiliario:
-\begin{eTh}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $S$: X $\ra [0, +\infty]$ una funzione semplice misurabile. Allora $\mu_S$ è una misura.
-\end{eTh}
-\begin{proof}
-	$S$ ammette una decomposizione standard, $S(x)$ = $\sum_{i = 1}^{N} \alpha_i \chi_{A_i}(x)$, dunque per ogni E $\in \eu[M]$ si ha che $\mu_S$(E) = $\int_E S \ \mathrm{d}\mu = \sum_{i = 1}^{N} \alpha_i \mu(A_i \cap E)$. Se A = $\emptyset$, allora $\mu_S$(A) = 0 < $+\infty$. Sia dunque \{E$_n$\} una famiglia numerabile di insiemi a due a due disgiunti e sia E = $\cup_{n\geq1} E_n$. Allora si ha che
-	\begin{align*}
-	\mu_S(E) = \int_E S \ \mathrm{d}\mu &= \sum_{i = 1}^{N} \alpha_i \mu(A_i \cap E) \\
-	&= \sum_{i = 1}^{N} \alpha_i \mu\left(\bigcup_{n\geq1}(A_i \cap E_n)\right) \\
-	&= \sum_{i = 1}^{N} \sum_{n=1}^{+\infty} \alpha_i \mu(A_i \cap E_n) \\
-	&= \sum_{n=1}^{+\infty} \sum_{i=1}^{N} \alpha_i \mu(A_i \cap E_n) \\
-	&= \sum_{n=1}^{+\infty} \int_{E_n} S \ \mathrm{d}\mu \\
-	&= \sum_{n=1}^{+\infty} \mu_S(E_n),
-	\end{align*}
-	dove lo scambio delle serie è reso possibile dalla positività di $\alpha_i \mu(A_i \cap E_n)$.
-\end{proof}
-\begin{proof}
-	(\textit{Convergenza monotona}). \\
-	La misurabilità passa al limite sotto le ipotesi di convergenza puntuale, dunque resta da dimostrare l'uguaglianza. Per ipotesi, 0 $\leq f_n(x) \leq f_{n+1}(x) \leq f(x)$ per ogni $x \in$ X ed ogni $n \geq 1$. Dunque si ha che, per monotonia dell'integrale,
-	\begin{equation*}
-	\int_X f_n \ \mathrm{d}\mu \leq \int_X f_{n+1} \ \mathrm{d}\mu \leq \int_X f \ \mathrm{d}\mu,
-	\end{equation*}
-	dunque la successione degli integrali ammette limite, sia esso $\alpha$ = $\lim_{n \ra +\infty} \int_X f_n \mathrm{d}\mu = \sup_{n \in \bb[N]} \int_X f_n \ \mathrm{d}\mu$. Dalla relazione sopra, $\alpha \leq \int_X f \ \mathrm{d}\mu$. Scelti comunque $S \in \Sigma_f$ e $C \in (0,1)$, sia E$_n$ = \{$x \in$ X: $f_n(x) \geq CS(x)$\}. Si ha che E$_n \in \eu[M]$ per qualunque $n$, infatti E$_n$ = ($f_n - CS$)$^{-1}$($[0, +\infty]$), ovvero è la preimmagine di un boreliano mediante una funzione misurabile. Inoltre, E$_n \sseq$ E$_{n+1}$ per ogni $n$, dal momento che se $x \in$ E$_n$ si ha che $f_n(x) \geq CS(x)$, ma per ogni $x \in$ X $f_{n+1}(x) \geq f_n(x)$, da cui $x \in$ E$_{n+1}$. Infine, $\cup_{n\geq1} E_n$ = X. Di conseguenza, per la continuità della misura $\mu_S(X) = \mu_S(\cup_{n\geq1}E_n) = \lim_{n \ra +\infty} \mu_S(E_n)$. Per monotonia dell'integrale, $\mu_S(X) \geq \mu_S(E_n) \geq \mu_{CS}(E_n) = C\mu_S(E_n)$ e, passando al limite per $n \ra +\infty$,
-	\begin{equation*}
-	\alpha = \lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu \geq C \mu_S(X) = C \int_X S \ \mathrm{d}\mu
-	\end{equation*}
-	e poi per $C \ra 1^{-}$,
-	\begin{equation*}
-	\alpha = \lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu \geq \int_X S \ \mathrm{d}\mu.
-	\end{equation*}
-	Dal momento che questo è vero per qualunque scelta di $S$, $\alpha$ è un maggiorante dell'insieme degli integrali di funzioni di $\Sigma_f$ su X; in particolare, è maggiore o uguale dell'estremo superiore di questo insieme, ovverosia $\alpha \geq \int_X f \ \mathrm{d}\mu$.
-\end{proof}
-\begin{eTh}[Fatou]
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, $f_n$: X $\ra [0, +\infty]$ misurabili, allora:
-	\begin{equation*}
-	\int_X \liminf_{n \ra +\infty} f_n \ \mathrm{d}\mu \leq \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
-	\end{equation*}
-\end{eTh}
-\begin{proof}
-	Definiamo $g_k = \inf_{n \geq k} f_n$. Si ha che $g_k \leq g_{k+1}$ e converge a $\liminf_{n \ra +\infty} f_n$ per definizione. Allora la tesi può essere riscritta nel modo seguente,
-	\begin{equation*}
-	\int_X \lim_{n \ra +\infty} g_n \ \mathrm{d}\mu \leq \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
-	\end{equation*}
-	Dal momento che per ogni $x \in X$ ed ogni $n \geq k$, $g_k(x) \leq f_n(x)$, allora per monotonia:
-	\begin{equation*}
-	\int_X g_k \ \mathrm{d}\mu \leq \int_X f_n \ \mathrm{d}\mu.
-	\end{equation*}
-	Perciò,
-	\begin{equation*}
-	\int_X g_k \ \mathrm{d}\mu \leq \inf_{n \geq k} \int_X f_n \ \mathrm{d}\mu,
-	\end{equation*}
-	da cui per conservazione del segno,
-	\begin{equation*}
-	\lim_{k \ra +\infty} \int_X g_k \ \mathrm{d}\mu \leq \lim_{k \ra +\infty} \inf_{n \geq k} \int_X f_n \ \mathrm{d}\mu = \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
-	\end{equation*}
-	Per il teorema di convergenza monotona possiamo scambiare limite e integrale,
-	\begin{equation*}
-	\int_X \lim_{k \ra +\infty} g_k \ \mathrm{d}\mu \leq \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
-	\end{equation*}
-\end{proof}
-Le serie numeriche possono essere ridefinite a partire dall'integrale esteso. Nello specifico, sia X = $\bb[N]$ con la struttura di spazio misurabile data dalla $\sigma$-algebra $\eu[P]$($\bb[N]$). Sia inoltre $\mathsf{c}$ la misura conteggio. Sia poi $f$: $\bb[N] \ra [0, +\infty]$ una qualsiasi funzione (dal momento che ogni funzione è misurabile). Allora si verifica che
-\begin{equation*}
-\int_{\bb[N]} f \ \mathrm{d}\mathsf{c} = \sum_{n=1}^{+\infty} f(n).
-\end{equation*}
-Infatti, sia definita $f_n$ nel modo seguente: $f_n(x)$ = $f(x)$, se $1 \leq x \leq n$, mentre $f_n(x) = 0$ se $x > n$. Poiché per ogni $x \in \bb[N]$ si ha $f_n(x) \leq f_{n+1}(x)$ e $\lim\limits_{n \ra +\infty}f_n(x) = f(x)$, il teorema della convergenza monotona ci garantisce che
-\begin{equation*}
-\int_{\bb[N]} f \ \mathrm{d}\mathsf{c} = \lim_{n \ra +\infty} \int_{\bb[N]} f_n \ \mathrm{d}\mathsf{c} = \lim_{n \ra +\infty} \sum_{i = 1}^{n} f(i) \mathsf{c}(\{i\}) + 0\mathsf{c}(\{n+1, ...\}) = \sum_{i = 1}^{+\infty} f(i).
-\end{equation*}
-\begin{Prop}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, $f$, $g$: X $\ra [0, +\infty]$ misurabili, allora
-	\begin{equation*}
-	\int_X (f+g) \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu + \int_X g \ \mathrm{d}\mu.
-	\end{equation*}
-\end{Prop}
-\begin{proof}
-	\textbf{TBD}
-\end{proof}
-\begin{eTh}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e siano $f_n$: X $\ra [0, +\infty]$ misurabili, allora
-	\begin{equation*}
-	\int_X \sum_{n\geq 1} f_n \ \mathrm{d}\mu = \sum_{n\geq 1} \int_X f_n \ \mathrm{d}\mu.
-	\end{equation*}
-\end{eTh}
-\begin{proof}
-	Definiamo $S_n = \sum_{k=1}^{n} f_k$. Allora la tesi si può riscrivere come
-	\begin{equation*}
-	\int_X \lim_{n \ra +\infty} S_n \ \mathrm{d}\mu = \lim_{n \ra +\infty} \sum_{k=1}^{n} \int_X f_k \ \mathrm{d}\mu.
-	\end{equation*}
-	Poiché a secondo membro ora abbiamo una somma finita di integrali, possiamo riscrivere la tesi come
-	\begin{equation*}
-	\int_X \lim_{n \ra +\infty} S_n \ \mathrm{d}\mu = \lim_{n \ra +\infty} \int_X \sum_{k = 1}^{n} f_k \ \mathrm{d}\mu = \lim_{n \ra +\infty} \int_X S_n \ \mathrm{d}\mu.
-	\end{equation*}
-	Osserviamo che, essendo le $f_n$ a valori positivi, $S_n$ è una successione di funzioni crescente. Per il teorema di convergenza monotona segue la tesi.
-\end{proof}
-
-\begin{eTh}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e sia $f$: X $\ra [0, +\infty]$ una funzione misurabile. Allora la funzione $\mu_f$: $\eu[M] \ra [0, +\infty]$ definita nel modo seguente,
-	\begin{equation*}
-	\mu_f(E) = \int_E f \ \mathrm{d}\mu,
-	\end{equation*}
-	è una misura e si ha
-	\begin{equation*}
-	\int_X g \ \mathrm{d}\mu_f = \int_X fg \ \mathrm{d}\mu.
-	\end{equation*}
-\end{eTh}
-\begin{proof}
-	Anzitutto, $\mu_f(\emptyset)$ = 0 < $+\infty$. \\
-	Per mostrare la $\sigma$-additività, dobbiamo mostrare che
-	\begin{equation*}
-	\int_{\bigcup\limits_{n\geq1}E_n} f \ \mathrm{d}\mu = \sum_{n\geq 1} \int_{E_n} f \ \mathrm{d}\mu
-	\end{equation*}
-	o, equivalentemente, che (detto E = $\cup_{n\geq1}E_n$)
-	\begin{equation*}
-	\int_X \chi_E \ f \ \mathrm{d}\mu = \sum_{n\geq 1} \int_X \chi_{E_n} \ f \ \mathrm{d}\mu.
-	\end{equation*}
-	Dal momento che gli E$_n$ sono a due a due disgiunti, $\chi_E = \sum_{n\geq 1} \chi_{E_n}$, dunque ci si riduce a voler mostrare che
-	\begin{equation*}
-	\int_X \sum_{n\geq 1}(\chi_{E_n} \ f) \ \mathrm{d}\mu = \sum_{n\geq 1} \int_X \chi_{E_n} \ f \ \mathrm{d}\mu.
-	\end{equation*}
-	Essendo gli $E_n$ misurabili lo sono anche le loro funzioni caratteristiche e così il loro prodotto per $f$, dunque questo segue dal teorema di scambio serie-integrale appena dimostrato. Per la seconda parte, procediamo per step: anzitutto, proviamolo per le funzioni indicatrici $\chi_A$ di insiemi misurabili. Si ha infatti che
-	\begin{equation*}
-	\int_X \chi_A \ \mathrm{d}\mu_f = \mu_f(A) = \int_A f \ \mathrm{d}\mu = \int_X \chi_A f \ \mathrm{d}\mu.
-	\end{equation*}
-	A questo punto sia $g = \sum_{i=1}^{N} \alpha_i \chi_{A_i}$. Il risultato vale per la linearità dell'integrale. \\
-	Sia ora $g$ una qualsiasi funzione misurabile. Per il teorema di approssimazione mediante funzioni semplici esiste una successione di funzioni $S_n(x) \ra g(x)$ tale per cui $0 \leq \vert S_1(x) \vert \leq \vert S_2(x) \vert \leq ... \leq \vert g(x) \vert$. Per il teorema di convergenza monotona,
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X S_n \ \mathrm{d}\mu_f = \int_X g \ \mathrm{d}\mu_f.
-	\end{equation*}	
-	Osserviamo che
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X S_n \ \mathrm{d}\mu_f = \lim_{n \ra +\infty} \int_X f S_n \ \mathrm{d}\mu.
-	\end{equation*}
-	Chiamiamo $Q_n(x) = f(x)S_n(x)$. $f(x)$ è una funzione positiva, dunque la successione $Q_n(x)$ rimane crescente e convergente puntualmente a $f(x)g(x)$. Allora per il teorema di convergenza monotona,
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X Q_n \ \mathrm{d}\mu = \int_X fg \ \mathrm{d}\mu.
-	\end{equation*}
+		S$_n$ è una funzione semplice, dunque è misurabile se e solo se lo sono gli insiemi su cui ammette valori, ovvero F$_n$ e E$_{n,i}$. Questi ultimi sono preimmagini di boreliani, dunque sono misurabili. \\
+		Mostriamo dunque che si tratta di una successione crescente. Avendo scelto come estremi degli intervalli della partizione punti della forma $\frac{1}{2^n}$, ad ogni successiva iterazione del procedimento (e.g., nel passare da S$_1$ ad S$_2$) l'insieme $[0, +\infty]$ viene diviso in più sottointervalli e, su alcuni di essi, il valore della funzione aumenta. Perciò si osserva che la successione di funzioni è crescente (là dove il valore rimane lo stesso, due funzioni a passi diversi hanno lo stesso valore, mentre altrove quella al passo $n+1$-esimo ha valore maggiore di quella al passo $n$-esimo). \\
+		Infine, sia $x \in$ X. Allora se $f(x) = +\infty$ si ha che per ogni $n$, $f(x) > n$, per cui S$_n$(x) = $n$ per ogni $n\geq1$. Segue che $\lim_{n \ra +\infty}S_n(x)$ = $\lim_{n \ra +\infty} n$ = $+\infty$ = $f(x)$. Se invece $f(x) < +\infty$, per ogni $n > f(x)$ esiste un $j$ tale che $f(x) \in \left[\frac{j-1}{2^n}, \frac{j}{2^n}\right) = \left[S_n(x), S_n(x) + \frac{1}{2^n}\right)$, dunque $0 \leq f(x) - S_n(x) \lneq \frac{1}{2^n}$. Per il teorema del confronto segue la convergenza puntuale di S$_n$ ad $f$.
 	\end{proof}
-\begin{Cor}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e $f$: X $\ra [0, +\infty]$ misurabile con $\int_X f \ \mathrm{d}\mu < +\infty$, allora $\forall \epsilon > 0 \ \exists \delta > 0$ tale che $\forall E \in \eu[M]$, $\mu$(E) < $\delta$ $\implies$ $\mu_f$(E) < $\epsilon$.
-\end{Cor}
-\begin{Th}[Radon-Nikodym]
-	Siano $\mu$, $\lambda$: $\eu[M] \ra [0, +\infty]$ due misure. Siano $\mu$ $\sigma$-finita e $\lambda$ finita: se $\lambda$ è assolutamente continua rispetto a $\mu$, allora esiste $f$: X $\ra [0, +\infty]$ misurabile tale che $\int_X f \ \mathrm{d}\mu < +\infty$ e per ogni E $\in \eu[M]$, $\lambda$(E) = $\int_E f \ \mathrm{d}\mu$.
-\end{Th}
-\subsubsection{Teorema della convergenza dominata}
-\begin{eTh}[Convergenza dominata, o di Lebesgue]
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e siano $f_n$: X $\ra \bb[C]$ misurabili tali che:
-	\begin{enumerate}
-		\item esiste $f$: X $\ra \bb[C]$ tale che, per ogni $x \in$ X, $\lim_{n \ra +\infty} f_n(x) = f(x)$,
-		\item esiste $g$: X $\ra [0, +\infty]$ integrabile tale che $\vert f_n(x) \vert \leq g(x)$ per ogni $x \in$ X ed ogni $n\geq1$.
-	\end{enumerate}
-Allora tanto $f$ quanto $f_n$ sono integrabili, e si ha che
-\begin{equation*}
-	\lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0
-\end{equation*}
-e
-\begin{equation*}
-\lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu.
-\end{equation*}
-\end{eTh}
-\begin{proof}
-	Si ha che $\vert f \vert \leq g$ per conservazione del segno, dunque in particolare $f \in \sf[L]^1(\mu)$. Inoltre $\vert f_n - f \vert \leq \vert f_n \vert + \vert f \vert \leq 2g$, da cui applicando il lemma di Fatou alla funzione $2g - \vert f_n - f \vert$ si ottiene che
-	\begin{align*}
-	&\int_X 2g \ \mathrm{d}\mu \\
-	&\leq \liminf_{n \ra +\infty} \int_X 2g-\vert f_n - f \vert \ \mathrm{d}\mu \\
-	&= \int_X 2g \ \mathrm{d}\mu + \liminf_{n \ra +\infty} \left(-\int_X \vert f_n - f \vert \ \mathrm{d}\mu\right) \\
-	&= \int_X 2g \ \mathrm{d}\mu - \limsup_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu.
-	\end{align*}
-	$g$ è sommabile dunque il suo integrale è finito e si ottiene, sottraendolo due volte ad ambo i membri,
+	\subsection{Misure}
+	\begin{Def}
+		Sia (X, $\eu[M]$) uno spazio misurabile. Allora $\mu$: $\eu[M] \ra [0, +\infty]$ si dice \textit{misura} se rispetta i seguenti due assiomi:
+		\begin{enumerate}
+			\item ($\sigma$-additività) per ogni famiglia numerabile di insiemi \{A$_n$\} a due a due disgiunti, $\mu(\bigcup_{n \in \bb[N]} A_n) = \sum_{n \in \bb[N]} \mu(A_n)$,
+			\item esiste un A $\in \eu[M]$ tale che $\mu(A) \lneq +\infty$.
+		\end{enumerate}
+		Diciamo che (X, $\eu[M]$, $\mu$) è uno \textit{spazio di misura}.
+	\end{Def}
+	\begin{eTh}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, allora:
+		\begin{enumerate}
+			\item $\mu(\emptyset)$ = 0,
+			\item se \{A$_i$, $i$ = 1, ... $n$\} è una famiglia finita di insiemi  misurabili a due a due disgiunti,  $\mu(\bigcup_{i=1}^{n} A_i) = \sum_{i =1}^{n} \mu(A_i)$,
+			\item se A $\sseq$ B, allora $\mu(A) \leq \mu(B)$,
+			\item se \{A$_n$\} è una famiglia numerabile di insiemi misurabili, allora
+			\begin{equation*}
+			\mu\left(\bigcup_{n \in \bb[N]} A_n\right) \leq \sum_{n \in \bb[N]} \mu(A_n),
+			\end{equation*}
+			\item sia \{A$_n$\} una famiglia numerabile di insiemi misurabili tali che per ogni $i < j$, A$_i \sseq$ A$_j$. Allora $\mu(\cup_{n\geq1}A_n) = \lim_{n \ra +\infty} \mu(A_n)$,
+			\item sia \{A$_n$\} una famiglia numerabile di insiemi misurabili tali che per ogni $i < j$, A$_i \supseteq$ A$_j$. Allora se $\mu(A_1) < +\infty$, $\mu(\cap_{n\geq1}A_n) = \lim_{n \ra +\infty} \mu(A_n)$.
+		\end{enumerate}
+	\end{eTh}
+	\begin{proof}
+		\begin{enumerate}
+			\item Per definizione di misura, esiste un sottoinsieme di X di misura finita. Lo si chiami $B$. Allora si definisca la successione di insiemi misurabili $A_n$ nel modo seguente: se $n = 1$, $A_n = B$; altrimenti, $A_n = \emptyset$. Si tratta di una successione di insiemi a due a due disgiunti, e dunque per $\sigma$-additività:
+			\begin{equation*}
+			\mu\left(\bigcup_{n =1}^{+\infty} A_n\right) = \sum_{n = 1}^{+\infty} \mu(A_n).
+			\end{equation*}
+			Tuttavia, il primo membro è effettivamente la sola misura di $B$, e si ottiene:
+			\begin{equation*}
+			\mu(B) = \mu(B) + \sum_{n=2}^{+\infty} \mu(\emptyset),
+			\end{equation*}
+			da cui segue necessariamente che $\mu(\emptyset) = 0$.
+			\item Sia B$_k$ definita nel modo seguente: se $k \leq n$, B$_k =$ A$_k$; se $k > n$, B$_k = \emptyset$. Segue che $\mu(\cup_{k=1}^{\infty} B_k) = \mu(\cup_{k=1}^{n} A_k)= \sum_{k=1}^{\infty} \mu(A_k) = \sum_{k=1}^{n} \mu(A_k)$.
+			\item Dal momento che B = $ A \cup (B-A)$ e questi due sono disgiunti, $\mu(B) = \mu(A) + \mu(B-A) \geq \mu(A)$ perché la misura prende valori positivi.
+			\item Definiamo B$_1 = A_1$, B$_2$ = $A_2 \cap (A_1)^{c}$, B$_3 = A_3 \cap (A_2)^{c} \cap (A_1)^{c}$ e così via. I B$_k$ risultanti sono disgiunti e sono contenuti nei rispettivi $A_k$, inoltre la loro unione è esattamente l'unione di tutti gli A$_k$, dunque per monotonia $\mu(\cup_{k=1}^{\infty}A_k) = \mu(\cup_{k=1}^{\infty} B_k) = \sum_{k=1}^{\infty} \mu(B_k) \leq \sum_{k=1}^{\infty} \mu(A_k)$.
+			\item Consideriamo la successione di insiemi definita da $B_1 = A_1$, $B_2 = A_2 \cap (A_1)^{c}$, $B_3 = A_3 \cap (A_2)^{c} \cap (A_1)^{c}$ e così via; allora risulta che siano tutti a due a due disgiunti e che dunque, per \textit{finito}-additività, valga per ogni $n$:
+			\begin{equation*}
+			\sum_{k=1}^{n} \mu(B_k) = \mu(A_n).
+			\end{equation*}
+			Mandando al limite, per $n \ra +\infty$, otteniamo:
+			\begin{equation*}
+			\sum_{k=1}^{+\infty} \mu(B_k) = \lim_{n \ra +\infty} \mu(A_n),
+			\end{equation*}
+			tuttavia l'unione di tutti i $B_k$ è uguale all'unione di tutti gli $A_n,$ da cui
+			\begin{equation*}
+			\mu\left(\bigcup_{n =1}^{+\infty} A_n\right) = \lim_{n \ra +\infty} \mu(A_n).
+			\end{equation*}
+			\item Per ogni $n$ risulta $\mu(A_n) < +\infty$ (dal momento che ogni $A_n$ è contenuto in $A_1$ e quest'ultimo ha misura finita). Consideriamo dunque la decomposizione $A_1 = A_n \cup ((A_n)^{c}\cap A_1)$: siccome sono insiemi disgiunti di misura finita possiamo scrivere
+			\begin{equation*}
+			\mu(A_n) = \mu(A_1) - \mu((A_n)^{c}\cap A_1).
+			\end{equation*}
+			Mandando al limite otteniamo
+			\begin{equation*}
+			\lim_{n \ra +\infty} \mu(A_n) = \mu(A_1) - \lim_{n \ra +\infty} \mu((A_n)^{c}\cap A_1).
+			\end{equation*}
+			Ora chiamiamo $B_n = (A_n)^{c} \cap A_1$. Si ha che $B_n$ è una successione crescente, dunque per (5) risulta
+			\begin{align*}
+			& \lim_{n \ra +\infty} \mu((A_n)^{c}\cap A_1) = \mu\left( \bigcup_{n =1}^{+\infty} ((A_n)^{c} \cap A_1)\right) = \\
+			& \mu(A_1 \cap \cup_{n=1}^{+\infty}(A_n)^{c}) = \mu(A_1 \cap (\cap_{n=1}^{+\infty} A_n)^{c}) = \mu(A_1) - \mu(\cap_{n=1}^{+\infty} A_n)
+			\end{align*}
+			andando a sostituire nella seconda equazione,
+			\begin{equation*}
+			\lim_{n \ra +\infty} \mu(A_n) = \mu(A_1) - \mu(A_1) + \mu(\cap_{n=1}^{+\infty} A_n) = \mu(\cap_{n=1}^{+\infty} A_n).
+			\end{equation*}
+		\end{enumerate}
+	\end{proof}
+	\begin{Oss}
+		Per la proprietà \textbf{(6)} è necessario assumere che $\mu(A_1) < +\infty$, infatti sia ($\bb[R], \eu[L](\bb[R]), \mu$) lo spazio di misura dei reali con la misura di Lebesgue (che nel caso di intervalli coincide con la loro lunghezza). Allora A$_n$ = [$n, +\infty$) rispetta le ipotesi in (6) tranne che $\mu(A_1) = +\infty$ e si ha che $\cap_{n\geq1}A_n = \emptyset$, dunque $\mu(\cap_{n\geq1}A_n) = 0$, mentre $\lim_{n \ra +\infty} \mu(A_n) = +\infty$.
+	\end{Oss}
+	\begin{Ex}
+		(X, $\eu[P]$(X), $\delta$) è, fissato $x_0 \in$ X, uno spazio di misura secondo la \textit{misura di Dirac concentrata in $x_0$} definita come $\delta(A)$ = $\chi_A(x_0)$. \\
+		($\bb[N]$, $\eu[P]$($\bb[N]$), $\mathsf{c}$) è uno spazio di misura secondo la \textit{misura conteggio} definita nel modo seguente: se E $\sset \bb[N]$ è finito, $\mathsf{c}$(E) = $\sf[card]$(E); se E è infinito, $\mathsf{c}$(E) = $+\infty$.
+	\end{Ex}
+	
+	\subsection{Proprietà quasi-ovunque e misure complete}
+	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $\phi(x)$ una formula al prim'ordine nella variabile libera $x$. Diciamo che \textit{$\phi(x)$ vale quasi-ovunque su X}, in breve \textit{$\phi(x)$ q.o.}, se esiste un sottoinsieme misurabile E di misura nulla tale per cui
 	\begin{equation*}
-	\limsup_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu \leq 0.
+	(X, \eu[M], \mu) \vDash \phi \left[\frac{x}{y}\right] \iff y \in X\setminus E.
 	\end{equation*}
-	Una successione a valori positivi può ammettere limite superiore nullo (se converge a zero) o, in ogni altro caso, ha limite superiore positivo. Non può che essere, dunque che
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0.
-	\end{equation*}
-	In particolare, si ha che
-	\begin{equation*}
-	\lim_{n \ra +\infty} \left\vert \int_X f_n - f \ \mathrm{d}\mu \right\vert \leq \lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0,
-	\end{equation*}
-	da cui segue che
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X f_n - f \ \mathrm{d}\mu = 0,
-	\end{equation*}
-	che per linearità è la tesi cercata.
-\end{proof}
-\begin{Cor}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e siano $f_n$: X $\ra \bb[C]$ misurabili tali che:
-	\begin{enumerate}
-		\item esiste $f$: X $\ra \bb[C]$ tale che, per ogni $x \in$ X, $\lim_{n \ra +\infty} f_n(x) = f(x)$,
-		\item esiste $C > 0$ tale che $\vert f_n(x) \vert \leq C$ per ogni $x \in$ X e $n\geq1$,
-		\item $\mu(X) < +\infty$.
-	\end{enumerate}
-	Allora tanto $f$ quanto $f_n$ sono integrabili, e si ha che
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0
-	\end{equation*}
-	e
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu.
-	\end{equation*}
-\end{Cor}
-\begin{Cor}
-	Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, siano $f_n$: X $\ra \bb[C]$ misurabili. Se $\sum_{n=1}^{+\infty} \vert f_n(x) \vert < +\infty$ per ogni $x \in$ X e la somma è integrabile, allora
-	\begin{equation*}
-	\int_X \sum\limits_{n=1}^{+\infty} f_n \ \mathrm{d}\mu = \sum\limits_{n=1}^{+\infty} \int_X f_n \ \mathrm{d}\mu.
-	\end{equation*}
-\end{Cor}
-\begin{proof}
-	\textbf{TBD}
-\end{proof}
-\begin{Ex}
-	Sia $f_n(x) = x^n$ per $x \in [0,1]$. Questa successione converge puntualmente a $f(x)$ = 0 per $x \in [0,1)$ e $f(x)$ = 1 per $x = 1$, ma non vi converge uniformemente. Inoltre, $\vert x^n \vert \leq 1$ per ogni $x \in [0,1]$ e $\mu([0,1]) = 1$, dunque per il corollario del teorema della convergenza dominata,
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_{[0,1]} x^n \ \mathrm{d}x = \int_{[0,1]} f(x) \ \mathrm{d}x.
-	\end{equation*}
-\end{Ex}
-
-\begin{Rem}
-	Il lemma di Fatou e i teoremi di convergenza valgono anche se all'ipotesi di convergenza puntuale si sostituisce quella di convergenza q.o..
-\end{Rem}
-
-\subsection{Lo spazio $\sf[L]^1(\mu)$}
-Svilupperemo ora la teoria necessaria a dotare lo spazio $\eu[L]^1(\mu)$ della struttura di spazio normato. In effetti, non sarà possibile farlo su $\eu[L]^1(\mu)$, ma dovremo ricorrere ad una sofisticazione. \\
-Definiamo, per $f \in \eu[L]^1(\mu)$,
-\begin{equation*}
-\Vert f \Vert = \int_X \vert f \vert \mathrm{d}\mu.
-\end{equation*}
-Questa funzione rispetta quasi tutti gli assiomi necessari a renderla una norma, tranne uno. Infatti, si ha che $\Vert f \Vert \geq 0$ per ogni $f$ integrabile (per via della monotonia dell'integrale), inoltre per ogni $\lambda \in \bb[C]$ si ha che
-\begin{equation*}
-\Vert \lambda f \Vert = \int_X \vert \lambda f \vert \ \mathrm{d}\mu = \vert \lambda \vert \int_X \vert f \vert \ \mathrm{d}\mu = \vert \lambda \vert \Vert f \Vert,
-\end{equation*}
-e inoltre per ogni $f$, $g$ integrabili,
-\begin{equation*}
-\Vert f+g \Vert = \int_X \vert f+g \vert \ \mathrm{d}\mu \leq \int_X \vert f \vert + \vert g \vert \ \mathrm{d}\mu = \Vert f \Vert + \Vert g \Vert.
-\end{equation*}
-La proprietà che viene a mancare è quella che afferma che, presa $f$ integrabile, se $\Vert f \Vert = 0$, allora $f \equiv 0$. Il motivo è che, presa una qualunque funzione nulla ovunque tranne che su di un insieme di misura nulla, il suo integrale sarà pari a zero senza che essa sia costantemente zero. Per risolvere questo problema, dobbiamo anzitutto verificare che sia l'unica patologia possibile:
-\begin{Prop}
-	Sia $f \in \eu[L]^1(\mu)$ tale che $\int_X \vert f \vert \ \mathrm{d}\mu = 0$. Allora esiste A $\in \eu[M]$ tale che $\mu(A) = 0$ e per ogni $x \in X$, se $x \in A$ allora $f(x) \neq 0$, se $x \in X \setminus A$ invece $f(x) = 0$.
-\end{Prop}
-\begin{proof}
-	Sia $\eu[Z]_f$ = \{$x \in$ X: $f(x) = 0$\}. \\
-	Allora $\eu[Z]_f^{c}$ = \{$x \in$ X: $\vert f(x) \vert \neq 0$\} = $\bigcup_{n \in \bb[N]}$ \{$x \in$ X: $\vert f(x) \vert > \frac{1}{n}$\}, dunque si ha che
-	\begin{equation*}
-	\int_{A_n} \vert f \vert \ \mathrm{d}\mu \geq \frac{1}{n} \int_{A_n} 1 \ \mathrm{d}\mu = \frac{1}{n} \mu(A_n).
-	\end{equation*}
-	Tuttavia,
-	\begin{equation*}
-	0 \leq \frac{1}{n} \mu(A_n) \leq \int_{A_n} \vert f \vert \mathrm{d}\mu \leq \int_X \vert f \vert \ \mathrm{d}\mu = 0
-	\end{equation*}
-	da cui $\mu(A_n) = 0$ per qualsiasi $n \geq 1$. Per la subaddività della misura, $\mu(\eu[Z]_f^{c}) = \mu(\bigcup_{n \in \bb[N]}A_n) \leq \sum_{n\geq 1} \mu(A_n) = 0$, da cui $\mu(\eu[Z]_f^{c}) = 0$.
-\end{proof}
-\begin{Def}
-	Diciamo che $f$ è nulla \textit{quasi ovunque} se $\mu(\eu[Z]_f^{c}) = 0$. Diciamo inoltre che $f$ è equivalente a $g$ se e solo se $f-g$ è nulla quasi ovunque. Chiamiamo $\sf[L]^1(\mu)$ il quoziente di $\eu[L]^1(\mu)$ rispetto a questa relazione d'equivalenza.
-\end{Def}
-\begin{Oss}
-	D'ora in poi sarà frequente un abuso di notazione in cui si confonderanno $f$ e la sua classe di equivalenza in $\sf[L]^1(\mu)$. Si tratta di un abuso innocuo, dal momento che $f$ e $g$ equivalenti implica che $\Vert f \Vert = \Vert g \Vert$.
-\end{Oss}
-\begin{eTh}
-	$\sf[L]^1(\mu)$ con la mappa indotta sul quoziente da $\Vert \cdot \Vert$ (che chiameremo ancora con lo stesso nome) è uno spazio normato completo.
-\end{eTh}
-In quanto spazio normato, $\sf[L]^1(\mu)$ acquista una struttura topologica, dunque è possibile parlare di \textit{densità} di un sottoinsieme di $\sf[L]^1(\mu)$. In particolare, diremo che E $\sset$ $\sf[L]^1(\mu)$ è denso se e solo se $\forall \epsilon > 0 \ \forall g \in \sf[L]^1(\mu) \ \exists h \in E \ \Vert h - g \Vert < \epsilon$, in altre parole se esiste una successione $\{h_n\} \sset E$ tale per cui $\Vert h_n-g \Vert \ra 0$. Mostriamo ora che alcuni sottoinsiemi interessanti di $\sf[L]^1(\mu)$ sono densi:
-\begin{eTh}
-	$S_\mu$ = \{$s$: X $\ra \bb[C]$ semplice, misurabile ed integrabile\} è un sottoinsieme denso di $\sf[L]^1(\mu)$.
-\end{eTh}
-\begin{proof}
-	Sappiamo che, presa comunque $f \in \sf[L]^1(\mu)$, esiste una successione \{$s_n$\} di funzioni semplici e misurabili tali che $s_n(x) \ra f(x)$ per ogni $x \in$ X e, per ogni $n \geq 1$, $\vert s_n \vert \leq \vert f \vert$. Per monotonia dell'integrale segue che $s_n \in \sf[L]^1(\mu)$ per ogni $n \geq 1$. Per il teorema della convergenza dominata, $\lim_{n \ra +\infty} \int_X \vert s_n - f \vert \ \mathrm{d}\mu = 0$, ossia $\lim_{n \ra +\infty} \Vert s_n - f \Vert = 0$.
-\end{proof}
-\begin{Th}
-	Sia ($\bb[R]^{N}$, $\eu[L](\bb[R]^{N})$, $\mu$) lo spazio euclideo N-dimensionale con la struttura di spazio di misura data dalla misura di Lebesgue $\mu$. Allora $C_C$ = \{$f$: $\bb[R]^{N} \ra \bb[C]$ continue a supporto compatto\} è un sottoinsieme denso di $\sf[L]^1(\bb[R]^{N}; \mu)$.
-\end{Th}
-
-\subsection{Misura in spazi prodotto} Siano (X, $\eu[M]$, $\mu$) e (Y, $\eu[N]$, $\lambda$) due spazi di misura, con $\mu$ e $\lambda$ $\sigma$-finite. L'obiettivo sarà dare una struttura di spazio di misura all'insieme prodotto, X $\times$ Y. Anzitutto, dotiamolo della struttura di spazio misurabile: definiamo $\eu[F]$ l'insieme \{A $\times$ B: A $\in \eu[M]$, B $\in \eu[N]$\} e chiamiamo $\eu[M] \times \eu[N]$ la $\sigma$-algebra generata da $\eu[F]$. \\
-Per costruire la misura prodotto ci ispiriamo al caso di $\bb[R]^2$. L'obiettivo sarà ricalcolare ciò che si ha nel caso dell'integrale doppio \textit{à la Riemann}: si può suddividere l'insieme in questione in \textit{sezioni} orizzontali (Q$_y$) e verticali (Q$_x$) e a quel punto richiedere che valgano le seguenti formule:
-\begin{equation*}
-(\mu \times \lambda)(Q) = \int\limits_{X \times Y} \chi_Q \ \mathrm{d}(\mu \times \lambda) = \int\limits_X \left(\int_{Q_x} \chi_Q \ \mathrm{d}\lambda(y)\right) \ \mathrm{d}\mu(x) = \int\limits_Y \left(\int_{Q_y} \chi_Q \ \mathrm{d}\mu(x)\right) \ \mathrm{d}\lambda(y) 
-\end{equation*}
-che in qualche modo sono una versione più generale delle formule di separazione per integrali multipli. Prima di poter definire la misura prodotto in questo modo, però, è necessario verificare che sia possibile calcolare questi integrali.
-\begin{Def}
-	Definiamo le sezioni di un sottoinsieme Q di X $\times$ Y. Se $x \in$ X ed $y \in$ Y, Q$_x$ = \{$z \in$ Y: $(x, z) \in Q$\} e Q$_y$ = \{$z \in$ X: $(z, y) \in Q$\}.
-\end{Def}
-\begin{Prop}
-	Sia Q $\in \eu[M] \times \eu[N]$, allora Q$_x \in \eu[N]$ e Q$_y \in \eu[M]$ per qualunque $x \in X$, $y \in Y$. Dunque esistono $\lambda(Q_x)$ e $\mu(Q_y)$ e risultano definite e misurabili le funzioni $\lambda(Q_{*})$ e $\mu(Q_{*})$ che associano rispettivamente a $x$ la misura di $\lambda(Q_x)$ e ad $y$ la misura di $\mu(Q_y)$.
-\end{Prop}
-\begin{Th}
-	Risultano definiti e uguali i seguenti integrali, per qualunque $x \in$ X ed $y \in$ Y:
-	\begin{equation*}
-	\int\limits_X \lambda(Q_x) \ \mathrm{d}\mu(x) = \int\limits_Y \mu(Q_y) \ \mathrm{d}\lambda(y).
-	\end{equation*}
-\end{Th}
-\begin{Def}
-	La misura $\mu \times \lambda$ è definita su $\eu[M] \times \eu[N]$ nel modo seguente: ad un insieme misurabile Q associa $\int_X \lambda(Q_x) \ \mathrm{d}\mu(x) = \int_Y \mu(Q_y) \ \mathrm{d}\lambda(y)$.
-\end{Def}
-\begin{Ex}
-	A partire da due spazi euclidei $\bb[R]^{N}$ ed $\bb[R]^{M}$ dotati della misura di Lebesgue si può costruire lo spazio prodotto e, sebbene la $\sigma$-algebra prodotto sia la stessa costruita su $\bb[R]^{N+M}$, la misura prodotto non è la stessa: $m_N \times m_M \neq m_{N+M}$. In effetti, quest'ultima è il completamento della prima.
-\end{Ex}
-\begin{Def}
-	Sia $f$: X $\times$ Y $\ra \bb[C]$ misurabile. Definiamo le funzioni $f_x$ = $f(x, \cdot)$ e $f^y$ = $f(\cdot, y)$.
-\end{Def}
-\begin{Prop}
-	Se $f$ è misurabile, sono misurabili $f_x$ ed $f^y$.
-\end{Prop}
-In virtù delle definizioni appena date, possiamo enunciare il seguente importante teorema:
-\begin{Th}[Fubini-Tonelli, caso complesso]
-	Siano (X, $\eu[M]$, $\mu$) e (Y, $\eu[N]$, $\lambda$) due spazi di misura. Sia $f$: X$\times$Y $\ra \bb[C]$. Allora:
-	\begin{enumerate}
-		\item se $f \in \sf[L]^1(\mu \times \lambda)$, allora sia $f_x$ che $f^y$ sono nei rispettivi spazi $\sf[L]^1$ per quasi ogni $x$ od $y$, le funzioni
+	\begin{Def}
+		Sia $f_n$: X $\ra \bb[C]$ una successione di funzioni. Diremo che la successione \textit{converge q.o.} se esiste $f$: X $\ra \bb[C]$ ed E $\in \eu[M]$ tali che $\mu$(E) = 0 e $f_n(x) \ra f(x)$ per ogni $x \in X\setminus E$.
+	\end{Def}
+	La convergenza q.o. porta al limite alcune proprietà utili solo in presenza di particolari misure.
+	\begin{Def}
+		Una misura $\mu$ si dice \textit{completa} se, preso comunque un insieme misurabile E con misura nulla, ogni suo sottoinsieme è misurabile e ha misura nulla.
+	\end{Def}
+	\begin{Rem}
+		Ogni misura $\mu$ ammette un \textit{completamento} costruito nel modo seguente: anzitutto, si aggiungono alla $\sigma$-algebra $\eu[M]$ tutti i sottoinsiemi di insiemi di misura nulla. Dopodiché si definisce $\overline{\mu}$ estendendo $\mu$ e assegnando valore zero a tutti gli insiemi appena aggiunti. Per questo motivo, l'integrazione rispetto a questa misura è assolutamente identica a quella rispetto a $\mu$ e, pertanto, si può in generale sempre assumere che la misura sia completa.
+	\end{Rem}
+	\begin{Prop}
+		Sia (X, $\eu[M]$, $\mu$)  uno spazio di misura con $\mu$ completa, allora:
+		\begin{enumerate}
+			\item se $f = g$ q.o., e $g$ è misurabile, $f$ è misurabile,
+			\item se $f_n$ sono misurabili e convergono q.o. a $f$, allora $f$ è misurabile.
+		\end{enumerate}
+	\end{Prop}
+	\subsection{Assoluta continuità}
+	\begin{Def}
+		Sia $\mu$: $\eu[M] \ra [0, +\infty]$ una misura. \\
+		$\mu$ si dice \textit{finita} se $\mu$(X) < $+\infty$. $\mu$ si dice \textit{$\sigma$-finita} se esiste una successione di insiemi misurabili \{X$_n$\} tali che $\cup_{n\geq1}$X$_n$ = X e si ha che $\mu$(X$_n$) < $+\infty$. \\
+		Sia poi $\lambda$: $\eu[M] \ra +\infty$ un'altra misura. Allora $\lambda$ è \textit{assolutamente continua rispetto a $\mu$} se per ogni E $\in \eu[M]$, $\mu$(E) = 0 $\implies$ $\lambda$(E) = 0.
+	\end{Def}
+	\begin{Th}
+		Siano $\mu$, $\lambda$ due misure e sia $\lambda$ finita. Allora $\lambda$ è assolutamente continua rispetto a $\mu$ se e solo se $\forall \epsilon > 0 \ \exists \delta > 0$ tale che $\forall E \in \eu[M]$, $\mu$(E) < $\delta$ $\implies$ $\lambda$(E) < $\epsilon$.
+	\end{Th}
+	\begin{proof}
+		\textbf{TBD}
+	\end{proof}
+	\section{MISURA DI LEBESGUE}
+	Costruiamo passo a passo una misura molto importante nella teoria dell'integrazione, la già citata \textit{misura di Lebesgue}. Iniziamo dagli insiemi cosiddetti elementari, ovvero sottoinsiemi di $\bb[R]^{N}$ della forma $\Pi_{i=1}^N I_i$, dove $I_i$ è un intervallo limitato (chiuso, aperto o né chiuso né aperto). Supponiamo che gli $I_i$ abbiano come estremi i numeri reali $a_i$ e $b_i$, allora definiamo sull'insieme $\eu[E]$ degli insiemi elementari la misura $\nu$: $\eu[E] \ra (0, +\infty)$. Se P $\in \eu[E]$ ha la forma $\Pi_{i=1}^N I_i$, allora $\nu(P) = \Pi_{i=1}^{N} (b_i-a_i)$. \\
+	Estendiamo ora la misura appena definita, definendo la \textit{misura esterna} di un insieme, che chiameremo $m_N^{*}$: $\eu[P]$($\bb[R]^{N}$) $\ra [0, +\infty]$. Per E $\sset \bb[R]^{N}$, $m_N^{*}$(E) = $\inf$\{$\sum_{n \in \bb[N]} \nu(P_n)$, con E $\sset \bigcup_{n \in \bb[N]} P_n$ e $P_n \in \eu[E]$ aperto\}. La misura esterna è dotata di alcune proprietà:
+	\begin{Prop}
+		\begin{enumerate}
+			\item $m_N^{*}(\emptyset) = 0$,
+			\item $m_N^{*}(\{x\}) = 0$ per qualunque $x \in \bb[R]^{N}$,
+			\item se E $\sset$ F, $m_N^{*}(E) \leq m_N^{*}(F)$,
+			\item $m_N^{*}(\bigcup_{n \in \bb[N]}E_n) \leq \sum_{n=1}^{+\infty} m_N^{*}(E_n)$,
+			\item se $P \in \eu[E]$, $m_N^{*}(P) = \nu(P)$.
+		\end{enumerate}
+	\end{Prop}
+	\begin{Def}
+		E $\sset \bb[R]^{N}$ è \textit{misurabile secondo Lebesgue} se preso comunque A $\sset \bb[R]^{N}$,
+		\begin{equation*}
+		m_N^{*}(A) = m_N^{*}(A\cap E) + m_N^{*}(A \cap E^{c}).
+		\end{equation*}
+	\end{Def}
+	\begin{Def}
+		Chiamiamo $\eu[L](\bb[R]^{N})$ l'insieme dei sottoinsiemi di $\bb[R]^{N}$ misurabili, e per questi definiamo la \textit{misura di Lebesgue} $m_N$ ponendola uguale a $m_N^{*}$.
+	\end{Def}
+	\begin{Th}
+		Sia $m_N$ la misura di Lebesgue N-dimensionale su $\bb[R]^{N}$, allora:
+		\begin{enumerate}
+			\item $\eu[L](\bb[R]^{N})$ è una $\sigma$-algebra,
+			\item $\eu[L](\bb[R]^{N})$ contiene gli aperti e, dunque, i boreliani di $\bb[R]^{N}$,
+			\item $m_N$ è una misura su $\eu[L](\bb[R]^{N})$.
+		\end{enumerate}
+	\end{Th}
+	\subsection{Misura e numerabilità}
+	\begin{Prop}
+		Sia A $\sset \bb[R]^{N}$ numerabile, allora A è misurabile e $m_N$(A) = 0.
+	\end{Prop}
+	\begin{Prop}
+		L'insieme di Cantor ha misura nulla.
+	\end{Prop}
+	\subsection{Misura e topologia}
+	\begin{Prop}
+		Scelto comunque $\epsilon > 0$, esiste un aperto A denso in $\bb[R]^{N}$ tale che $m_N$(A) < $\epsilon$.
+	\end{Prop}
+	\begin{Prop}
+		Scelto comunque $\epsilon > 0$, esiste un chiuso B mai denso (i.e., con interno della chiusura vuoto) tale che $m_N$(B) $\geq 1-\epsilon$.
+	\end{Prop}
+	\subsection{Proprietà di regolarità}
+	\begin{eTh}
+		Sono equivalenti,
+		\begin{enumerate}
+			\item E misurabile,
+			\item per ogni $\epsilon > 0$, esiste un aperto A $\supset$ E tale che $m_N^{*}$(A$\setminus$E) < $\epsilon$,
+			\item esiste un boreliano B, B $\supset$ E, tale che $m_N^{*}$(B$\setminus$E) = 0,
+			\item per ogni $\epsilon > 0$, esiste un chiuso C, C $\sset$ E, tale che $m_N^{*}$(E$\setminus$C) < $\epsilon$,
+			\item esiste un boreliano D, D $\sset$ E, tale che $m_N^{*}$(E$\setminus$D) = 0,
+		\end{enumerate}
+	\end{eTh}
+	\begin{proof}
+		Iniziamo da $\sf[(1)] \ra \sf[(2)]$. Anzitutto supponiamo $m_N^{*}(E)$ finita: per definizione di misura esterna, per ogni $\varepsilon > 0$ esiste un ricoprimento in parallelepipedi (aperti) \{$\eu[P]_n$\} di E tali che $m_N^{*}(\cup_{n} \eu[P]_n) < m_N^{*}(E) + \varepsilon$. Dal momento che la misura di E è finita possiamo manipolare algebricamente la disequazione fino ad ottenere
+		\begin{equation*}
+		m_N^{*}((\cup_{n} \eu[P]_n) \setminus E) < \varepsilon.
+		\end{equation*}
+		Consideriamo dunque come aperto $A = \cup_{n} \eu[P]_n$ ed otteniamo la tesi. Sia ora $m_N^{*}(E) = +\infty$. Sia \{$Q_n$\} una partizione di $\bb[R]^{N}$ in parallelepipedi. Definiamo $E_n = E \cap Q_n$ una decomposizione di E nei $Q_n$, e osserviamo che per ogni $n$, $E_n \sseq E$, dunque sono sottoinsiemi di $\bb[R]^{N}$ misurabili (in quanto intersezione finita di sottoinsiemi misurabili) e di misura finita. Allora vale quanto appena mostrato e per ogni $n$ possiamo trovare $A_n \supseteq E_n$ tale che $m_N^{*}(A_n \setminus E_n) < \frac{\varepsilon}{2^{n+1}}$. Possiamo dunque chiamare $A = \cup_{n} A_n$, e verificare che
 		\begin{align*}
-		x &\ra \int_Y f_x \ \mathrm{d}\lambda \\
-		y &\ra \int_X f^y \ \mathrm{d}\mu
+		& m_N^{*}((\cup_{n} A_n) \setminus E) = m_N^{*}((\cup_{n} A_n) \cap E^{c}) = m_N^{*}((\cup_{n} A_n) \cap (\cup_{k} E_k)^{c})) = \\
+		& m_N^{*}((\cup_{n} A_n) \cap (\cap_{k} E_k^{c})) = m_N^{*}(\cup_{n} (A_n \cap (\cap_{k} E_k^{c})))
 		\end{align*}
-		sono nei rispettivi spazi $\sf[L]^1$ (e prendono solo valori finiti) e si ha
+		e notando che per ogni $n$, $A_n \cap (\cap_{k} E_k^{c}) \sseq A_n \cap E_n^{c}$ concludiamo, per monotonia e sub-additività, che
+		\begin{align*}
+		& m_N^{*}((\cup_{n} A_n) \setminus E) = m_N^{*}((\cup_{n} A_n) \cap E^{c}) = \\
+		&m_N^{*}(\cup_{n} (A_n \cap (\cap_{k} E_k^{c}))) \leq m_N^{*}(\cup_{n} A_n \cap E_n^{c}) \leq \sum_{n} m_N^{*}(A_n \cap E_n^{c}) = \varepsilon.
+		\end{align*}
+		Per mostrare che $\sf[(2)] \ra \sf[(3)]$, consideriamo quanto appena visto e costruiamo una successione $U_n$ di aperti tali che $m_N^{*}(U_n \setminus E) < \frac{1}{n}$. Sia $U = \cap_{n=1}^{+\infty} U_n$, allora per ogni $n$ risulta $m_N^{*}(U \setminus E) \leq m_N^{*}(U_n \setminus E) = \frac{1}{n}$ per monotonia; essendo $m_N^{*}(U \setminus E) < \frac{1}{n}$ per ogni $n$ questi non può essere che uguale a zero. Mostriamo ora che $\sf[(3)] \ra \sf[(1)]$: $U \setminus E$ risulta misurabile in quanto di misura nulla, e $E = U \setminus (U \setminus E)$, dunque E è misurabile. Per mostrare che $\sf[(1)] \ra \sf[(4)]$, $\sf[(4)] \ra \sf[(5)]$ e $\sf[(5)] \ra \sf[(1)]$ ripetiamo gli argomenti precedenti per $E^{c}$.
+	\end{proof}
+	\subsection{Insiemi patologici}
+	In questa sezione costruiremo due insiemi per così dire \textit{patologici}: l'insieme di Vitali e quello di Cantor. Il primo mostrerà l'esistenza di insiemi non Lebesgue-misurabili, mentre al secondo si dovrà un esempio di insieme non numerabile (in effetti della cardinalità del continuo) di misura nulla.
+	\begin{Def}
+		L'\textit{assioma della scelta} ($\sf[AC]$) afferma che, preso comunque un insieme X, esiste una funzione (detta \textit{funzione di scelta}) $f$: $\eu[P]$(X)$\setminus \{\emptyset\}$ $\ra$ X che assegna ad ogni sottoinsieme A di X un suo elemento.
+	\end{Def}
+	\begin{Def}
+		Si consideri [0,1] e vi si introduca la seguente relazione di equivalenza: $x \sim y$ se e solo se $x-y \in \bb[Q]$. Si chiami $\eu[A] \sset \eu[P]$([0,1]) il quoziente dato da [0,1] rispetto alla relazione d'equivalenza $\sim$.
+	\end{Def}
+	Per $\sf[AC]$, esiste una funzione di scelta $f$ da $\eu[P]$([0,1])$\setminus$\{$\emptyset$\} in [0,1]. Si consideri $g$ definita come la restrizione di $f$ ad $\eu[A]$. Definiamo così,
+	\begin{Def}
+		L'\textit{insieme di Vitali} $\bb[V]$ è l'immagine dell'insieme $\eu[A]$ sotto $g$, ovvero
+		\begin{equation*}
+		\bb[V] = \{g([x]_{\sim}), \ x \in [0,1]\}
+		\end{equation*}
+	\end{Def}
+	Si osservi che $\bb[V] \sset$ [0,1]. Inoltre si ha che $\sf[card](\bb[V]) \gneq \sf[card](\bb[N])$. \\
+	Sia ora $q_n$ un'enumerazione di $\bb[Q] \cap [-1,1]$, e si consideri per ogni $n \in \bb[N]$:
+	\begin{equation*}
+	\bb[V]_n = \bb[V] + q_n.
+	\end{equation*}
+	Si ha che, presi $q_{n_1} \neq q_{n_2}$, allora $\bb[V]_{n_1} \cap \bb[V]_{n_2} = \emptyset$ e, inoltre, [0,1] $\sset \cup_{n \in \bb[N]}(\bb[V]_{n}) \sset [-1,2]$, per cui per monotonia:
+	\begin{equation*}
+	1 = m^{*}([0,1]) \leq m^{*}\left(\bigcup_{n \in \bb[N]} \bb[V]_n \right) \leq m^{*}([-1,2]) = 3.
+	\end{equation*}
+	Si supponga ora $\bb[V]$ misurabile, allora sono misurabili anche tutti i $\bb[V]_n$, dunque lo è la loro unione $\cup_{n \in \bb[N]}(\bb[V]_{n})$. Dal momento che sono disgiunti, si avrebbe che $m(\cup_{n \in \bb[N]}(\bb[V]_{n})) = \sum_{n=1}^{+\infty}m(\bb[V]_n) = \sum_{n=1}^{+\infty}m(\bb[V])$ che è pari a 0 se m($\bb[V]$) = 0, oppure è +$\infty$ se m($\bb[V]$) > 0. In entrambi i casi si contraddicono i limiti imposti poco sopra dalle misure esterne. Si conclude che $\bb[V]$ non può essere misurabile. \\
+	--- Insieme di Cantor (\textbf{TBD})
+	\subsection{Completezza ed altre proprietà}
+	\begin{Prop}
+		La misura di Lebesgue che stiamo per definire è completa.
+	\end{Prop}
+	\begin{proof}
+		\textbf{TBD}
+	\end{proof}
+	\section{TEORIA DELL'INTEGRAZIONE}
+	Iniziamo a definire l'integrale esteso secondo Lebesgue nel caso di funzioni semplici, positive e misurabili. Utilizzando i teoremi di approssimazione, estenderemo poi la definizione.
+	\begin{Def}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $S$: X $\ra [0, +\infty)$ una funzione semplice misurabile. Sia data la sua decomposizione standard $S(x)$ = $\sum_{i = 1}^{n} \alpha_i \chi_{A_i}(x)$, con A$_i$ = $S^{-1}$(\{$\alpha_i$\}). Definiamo allora l'\textit{integrale esteso ad X} di $S$ come
+		\begin{equation*}
+		\int_X S \ \mathrm{d}\mu = \sum\limits_{i=1}^{n} \alpha_i \mu(A_i).
+		\end{equation*}
+	\end{Def}
+	\begin{Oss}
+		L'integrale appena definito è un elemento dell'insieme $[0, +\infty]$. Dal momento che si può avere, per qualche $j$, $\alpha_j$ = 0 e $\mu(A_j) = +\infty$, si pone per convenzione che $0 \cdot +\infty = 0$. Inoltre, se $S$ è una funzione costantemente uguale a $s$, allora l'integrale esteso di $S$ ad X è semplicemente $s \mu(X)$, ed in particolare se $s = 1$ si ha che l'integrale restituisce la misura di X.
+	\end{Oss}
+	\begin{Def}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $f$: X $\ra [0, +\infty]$ una funzione  misurabile. Definiamo $\Sigma_f$ l'insieme \{$s: X \ra [0, +\infty)$: $s$ è semplice, misurabile e su tutto X si ha $s \leq f$\}. Allora l'\textit{integrale esteso ad X} di $f$ è definito come
+		\begin{equation*}
+		\int_X f \ \mathrm{d}\mu = \sup\limits_{S \in \Sigma_f} \int_X S \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{Def}
+	\begin{Oss}
+		Questa definizione coincide, nel caso di una funzione semplice, con quella data poco sopra, infatti se $S$ è semplice allora l'estremo superiore è realizzato da $S$ stessa.
+	\end{Oss}
+	\begin{Def}
+		Estendiamo infine la definizione di integrale ad insiemi E $\sneq X$. In questo caso, se $S$ è semplice, misurabile e positiva (finita) si ha che
+		\begin{equation*}
+		\int_E S \ \mathrm{d}\mu = \sum_{i = 1}^{n} \alpha_i \mu(A_i \cap E),
+		\end{equation*}
+		e così, per $f$ funzione misurabile positiva,
+		\begin{equation*}
+		\int_E f \ \mathrm{d}\mu = \sup\limits_{S \in \Sigma_f} \int_E S \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{Def}
+	\begin{Prop}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e siano $f$, $g$: X $\ra [0, +\infty]$ misurabili, A, B $\in \eu[M]$, $\lambda > 0$. Allora:
+		\begin{enumerate}
+			\item $f \leq g \implies \int_A f \ \mathrm{d}\mu \leq \int_A g \ \mathrm{d}\mu$,
+			\item $A \sset B \implies \int_A f \ \mathrm{d}\mu \leq \int_B f \ \mathrm{d}\mu$,
+			\item $\int_A \lambda f \ \mathrm{d}\mu = \lambda \int_A f \ \mathrm{d}\mu$,
+			\item $\mu(A) = 0 \implies \int_A f \ \mathrm{d}\mu = 0$.
+		\end{enumerate}
+	\end{Prop}
+	\begin{proof}
+		\textbf{TBD}
+	\end{proof}
+	\subsection{Integrale di funzioni complesse}
+	\begin{Def}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e sia $f$: X $\ra \bb[C]$ misurabile. Allora $f$ si dice \textit{integrabile} (oppure \textit{sommabile}) rispetto a $\mu$ se
+		\begin{equation*}
+		\int_X \vert f \vert \ \mathrm{d}\mu < +\infty.
+		\end{equation*}
+		Indichiamo l'insieme delle funzioni integrabili rispetto a $\mu$ con $\eu[L]^1(\mu)$.
+	\end{Def}
+	\begin{Def}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura ed $f \in \eu[L]^1(\mu)$. Siano $u$ = $\bb[R]e f$ e $v$ = $\Im f$. Si ha $f$ = $u$ + i$v$ = ($u^{+} - u^{-}$) + i($v^{+} - v^{-}$), con tutte le funzioni in gioco a valori positivi. In particolare, $f$ è misurabile e dunque lo sono anche $u^{\pm}$ e $v^{\pm}$, e poiché 0 $\leq u^{\pm} \leq \vert u \vert \leq \vert f \vert$ e 0 $\leq v^{\pm} \leq \vert v \vert \leq \vert f \vert$, dal fatto che $f$ è integrabile si ha che anche $u^{\pm}$ e $v^{\pm}$ lo sono. Si pone perciò
+		\begin{equation*}
+		\int_X f \ \mathrm{d}\mu = \int_X u^{+} \ \mathrm{d}\mu - \int_X u^{-} \ \mathrm{d}\mu + \mathrm{i} \left( \int_X v^{+} \ \mathrm{d}\mu - \int_X v^{-} \ \mathrm{d}\mu \right).
+		\end{equation*}
+	\end{Def}
+	\begin{Ex}
+		Se $\mu$(X) < $+\infty$ e $f$ è limitata e misurabile, allora $f$ è integrabile.
+	\end{Ex}
+	\begin{Prop}
+		$\eu[L]^1(\mu)$ è uno spazio vettoriale rispetto alle usuali operazioni su funzioni, e l'integrale appena definito è lineare.
+	\end{Prop}
+	\begin{Prop}
+		Per ogni $f \in \eu[L]^1(\mu)$,
+		\begin{equation*}
+		\left\vert \int_X f \ \mathrm{d}\mu \right\vert \leq \int_X \vert f \vert \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{Prop}
+	\subsection{Passaggio al limite sotto il segno di integrale}
+	\subsubsection{Teorema di convergenza monotona e conseguenze}
+	\begin{eTh}[Convergenza monotona, o di Beppo Levi]
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e siano $f_n$, $f$: X $\ra [0, +\infty]$ tali che
+		\begin{enumerate}
+			\item $f_n$ è misurabile per qualsiasi $n \geq 1$, 
+			\item $\lim_{n \ra +\infty} f_n(x) = f(x)$ per qualunque $x \in$ X e
+			\item 0 $\leq f_n(x) \leq f_{n+1}(x)$ per ogni $n \geq 1$ ed $x \in$ X.
+		\end{enumerate}
+		Allora si ha che $f$ è misurabile e
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{eTh}
+	Prima di procedere con la dimostrazione, mostriamo un lemma ausiliario:
+	\begin{eTh}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e sia $S$: X $\ra [0, +\infty]$ una funzione semplice misurabile. Allora $\mu_S$ è una misura.
+	\end{eTh}
+	\begin{proof}
+		$S$ ammette una decomposizione standard, $S(x)$ = $\sum_{i = 1}^{N} \alpha_i \chi_{A_i}(x)$, dunque per ogni E $\in \eu[M]$ si ha che $\mu_S$(E) = $\int_E S \ \mathrm{d}\mu = \sum_{i = 1}^{N} \alpha_i \mu(A_i \cap E)$. Se A = $\emptyset$, allora $\mu_S$(A) = 0 < $+\infty$. Sia dunque \{E$_n$\} una famiglia numerabile di insiemi a due a due disgiunti e sia E = $\cup_{n\geq1} E_n$. Allora si ha che
+		\begin{align*}
+		\mu_S(E) = \int_E S \ \mathrm{d}\mu &= \sum_{i = 1}^{N} \alpha_i \mu(A_i \cap E) \\
+		&= \sum_{i = 1}^{N} \alpha_i \mu\left(\bigcup_{n\geq1}(A_i \cap E_n)\right) \\
+		&= \sum_{i = 1}^{N} \sum_{n=1}^{+\infty} \alpha_i \mu(A_i \cap E_n) \\
+		&= \sum_{n=1}^{+\infty} \sum_{i=1}^{N} \alpha_i \mu(A_i \cap E_n) \\
+		&= \sum_{n=1}^{+\infty} \int_{E_n} S \ \mathrm{d}\mu \\
+		&= \sum_{n=1}^{+\infty} \mu_S(E_n),
+		\end{align*}
+		dove lo scambio delle serie è reso possibile dalla positività di $\alpha_i \mu(A_i \cap E_n)$.
+	\end{proof}
+	\begin{proof}
+		(\textit{Convergenza monotona}). \\
+		La misurabilità passa al limite sotto le ipotesi di convergenza puntuale, dunque resta da dimostrare l'uguaglianza. Per ipotesi, 0 $\leq f_n(x) \leq f_{n+1}(x) \leq f(x)$ per ogni $x \in$ X ed ogni $n \geq 1$. Dunque si ha che, per monotonia dell'integrale,
+		\begin{equation*}
+		\int_X f_n \ \mathrm{d}\mu \leq \int_X f_{n+1} \ \mathrm{d}\mu \leq \int_X f \ \mathrm{d}\mu,
+		\end{equation*}
+		dunque la successione degli integrali ammette limite, sia esso $\alpha$ = $\lim_{n \ra +\infty} \int_X f_n \mathrm{d}\mu = \sup_{n \in \bb[N]} \int_X f_n \ \mathrm{d}\mu$. Dalla relazione sopra, $\alpha \leq \int_X f \ \mathrm{d}\mu$. Scelti comunque $S \in \Sigma_f$ e $C \in (0,1)$, sia E$_n$ = \{$x \in$ X: $f_n(x) \geq CS(x)$\}. Si ha che E$_n \in \eu[M]$ per qualunque $n$, infatti E$_n$ = ($f_n - CS$)$^{-1}$($[0, +\infty]$), ovvero è la preimmagine di un boreliano mediante una funzione misurabile. Inoltre, E$_n \sseq$ E$_{n+1}$ per ogni $n$, dal momento che se $x \in$ E$_n$ si ha che $f_n(x) \geq CS(x)$, ma per ogni $x \in$ X $f_{n+1}(x) \geq f_n(x)$, da cui $x \in$ E$_{n+1}$. Infine, $\cup_{n\geq1} E_n$ = X. Di conseguenza, per la continuità della misura $\mu_S(X) = \mu_S(\cup_{n\geq1}E_n) = \lim_{n \ra +\infty} \mu_S(E_n)$. Per monotonia dell'integrale, $\mu_S(X) \geq \mu_S(E_n) \geq \mu_{CS}(E_n) = C\mu_S(E_n)$ e, passando al limite per $n \ra +\infty$,
+		\begin{equation*}
+		\alpha = \lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu \geq C \mu_S(X) = C \int_X S \ \mathrm{d}\mu
+		\end{equation*}
+		e poi per $C \ra 1^{-}$,
+		\begin{equation*}
+		\alpha = \lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu \geq \int_X S \ \mathrm{d}\mu.
+		\end{equation*}
+		Dal momento che questo è vero per qualunque scelta di $S$, $\alpha$ è un maggiorante dell'insieme degli integrali di funzioni di $\Sigma_f$ su X; in particolare, è maggiore o uguale dell'estremo superiore di questo insieme, ovverosia $\alpha \geq \int_X f \ \mathrm{d}\mu$.
+	\end{proof}
+	\begin{eTh}[Fatou]
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, $f_n$: X $\ra [0, +\infty]$ misurabili, allora:
+		\begin{equation*}
+		\int_X \liminf_{n \ra +\infty} f_n \ \mathrm{d}\mu \leq \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{eTh}
+	\begin{proof}
+		Definiamo $g_k = \inf_{n \geq k} f_n$. Si ha che $g_k \leq g_{k+1}$ e converge a $\liminf_{n \ra +\infty} f_n$ per definizione. Allora la tesi può essere riscritta nel modo seguente,
+		\begin{equation*}
+		\int_X \lim_{n \ra +\infty} g_n \ \mathrm{d}\mu \leq \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
+		\end{equation*}
+		Dal momento che per ogni $x \in X$ ed ogni $n \geq k$, $g_k(x) \leq f_n(x)$, allora per monotonia:
+		\begin{equation*}
+		\int_X g_k \ \mathrm{d}\mu \leq \int_X f_n \ \mathrm{d}\mu.
+		\end{equation*}
+		Perciò,
+		\begin{equation*}
+		\int_X g_k \ \mathrm{d}\mu \leq \inf_{n \geq k} \int_X f_n \ \mathrm{d}\mu,
+		\end{equation*}
+		da cui per conservazione del segno,
+		\begin{equation*}
+		\lim_{k \ra +\infty} \int_X g_k \ \mathrm{d}\mu \leq \lim_{k \ra +\infty} \inf_{n \geq k} \int_X f_n \ \mathrm{d}\mu = \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
+		\end{equation*}
+		Per il teorema di convergenza monotona possiamo scambiare limite e integrale,
+		\begin{equation*}
+		\int_X \lim_{k \ra +\infty} g_k \ \mathrm{d}\mu \leq \liminf_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{proof}
+	Le serie numeriche possono essere ridefinite a partire dall'integrale esteso. Nello specifico, sia X = $\bb[N]$ con la struttura di spazio misurabile data dalla $\sigma$-algebra $\eu[P]$($\bb[N]$). Sia inoltre $\mathsf{c}$ la misura conteggio. Sia poi $f$: $\bb[N] \ra [0, +\infty]$ una qualsiasi funzione (dal momento che ogni funzione è misurabile). Allora si verifica che
+	\begin{equation*}
+	\int_{\bb[N]} f \ \mathrm{d}\mathsf{c} = \sum_{n=1}^{+\infty} f(n).
+	\end{equation*}
+	Infatti, sia definita $f_n$ nel modo seguente: $f_n(x)$ = $f(x)$, se $1 \leq x \leq n$, mentre $f_n(x) = 0$ se $x > n$. Poiché per ogni $x \in \bb[N]$ si ha $f_n(x) \leq f_{n+1}(x)$ e $\lim\limits_{n \ra +\infty}f_n(x) = f(x)$, il teorema della convergenza monotona ci garantisce che
+	\begin{equation*}
+	\int_{\bb[N]} f \ \mathrm{d}\mathsf{c} = \lim_{n \ra +\infty} \int_{\bb[N]} f_n \ \mathrm{d}\mathsf{c} = \lim_{n \ra +\infty} \sum_{i = 1}^{n} f(i) \mathsf{c}(\{i\}) + 0\mathsf{c}(\{n+1, ...\}) = \sum_{i = 1}^{+\infty} f(i).
+	\end{equation*}
+	\begin{Prop}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, $f$, $g$: X $\ra [0, +\infty]$ misurabili, allora
+		\begin{equation*}
+		\int_X (f+g) \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu + \int_X g \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{Prop}
+	\begin{proof}
+		\textbf{TBD}
+	\end{proof}
+	\begin{eTh}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e siano $f_n$: X $\ra [0, +\infty]$ misurabili, allora
+		\begin{equation*}
+		\int_X \sum_{n\geq 1} f_n \ \mathrm{d}\mu = \sum_{n\geq 1} \int_X f_n \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{eTh}
+	\begin{proof}
+		Definiamo $S_n = \sum_{k=1}^{n} f_k$. Allora la tesi si può riscrivere come
+		\begin{equation*}
+		\int_X \lim_{n \ra +\infty} S_n \ \mathrm{d}\mu = \lim_{n \ra +\infty} \sum_{k=1}^{n} \int_X f_k \ \mathrm{d}\mu.
+		\end{equation*}
+		Poiché a secondo membro ora abbiamo una somma finita di integrali, possiamo riscrivere la tesi come
+		\begin{equation*}
+		\int_X \lim_{n \ra +\infty} S_n \ \mathrm{d}\mu = \lim_{n \ra +\infty} \int_X \sum_{k = 1}^{n} f_k \ \mathrm{d}\mu = \lim_{n \ra +\infty} \int_X S_n \ \mathrm{d}\mu.
+		\end{equation*}
+		Osserviamo che, essendo le $f_n$ a valori positivi, $S_n$ è una successione di funzioni crescente. Per il teorema di convergenza monotona segue la tesi.
+	\end{proof}
+	
+	\begin{eTh}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e sia $f$: X $\ra [0, +\infty]$ una funzione misurabile. Allora la funzione $\mu_f$: $\eu[M] \ra [0, +\infty]$ definita nel modo seguente,
+		\begin{equation*}
+		\mu_f(E) = \int_E f \ \mathrm{d}\mu,
+		\end{equation*}
+		è una misura e si ha
+		\begin{equation*}
+		\int_X g \ \mathrm{d}\mu_f = \int_X fg \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{eTh}
+	\begin{proof}
+		Anzitutto, $\mu_f(\emptyset)$ = 0 < $+\infty$. \\
+		Per mostrare la $\sigma$-additività, dobbiamo mostrare che
+		\begin{equation*}
+		\int_{\bigcup\limits_{n\geq1}E_n} f \ \mathrm{d}\mu = \sum_{n\geq 1} \int_{E_n} f \ \mathrm{d}\mu
+		\end{equation*}
+		o, equivalentemente, che (detto E = $\cup_{n\geq1}E_n$)
+		\begin{equation*}
+		\int_X \chi_E \ f \ \mathrm{d}\mu = \sum_{n\geq 1} \int_X \chi_{E_n} \ f \ \mathrm{d}\mu.
+		\end{equation*}
+		Dal momento che gli E$_n$ sono a due a due disgiunti, $\chi_E = \sum_{n\geq 1} \chi_{E_n}$, dunque ci si riduce a voler mostrare che
+		\begin{equation*}
+		\int_X \sum_{n\geq 1}(\chi_{E_n} \ f) \ \mathrm{d}\mu = \sum_{n\geq 1} \int_X \chi_{E_n} \ f \ \mathrm{d}\mu.
+		\end{equation*}
+		Essendo gli $E_n$ misurabili lo sono anche le loro funzioni caratteristiche e così il loro prodotto per $f$, dunque questo segue dal teorema di scambio serie-integrale appena dimostrato. Per la seconda parte, procediamo per step: anzitutto, proviamolo per le funzioni indicatrici $\chi_A$ di insiemi misurabili. Si ha infatti che
+		\begin{equation*}
+		\int_X \chi_A \ \mathrm{d}\mu_f = \mu_f(A) = \int_A f \ \mathrm{d}\mu = \int_X \chi_A f \ \mathrm{d}\mu.
+		\end{equation*}
+		A questo punto sia $g = \sum_{i=1}^{N} \alpha_i \chi_{A_i}$. Il risultato vale per la linearità dell'integrale. \\
+		Sia ora $g$ una qualsiasi funzione misurabile. Per il teorema di approssimazione mediante funzioni semplici esiste una successione di funzioni $S_n(x) \ra g(x)$ tale per cui $0 \leq \vert S_1(x) \vert \leq \vert S_2(x) \vert \leq ... \leq \vert g(x) \vert$. Per il teorema di convergenza monotona,
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X S_n \ \mathrm{d}\mu_f = \int_X g \ \mathrm{d}\mu_f.
+		\end{equation*}	
+		Osserviamo che
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X S_n \ \mathrm{d}\mu_f = \lim_{n \ra +\infty} \int_X f S_n \ \mathrm{d}\mu.
+		\end{equation*}
+		Chiamiamo $Q_n(x) = f(x)S_n(x)$. $f(x)$ è una funzione positiva, dunque la successione $Q_n(x)$ rimane crescente e convergente puntualmente a $f(x)g(x)$. Allora per il teorema di convergenza monotona,
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X Q_n \ \mathrm{d}\mu = \int_X fg \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{proof}
+	\begin{Cor}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura e $f$: X $\ra [0, +\infty]$ misurabile con $\int_X f \ \mathrm{d}\mu < +\infty$, allora $\forall \epsilon > 0 \ \exists \delta > 0$ tale che $\forall E \in \eu[M]$, $\mu$(E) < $\delta$ $\implies$ $\mu_f$(E) < $\epsilon$.
+	\end{Cor}
+	\begin{Th}[Radon-Nikodym]
+		Siano $\mu$, $\lambda$: $\eu[M] \ra [0, +\infty]$ due misure. Siano $\mu$ $\sigma$-finita e $\lambda$ finita: se $\lambda$ è assolutamente continua rispetto a $\mu$, allora esiste $f$: X $\ra [0, +\infty]$ misurabile tale che $\int_X f \ \mathrm{d}\mu < +\infty$ e per ogni E $\in \eu[M]$, $\lambda$(E) = $\int_E f \ \mathrm{d}\mu$.
+	\end{Th}
+	\subsubsection{Teorema della convergenza dominata}
+	\begin{eTh}[Convergenza dominata, o di Lebesgue]
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e siano $f_n$: X $\ra \bb[C]$ misurabili tali che:
+		\begin{enumerate}
+			\item esiste $f$: X $\ra \bb[C]$ tale che, per ogni $x \in$ X, $\lim_{n \ra +\infty} f_n(x) = f(x)$,
+			\item esiste $g$: X $\ra [0, +\infty]$ integrabile tale che $\vert f_n(x) \vert \leq g(x)$ per ogni $x \in$ X ed ogni $n\geq1$.
+		\end{enumerate}
+		Allora tanto $f$ quanto $f_n$ sono integrabili, e si ha che
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0
+		\end{equation*}
+		e
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{eTh}
+	\begin{proof}
+		Si ha che $\vert f \vert \leq g$ per conservazione del segno, dunque in particolare $f \in \sf[L]^1(\mu)$. Inoltre $\vert f_n - f \vert \leq \vert f_n \vert + \vert f \vert \leq 2g$, da cui applicando il lemma di Fatou alla funzione $2g - \vert f_n - f \vert$ si ottiene che
+		\begin{align*}
+		&\int_X 2g \ \mathrm{d}\mu \\
+		&\leq \liminf_{n \ra +\infty} \int_X 2g-\vert f_n - f \vert \ \mathrm{d}\mu \\
+		&= \int_X 2g \ \mathrm{d}\mu + \liminf_{n \ra +\infty} \left(-\int_X \vert f_n - f \vert \ \mathrm{d}\mu\right) \\
+		&= \int_X 2g \ \mathrm{d}\mu - \limsup_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu.
+		\end{align*}
+		$g$ è sommabile dunque il suo integrale è finito e si ottiene, sottraendolo due volte ad ambo i membri,
+		\begin{equation*}
+		\limsup_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu \leq 0.
+		\end{equation*}
+		Una successione a valori positivi può ammettere limite superiore nullo (se converge a zero) o, in ogni altro caso, ha limite superiore positivo. Non può che essere, dunque che
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0.
+		\end{equation*}
+		In particolare, si ha che
+		\begin{equation*}
+		\lim_{n \ra +\infty} \left\vert \int_X f_n - f \ \mathrm{d}\mu \right\vert \leq \lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0,
+		\end{equation*}
+		da cui segue che
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X f_n - f \ \mathrm{d}\mu = 0,
+		\end{equation*}
+		che per linearità è la tesi cercata.
+	\end{proof}
+	\begin{Cor}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, e siano $f_n$: X $\ra \bb[C]$ misurabili tali che:
+		\begin{enumerate}
+			\item esiste $f$: X $\ra \bb[C]$ tale che, per ogni $x \in$ X, $\lim_{n \ra +\infty} f_n(x) = f(x)$,
+			\item esiste $C > 0$ tale che $\vert f_n(x) \vert \leq C$ per ogni $x \in$ X e $n\geq1$,
+			\item $\mu(X) < +\infty$.
+		\end{enumerate}
+		Allora tanto $f$ quanto $f_n$ sono integrabili, e si ha che
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X \vert f_n - f \vert \ \mathrm{d}\mu = 0
+		\end{equation*}
+		e
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X f_n \ \mathrm{d}\mu = \int_X f \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{Cor}
+	\begin{Cor}
+		Sia (X, $\eu[M]$, $\mu$) uno spazio di misura, siano $f_n$: X $\ra \bb[C]$ misurabili. Se $\sum_{n=1}^{+\infty} \vert f_n(x) \vert < +\infty$ per ogni $x \in$ X e la somma è integrabile, allora
+		\begin{equation*}
+		\int_X \sum\limits_{n=1}^{+\infty} f_n \ \mathrm{d}\mu = \sum\limits_{n=1}^{+\infty} \int_X f_n \ \mathrm{d}\mu.
+		\end{equation*}
+	\end{Cor}
+	\begin{proof}
+		\textbf{TBD}
+	\end{proof}
+	\begin{Ex}
+		Sia $f_n(x) = x^n$ per $x \in [0,1]$. Questa successione converge puntualmente a $f(x)$ = 0 per $x \in [0,1)$ e $f(x)$ = 1 per $x = 1$, ma non vi converge uniformemente. Inoltre, $\vert x^n \vert \leq 1$ per ogni $x \in [0,1]$ e $\mu([0,1]) = 1$, dunque per il corollario del teorema della convergenza dominata,
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_{[0,1]} x^n \ \mathrm{d}x = \int_{[0,1]} f(x) \ \mathrm{d}x.
+		\end{equation*}
+	\end{Ex}
+	
+	\begin{Rem}
+		Il lemma di Fatou e i teoremi di convergenza valgono anche se all'ipotesi di convergenza puntuale si sostituisce quella di convergenza q.o..
+	\end{Rem}
+	
+	\subsection{Lo spazio $\sf[L]^1(\mu)$}
+	Svilupperemo ora la teoria necessaria a dotare lo spazio $\eu[L]^1(\mu)$ della struttura di spazio normato. In effetti, non sarà possibile farlo su $\eu[L]^1(\mu)$, ma dovremo ricorrere ad una sofisticazione. \\
+	Definiamo, per $f \in \eu[L]^1(\mu)$,
+	\begin{equation*}
+	\Vert f \Vert = \int_X \vert f \vert \mathrm{d}\mu.
+	\end{equation*}
+	Questa funzione rispetta quasi tutti gli assiomi necessari a renderla una norma, tranne uno. Infatti, si ha che $\Vert f \Vert \geq 0$ per ogni $f$ integrabile (per via della monotonia dell'integrale), inoltre per ogni $\lambda \in \bb[C]$ si ha che
+	\begin{equation*}
+	\Vert \lambda f \Vert = \int_X \vert \lambda f \vert \ \mathrm{d}\mu = \vert \lambda \vert \int_X \vert f \vert \ \mathrm{d}\mu = \vert \lambda \vert \Vert f \Vert,
+	\end{equation*}
+	e inoltre per ogni $f$, $g$ integrabili,
+	\begin{equation*}
+	\Vert f+g \Vert = \int_X \vert f+g \vert \ \mathrm{d}\mu \leq \int_X \vert f \vert + \vert g \vert \ \mathrm{d}\mu = \Vert f \Vert + \Vert g \Vert.
+	\end{equation*}
+	La proprietà che viene a mancare è quella che afferma che, presa $f$ integrabile, se $\Vert f \Vert = 0$, allora $f \equiv 0$. Il motivo è che, presa una qualunque funzione nulla ovunque tranne che su di un insieme di misura nulla, il suo integrale sarà pari a zero senza che essa sia costantemente zero. Per risolvere questo problema, dobbiamo anzitutto verificare che sia l'unica patologia possibile:
+	\begin{Prop}
+		Sia $f \in \eu[L]^1(\mu)$ tale che $\int_X \vert f \vert \ \mathrm{d}\mu = 0$. Allora esiste A $\in \eu[M]$ tale che $\mu(A) = 0$ e per ogni $x \in X$, se $x \in A$ allora $f(x) \neq 0$, se $x \in X \setminus A$ invece $f(x) = 0$.
+	\end{Prop}
+	\begin{proof}
+		Sia $\eu[Z]_f$ = \{$x \in$ X: $f(x) = 0$\}. \\
+		Allora $\eu[Z]_f^{c}$ = \{$x \in$ X: $\vert f(x) \vert \neq 0$\} = $\bigcup_{n \in \bb[N]}$ \{$x \in$ X: $\vert f(x) \vert > \frac{1}{n}$\}, dunque si ha che
+		\begin{equation*}
+		\int_{A_n} \vert f \vert \ \mathrm{d}\mu \geq \frac{1}{n} \int_{A_n} 1 \ \mathrm{d}\mu = \frac{1}{n} \mu(A_n).
+		\end{equation*}
+		Tuttavia,
+		\begin{equation*}
+		0 \leq \frac{1}{n} \mu(A_n) \leq \int_{A_n} \vert f \vert \mathrm{d}\mu \leq \int_X \vert f \vert \ \mathrm{d}\mu = 0
+		\end{equation*}
+		da cui $\mu(A_n) = 0$ per qualsiasi $n \geq 1$. Per la subaddività della misura, $\mu(\eu[Z]_f^{c}) = \mu(\bigcup_{n \in \bb[N]}A_n) \leq \sum_{n\geq 1} \mu(A_n) = 0$, da cui $\mu(\eu[Z]_f^{c}) = 0$.
+	\end{proof}
+	\begin{Def}
+		Diciamo che $f$ è nulla \textit{quasi ovunque} se $\mu(\eu[Z]_f^{c}) = 0$. Diciamo inoltre che $f$ è equivalente a $g$ se e solo se $f-g$ è nulla quasi ovunque. Chiamiamo $\sf[L]^1(\mu)$ il quoziente di $\eu[L]^1(\mu)$ rispetto a questa relazione d'equivalenza.
+	\end{Def}
+	\begin{Oss}
+		D'ora in poi sarà frequente un abuso di notazione in cui si confonderanno $f$ e la sua classe di equivalenza in $\sf[L]^1(\mu)$. Si tratta di un abuso innocuo, dal momento che $f$ e $g$ equivalenti implica che $\Vert f \Vert = \Vert g \Vert$.
+	\end{Oss}
+	\begin{eTh}
+		$\sf[L]^1(\mu)$ con la mappa indotta sul quoziente da $\Vert \cdot \Vert$ (che chiameremo ancora con lo stesso nome) è uno spazio normato completo.
+	\end{eTh}
+	In quanto spazio normato, $\sf[L]^1(\mu)$ acquista una struttura topologica, dunque è possibile parlare di \textit{densità} di un sottoinsieme di $\sf[L]^1(\mu)$. In particolare, diremo che E $\sset$ $\sf[L]^1(\mu)$ è denso se e solo se $\forall \epsilon > 0 \ \forall g \in \sf[L]^1(\mu) \ \exists h \in E \ \Vert h - g \Vert < \epsilon$, in altre parole se esiste una successione $\{h_n\} \sset E$ tale per cui $\Vert h_n-g \Vert \ra 0$. Mostriamo ora che alcuni sottoinsiemi interessanti di $\sf[L]^1(\mu)$ sono densi:
+	\begin{eTh}
+		$S_\mu$ = \{$s$: X $\ra \bb[C]$ semplice, misurabile ed integrabile\} è un sottoinsieme denso di $\sf[L]^1(\mu)$.
+	\end{eTh}
+	\begin{proof}
+		Sappiamo che, presa comunque $f \in \sf[L]^1(\mu)$, esiste una successione \{$s_n$\} di funzioni semplici e misurabili tali che $s_n(x) \ra f(x)$ per ogni $x \in$ X e, per ogni $n \geq 1$, $\vert s_n \vert \leq \vert f \vert$. Per monotonia dell'integrale segue che $s_n \in \sf[L]^1(\mu)$ per ogni $n \geq 1$. Per il teorema della convergenza dominata, $\lim_{n \ra +\infty} \int_X \vert s_n - f \vert \ \mathrm{d}\mu = 0$, ossia $\lim_{n \ra +\infty} \Vert s_n - f \Vert = 0$.
+	\end{proof}
+	\begin{Th}
+		Sia ($\bb[R]^{N}$, $\eu[L](\bb[R]^{N})$, $\mu$) lo spazio euclideo N-dimensionale con la struttura di spazio di misura data dalla misura di Lebesgue $\mu$. Allora $C_C$ = \{$f$: $\bb[R]^{N} \ra \bb[C]$ continue a supporto compatto\} è un sottoinsieme denso di $\sf[L]^1(\bb[R]^{N}; \mu)$.
+	\end{Th}
+	
+	\subsection{Misura in spazi prodotto} Siano (X, $\eu[M]$, $\mu$) e (Y, $\eu[N]$, $\lambda$) due spazi di misura, con $\mu$ e $\lambda$ $\sigma$-finite. L'obiettivo sarà dare una struttura di spazio di misura all'insieme prodotto, X $\times$ Y. Anzitutto, dotiamolo della struttura di spazio misurabile: definiamo $\eu[F]$ l'insieme \{A $\times$ B: A $\in \eu[M]$, B $\in \eu[N]$\} e chiamiamo $\eu[M] \times \eu[N]$ la $\sigma$-algebra generata da $\eu[F]$. \\
+	Per costruire la misura prodotto ci ispiriamo al caso di $\bb[R]^2$. L'obiettivo sarà ricalcolare ciò che si ha nel caso dell'integrale doppio \textit{à la Riemann}: si può suddividere l'insieme in questione in \textit{sezioni} orizzontali (Q$_y$) e verticali (Q$_x$) e a quel punto richiedere che valgano le seguenti formule:
+	\begin{equation*}
+	(\mu \times \lambda)(Q) = \int\limits_{X \times Y} \chi_Q \ \mathrm{d}(\mu \times \lambda) = \int\limits_X \left(\int_{Q_x} \chi_Q \ \mathrm{d}\lambda(y)\right) \ \mathrm{d}\mu(x) = \int\limits_Y \left(\int_{Q_y} \chi_Q \ \mathrm{d}\mu(x)\right) \ \mathrm{d}\lambda(y) 
+	\end{equation*}
+	che in qualche modo sono una versione più generale delle formule di separazione per integrali multipli. Prima di poter definire la misura prodotto in questo modo, però, è necessario verificare che sia possibile calcolare questi integrali.
+	\begin{Def}
+		Definiamo le sezioni di un sottoinsieme Q di X $\times$ Y. Se $x \in$ X ed $y \in$ Y, Q$_x$ = \{$z \in$ Y: $(x, z) \in Q$\} e Q$_y$ = \{$z \in$ X: $(z, y) \in Q$\}.
+	\end{Def}
+	\begin{Prop}
+		Sia Q $\in \eu[M] \times \eu[N]$, allora Q$_x \in \eu[N]$ e Q$_y \in \eu[M]$ per qualunque $x \in X$, $y \in Y$. Dunque esistono $\lambda(Q_x)$ e $\mu(Q_y)$ e risultano definite e misurabili le funzioni $\lambda(Q_{*})$ e $\mu(Q_{*})$ che associano rispettivamente a $x$ la misura di $\lambda(Q_x)$ e ad $y$ la misura di $\mu(Q_y)$.
+	\end{Prop}
+	\begin{Th}
+		Risultano definiti e uguali i seguenti integrali, per qualunque $x \in$ X ed $y \in$ Y:
+		\begin{equation*}
+		\int\limits_X \lambda(Q_x) \ \mathrm{d}\mu(x) = \int\limits_Y \mu(Q_y) \ \mathrm{d}\lambda(y).
+		\end{equation*}
+	\end{Th}
+	\begin{Def}
+		La misura $\mu \times \lambda$ è definita su $\eu[M] \times \eu[N]$ nel modo seguente: ad un insieme misurabile Q associa $\int_X \lambda(Q_x) \ \mathrm{d}\mu(x) = \int_Y \mu(Q_y) \ \mathrm{d}\lambda(y)$.
+	\end{Def}
+	\begin{Ex}
+		A partire da due spazi euclidei $\bb[R]^{N}$ ed $\bb[R]^{M}$ dotati della misura di Lebesgue si può costruire lo spazio prodotto e, sebbene la $\sigma$-algebra prodotto sia la stessa costruita su $\bb[R]^{N+M}$, la misura prodotto non è la stessa: $m_N \times m_M \neq m_{N+M}$. In effetti, quest'ultima è il completamento della prima.
+	\end{Ex}
+	\begin{Def}
+		Sia $f$: X $\times$ Y $\ra \bb[C]$ misurabile. Definiamo le funzioni $f_x$ = $f(x, \cdot)$ e $f^y$ = $f(\cdot, y)$.
+	\end{Def}
+	\begin{Prop}
+		Se $f$ è misurabile, sono misurabili $f_x$ ed $f^y$.
+	\end{Prop}
+	In virtù delle definizioni appena date, possiamo enunciare il seguente importante teorema:
+	\begin{Th}[Fubini-Tonelli, caso complesso]
+		Siano (X, $\eu[M]$, $\mu$) e (Y, $\eu[N]$, $\lambda$) due spazi di misura. Sia $f$: X$\times$Y $\ra \bb[C]$. Allora:
+		\begin{enumerate}
+			\item se $f \in \sf[L]^1(\mu \times \lambda)$, allora sia $f_x$ che $f^y$ sono nei rispettivi spazi $\sf[L]^1$ per quasi ogni $x$ od $y$, le funzioni
+			\begin{align*}
+			x &\ra \int_Y f_x \ \mathrm{d}\lambda \\
+			y &\ra \int_X f^y \ \mathrm{d}\mu
+			\end{align*}
+			sono nei rispettivi spazi $\sf[L]^1$ (e prendono solo valori finiti) e si ha
+			\begin{equation*}
+			\int_{X \times Y} f(x,y) \ \mathrm{d}(\mu \times \lambda) = \int_X \int_Y f(x,y) \ \mathrm{d}\lambda \ \mathrm{d}\mu = \int_Y \int_X f(x,y) \ \mathrm{d}\mu \ \mathrm{d}\lambda,
+			\end{equation*}
+			\item se $f$ è misurabile e vale una delle due condizioni,
+			\begin{equation*}
+			\int_X \int_Y \vert f_x \vert \ \mathrm{d}\lambda \ \mathrm{d}\mu < +\infty
+			\end{equation*}
+			oppure
+			\begin{equation*}
+			\int_Y \int_X \vert f^y \vert \ \mathrm{d}\mu \ \mathrm{d}\lambda < +\infty
+			\end{equation*}
+			allora $f \in \sf[L]^1(\mu \times \lambda)$.
+		\end{enumerate}
+	\end{Th}
+	\begin{Th}[Fubini-Tonelli, caso reale]
+		Sia $f$: X $\times$ Y $\ra [0, +\infty]$: se $f$ è misurabile, allora vale
 		\begin{equation*}
 		\int_{X \times Y} f(x,y) \ \mathrm{d}(\mu \times \lambda) = \int_X \int_Y f(x,y) \ \mathrm{d}\lambda \ \mathrm{d}\mu = \int_Y \int_X f(x,y) \ \mathrm{d}\mu \ \mathrm{d}\lambda,
 		\end{equation*}
-		\item se $f$ è misurabile e vale una delle due condizioni,
-		\begin{equation*}
-		\int_X \int_Y \vert f_x \vert \ \mathrm{d}\lambda \ \mathrm{d}\mu < +\infty
-		\end{equation*}
-		oppure
-		\begin{equation*}
-				\int_Y \int_X \vert f^y \vert \ \mathrm{d}\mu \ \mathrm{d}\lambda < +\infty
-		\end{equation*}
-		allora $f \in \sf[L]^1(\mu \times \lambda)$.
-	\end{enumerate}
-\end{Th}
-\begin{Th}[Fubini-Tonelli, caso reale]
-	Sia $f$: X $\times$ Y $\ra [0, +\infty]$: se $f$ è misurabile, allora vale
-			\begin{equation*}
-	\int_{X \times Y} f(x,y) \ \mathrm{d}(\mu \times \lambda) = \int_X \int_Y f(x,y) \ \mathrm{d}\lambda \ \mathrm{d}\mu = \int_Y \int_X f(x,y) \ \mathrm{d}\mu \ \mathrm{d}\lambda,
-	\end{equation*}
-	dove le uguaglianze sono da intendersi in $[0, +\infty]$.
-\end{Th}
-\subsection{Riemann vs. Lebesgue}
-Procediamo a fare un confronto fra le due teorie dell'integrazione. Anzitutto, è bene ricordare come l'integrazione secondo Riemann abbia un significato teorico diverso a seconda che gli insiemi su cui si integra abbiano misura finita o infinita, mentre per Lebesgue questo tipo di problema non viene a porsi. Soffermiamoci dapprima sull'integrazione su insiemi di misura finita, il cosiddetto integrale \textit{definito} (à la Riemann). D'ora in poi, sia $f$: $[a,b] \ra \bb[R]$. Allora perché si possa scrivere l'integrale di Riemann si richiede che $f$ sia limitata, mentre quello di Lebesgue prevede come clausola una funzione misurabile. Entrambi vengono costruiti a partire da funzioni \textit{semplici}, ma se nel caso di Riemann (d'ora in poi, funzioni $R$-semplici) queste sono funzioni che prendono valori costanti su intervalli della retta reale, nel caso di Lebesgue ($L$-semplici) prendono valori costanti su sottoinsiemi misurabili della retta. In effetti, si ha che $R$-semplice $\implies$ $L$-semplice, ma non viceversa (ad esempio, $\chi_{\bb[Q] \cap [0,1]}$ è $L$-semplice ma non $R$-semplice). D'altro canto, se $f$ è una funzione $R$-semplice si ha
-\begin{equation*}
+		dove le uguaglianze sono da intendersi in $[0, +\infty]$.
+	\end{Th}
+	\subsection{Riemann vs. Lebesgue}
+	Procediamo a fare un confronto fra le due teorie dell'integrazione. Anzitutto, è bene ricordare come l'integrazione secondo Riemann abbia un significato teorico diverso a seconda che gli insiemi su cui si integra abbiano misura finita o infinita, mentre per Lebesgue questo tipo di problema non viene a porsi. Soffermiamoci dapprima sull'integrazione su insiemi di misura finita, il cosiddetto integrale \textit{definito} (à la Riemann). D'ora in poi, sia $f$: $[a,b] \ra \bb[R]$. Allora perché si possa scrivere l'integrale di Riemann si richiede che $f$ sia limitata, mentre quello di Lebesgue prevede come clausola una funzione misurabile. Entrambi vengono costruiti a partire da funzioni \textit{semplici}, ma se nel caso di Riemann (d'ora in poi, funzioni $R$-semplici) queste sono funzioni che prendono valori costanti su intervalli della retta reale, nel caso di Lebesgue ($L$-semplici) prendono valori costanti su sottoinsiemi misurabili della retta. In effetti, si ha che $R$-semplice $\implies$ $L$-semplice, ma non viceversa (ad esempio, $\chi_{\bb[Q] \cap [0,1]}$ è $L$-semplice ma non $R$-semplice). D'altro canto, se $f$ è una funzione $R$-semplice si ha
+	\begin{equation*}
 	\int_{a}^{b} f(x) \ \mathrm{d}x = \sum_{i=1}^{N} s_i (x_i - x_{i-1}) = \sum_{i=1}^{N} s_i m([x_{i-1}, x_i]) = \int_{[a,b]} f \ \mathrm{d}m, 
-\end{equation*}
-ovvero gli integrali vanno a coincidere. La famiglia di funzioni $L$-semplici è perciò più grande di quella di funzioni $R$-semplici --- diventano integrabili molte più funzioni. Si ha in effetti che, in particolare, rimangono integrabili tutte le precedenti funzioni integrabili:
-\begin{eTh}
-	Sia $f$: $[a,b] \ra \bb[R]$ limitata e integrabile secondo Riemann, allora $f$ è misurabile e vale
-	\begin{equation*}
-	\int_{a}^{b} f(x) \ \mathrm{d}x = \int_{[a,b]} f \ \mathrm{d}m.
 	\end{equation*}
-\end{eTh}
-\begin{proof}[Traccia]
-	Per l'ipotesi di Riemann-integrabilità, esistono due successioni $g_n$ e $G_n$ $R$-semplici tali che $g_n \leq f \leq G_n$ per ogni $n \geq 1$ e
-	\begin{equation*}
-	\int_{a}^{b} f(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{a}^{b} g_n(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{a}^{b} G_n(x) \ \mathrm{d}x.
-	\end{equation*}
-	Si avrà che $g_n = \sum_{i = 1}^{N_n} (\inf_{[x_{i-1}, x_i]} f) \ \chi_{[x_{i-1}, x_i]}$ e $G_n = \sum_{i = 1}^{N_n} (\sup_{[x_{i-1}, x_i]} f) \ \chi_{[x_{i-1}, x_i]}$ su un'opportuna partizione di $[a,b]$ in intervalli. In particolare, manipolando gli intervalli si possono costruire $g_n$ e $G_n$ rispettivamente crescenti e decrescenti. Su $[a,b]$ esisteranno allora $f_{*}(x) = \lim_{n \ra +\infty} g_n(x)$ e $f^{*}(x) = \lim_{n \ra +\infty} G_n(x)$, con $f_{*}(x) \leq f(x) \leq f^{*}(x)$ per ogni $x \in [a,b]$. Dal momento che $g_n$ e $G_n$ sono misurabili lo sono anche $f_{*}$ e $f^{*}$. Attraverso il teorema della convergenza dominata (\textbf{TBD}) si ottiene che
-	\begin{equation*}
+	ovvero gli integrali vanno a coincidere. La famiglia di funzioni $L$-semplici è perciò più grande di quella di funzioni $R$-semplici --- diventano integrabili molte più funzioni. Si ha in effetti che, in particolare, rimangono integrabili tutte le precedenti funzioni integrabili:
+	\begin{eTh}
+		Sia $f$: $[a,b] \ra \bb[R]$ limitata e integrabile secondo Riemann, allora $f$ è misurabile e vale
+		\begin{equation*}
+		\int_{a}^{b} f(x) \ \mathrm{d}x = \int_{[a,b]} f \ \mathrm{d}m.
+		\end{equation*}
+	\end{eTh}
+	\begin{proof}[Traccia]
+		Per l'ipotesi di Riemann-integrabilità, esistono due successioni $g_n$ e $G_n$ $R$-semplici tali che $g_n \leq f \leq G_n$ per ogni $n \geq 1$ e
+		\begin{equation*}
+		\int_{a}^{b} f(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{a}^{b} g_n(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{a}^{b} G_n(x) \ \mathrm{d}x.
+		\end{equation*}
+		Si avrà che $g_n = \sum_{i = 1}^{N_n} (\inf_{[x_{i-1}, x_i]} f) \ \chi_{[x_{i-1}, x_i]}$ e $G_n = \sum_{i = 1}^{N_n} (\sup_{[x_{i-1}, x_i]} f) \ \chi_{[x_{i-1}, x_i]}$ su un'opportuna partizione di $[a,b]$ in intervalli. In particolare, manipolando gli intervalli si possono costruire $g_n$ e $G_n$ rispettivamente crescenti e decrescenti. Su $[a,b]$ esisteranno allora $f_{*}(x) = \lim_{n \ra +\infty} g_n(x)$ e $f^{*}(x) = \lim_{n \ra +\infty} G_n(x)$, con $f_{*}(x) \leq f(x) \leq f^{*}(x)$ per ogni $x \in [a,b]$. Dal momento che $g_n$ e $G_n$ sono misurabili lo sono anche $f_{*}$ e $f^{*}$. Attraverso il teorema della convergenza dominata (\textbf{TBD}) si ottiene che
+		\begin{equation*}
 		\int_{[a,b]} f_{*} \ \mathrm{d}m = \lim_{n \ra +\infty} \int_{[a,b]} g_n \ \mathrm{d}m = \lim_{n \ra +\infty} \int_{a}^{b} g_n(x) \ \mathrm{d}x = \int_{a}^{b} f(x) \ \mathrm{d}x
-	\end{equation*}
-	e, analogamente,
-	\begin{equation*}
-	\int_{[a,b]} f^{*} \ \mathrm{d}m = \lim_{n \ra +\infty} \int_{[a,b]} G_n \ \mathrm{d}m = \lim_{n \ra +\infty} \int_{a}^{b} G_n(x) \ \mathrm{d}x = \int_{a}^{b} f(x) \ \mathrm{d}x
-	\end{equation*}
-	da cui,
-	\begin{equation*}
-	\int_{[a,b]} f_{*} \ \mathrm{d}m = \int_{[a,b]} f^{*} \ \mathrm{d}m.
-	\end{equation*}
-	Dal momento che, per costruzione, $f^{*}(x) - f_{*}(x) \geq 0$ per ogni $x \in [a,b]$, questo significa che
-	\begin{equation*}
-	\int_{[a,b]} \vert f^{*} - f_{*} \vert \ \mathrm{d}m = 0
-	\end{equation*}
-	ovvero che $f^{*}$ e $f_{*}$ sono uguali q.o. su $[a,b]$, ed entrambe sono uguali a $f$ da cui gli integrali vanno a coincidere.
-\end{proof}
-Nel caso di integrali impropri per via del dominio, risulta ancora che gli integrali vanno a coincidere ma, questa volta, si ha un'uguaglianza in $[0, +\infty]$. Infatti vale che:
-\begin{Th}
-	Sia $f: X \ra [0, +\infty)$ limitata e integrabile secondo Riemann su $[0, \alpha]$ per ogni $\alpha > 0$. Allora si ha che
-	\begin{equation*}
-	\int_{0}^{+\infty} f(x) \ \mathrm{d}x = \int_{[0, +\infty)} f(x) \ \mathrm{d}x.
-	\end{equation*}
-In particolare, $f$ è integrabile secondo Lebesgue se e solo se il suo integrale improprio secondo Riemann converge.
-\end{Th}
-\begin{proof}
-	Per definizione,
-	\begin{equation*}
-	\int_{0}^{+\infty} f(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{0}^{\alpha_n} f(x) \ \mathrm{d}x
-	\end{equation*}
-	per una qualche successione $\alpha_n$ divergente. Per ipotesi, $f$ è Lebesgue-integrabile su $[0, \alpha_n]$ per ogni $n$, per cui
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_{0}^{\alpha_n} f(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{[0, \alpha_n]} f \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{[0, +\infty)} \chi_{[0, \alpha_n]} f \ \mathrm{d}x.
-	\end{equation*}
-	Definiamo $g_n = \chi_{[0, \alpha_n]}f$ ed osserviamo che, per ogni $n$, $\vert g_n \vert \leq \vert f \vert \in \sf[L]^1$. Per il teorema di convergenza dominata, allora
-	\begin{equation*}
-	\int_{0}^{+\infty} f(x) \ \mathrm{d}x = \int_{[0,+\infty)} \lim_{n \ra +\infty}\chi_{[0, \alpha_n]}f \ \mathrm{d}x = \int_{[0, +\infty)} f \ \mathrm{d}x.
-	\end{equation*}
-\end{proof}
-\subsection{Misura e probabilità}
-È possibile rileggere l'intera teoria della probabilità \textit{à la Kolmogorov} in luce della teoria della misura. Diciamo che uno spazio di misura ($\Omega, \ \eu[M], \ \bb[P]$) è uno \textbf{spazio di probabilità} se $\bb[P](\Omega) = 1$. In particolare, gli elementi di $\Omega$ si diranno \textit{eventi}. Allora una funzione $X$: $\Omega \ra \bb[R]$ misurabile verrà detta \textit{variabile aleatoria}: questa permetterà di costruire una \textit{misura indotta} sui boreliani di $\bb[R]$ assegnando, per ogni $B$ boreliano, $\bb[P]_X(B)$ = $\bb[P](X^{-1}(B))$. \\
-In luce di questo nuovo linguaggio, una variabile aleatoria $X$ si dirà \textit{discreta} se $\bb[P]_X$ è una misura discreta, ovverosia se esiste un sottoinsieme E al più numerabile di $\bb[R]$, E = \{$x_1, x_2, ... x_{n}, x_{n+1}, ...$\}, per cui $\bb[P]_X(E) = 1$ e per ogni boreliano $B$, $\bb[P]_X(B) = \sum_{n: \ x_n \in B} \bb[P]_X(\{x_n\})$. Una variabile aleatoria si dirà invece \textit{assolutamente continua} se $\bb[P]_X$ risulterà assolutamente continua rispetto alla misura di Lebesgue: per il teorema di Radon-Nykodim si avrà che esiste una $f$: $\bb[R] \ra \bb[R]^{+} \in \sf[L]^1(\bb[R], \sf[bor](\bb[R]))$ tale che $\bb[P]_X(B) = \int_B f \ \mathrm{d}m$, la cosiddetta \textit{densità} della variabile aleatoria.
-\subsection{Integrazione dipendente da un parametro}
-Siano $I, \ J \sset \bb[R]$, e sia $g$: $I \times J \ra \bb[C]$. Se $g(\cdot, x) \in \sf[L]^1(I, \sf[bor](\bb[R]))$, allora risulta definito l'\textit{integrale dipendente da un parametro} $F$: $J \ra \bb[R] \sset \bb[C]$ dato da
-\begin{equation*}
-F(x) = \int_I g(t,x) \ \mathrm{d}m(t).
-\end{equation*}
-\subsection{Proprietà di regolarità}
-Enunciamo ora un teorema che riassume le proprietà di regolarità dell'integrale dipendente da un parametro nel caso della teoria di Riemann e in quello della teoria di Lebesgue:
-\begin{eTh}
-	Sia I = $[a,b]$ e $F(x) = \int_{a}^{b} g(t,x) \ \mathrm{d}t$, allora
-	\begin{enumerate}
-		\item se $g$ è continua su $[a,b] \times J$, $F$ è continua su $J$,
-		\item se $g$ e $\frac{\pd g}{\pd x}$ sono continue su $[a,b] \times J$, allora $F$ è derivabile su $J$ e vale
-		\begin{equation*}
-		F'(x) = \int_{a}^{b} \frac{\pd g}{\pd x}(t,x) \ \mathrm{d}t
 		\end{equation*}
-		per ogni $t \in J$.
-	\end{enumerate}
-	Siano invece più in generale $I$ e $J$ sottoinsiemi misurabili di $\bb[R]$, allora
-	\begin{enumerate}
-		\item se $g(t, \cdot)$ è continua su $J$ ed esiste $\varphi \in \sf[L]^1(I, m)$ tale che $\vert g(t,x) \vert \leq \varphi(t)$ per ogni $(t,x) \in I \times J$, allora $F$ è continua su $J$,
-		\item se esiste $\frac{\pd g}{\pd x}$ e $\psi \in \sf[L]^1(I, m)$ tale che $\vert \frac{\pd g}{\pd x}(t,x) \vert \leq \psi(t)$ per ogni $(t,x) \in I \times J$, allora $F$ è derivabile su $J$ e vale
+		e, analogamente,
 		\begin{equation*}
-		F'(x) = \int_I \frac{\pd g}{\pd x}(t,x) \ \mathrm{d}t
+		\int_{[a,b]} f^{*} \ \mathrm{d}m = \lim_{n \ra +\infty} \int_{[a,b]} G_n \ \mathrm{d}m = \lim_{n \ra +\infty} \int_{a}^{b} G_n(x) \ \mathrm{d}x = \int_{a}^{b} f(x) \ \mathrm{d}x
 		\end{equation*}
-		per ogni $x \in J$.
-	\end{enumerate}
-\end{eTh}
-\begin{proof}
-Concentriamoci sui due risultati (1), ovvero di continuità: vogliamo mostrare che $\lim_{x \ra x_0} F(x) = F(x_0) = \int_I g(t,x_0) \ \mathrm{d}t$, o equivalentemente che per ogni successione $x_n$ a valori reali che converga a $x_0$, $\lim_{n \ra +\infty} F(x_n) = F(x_0) = \int_I g(t, x_0) \ \mathrm{d}t$. Definiamo $g(t, x_0) = g_0(t)$ e $g(t, x_n) = g_n(t)$: risulta che, per l'ipotesi di continuità su $g$, $\lim_{n \ra +\infty} g_n(t) = g_0(t)$. Stiamo quindi cercando di mostrare che 
-\begin{equation*}
-\lim_{n \ra +\infty} \int_I g_n(t) \ \mathrm{d}t = \int_I g_0(t) \ \mathrm{d}t = \int_I \lim_{n \ra +\infty} g_n(t) \ \mathrm{d}t,
-\end{equation*}
-ovvero un risultato di passaggio al limite sotto il segno d'integrale. Nel caso di Lebesgue, l'ipotesi ci fornisce una funzione dominatrice --- possiamo concludere immediatamente per il teorema di convergenza dominata. Nel caso di Riemann la questione è più complessa: per poter passare al limite dobbiamo esibire prova di convergenza uniforme della nostra successione $g_n$. Ora, $g$ è continua su $[a,b] \times J$, dunque se $J_0$ è un intervallo compatto a cui appartiene $x_0$ e che è contenuto in $J$, a sua volta $R_0$ = $[a,b] \times J_0$ sarà un compatto contenuto in $[a,b] \times J$ e per il teorema di \textit{Heine-Cantor} si avrà continuità uniforme della $g$ su $R_0$. Questo ci permette di dire che, scelto comunque $\varepsilon > 0$, esiste $\delta > 0$ tale che, per ogni $(t, x), \ (t', x') \in R_0$, se $\Vert (t,x) - (t',x') \Vert \leq \delta$, allora $\vert g(t,x) - g(t',x') \vert < \varepsilon$. Fissiamo $\delta$ come sopra, allora per la convergenza di $x_n$ a $x_0$ si avrà che esiste un $N$ per cui, $\forall n \geq N$ $\vert x_n - x_0 \vert < \delta$. Allora ricordiamo la tesi: vogliamo mostrare che, preso comunque $\varepsilon > 0$, esiste $N \in \bb[N]$ tale per cui $\forall n \geq N$ e $\forall t \in [a,b]$, $\vert g_n(t) - g_0(t) \vert < \varepsilon$. Scelti perciò $\delta$ e $N$ come sopra, si ha che per ogni $n \geq N$ e per ogni $t \in [a,b]$, $\Vert (t, x_n) - (t, x_0) \Vert = \vert x_n - x_0 \vert < \delta$ e perciò $\vert g(t, x_n) - g(t, x_0) \vert = \vert g_n(t) - g_0(t) \vert < \varepsilon$. \\
-Per i risultati (2) di derivabilità, dapprima lavoriamo sulla tesi: vogliamo provare che, fissato $x_0$,
-\begin{equation*}
-\lim_{x \ra x_0} \frac{F(x) - F(x_0)}{x - x_0} = \int_I \frac{\pd g}{\pd x}(t,x) \ \mathrm{d}t,
-\end{equation*}
-o equivalentemente che presa comunque $x_n \ra x_0$,
-\begin{equation*}
-\lim_{n \ra +\infty} \frac{F(x_n) - F(x_0)}{x_n-x_0} = \int_I \frac{\pd g}{\pd x}(t, x_0) \ \mathrm{d}t.
-\end{equation*}
-Detta $\frac{\pd g}{\pd x}(t, x_0) = h_0(t)$, si ha inoltre che
-\begin{equation*}
-\frac{F(x_n) - F(x_0)}{x_n-x_0} = \frac{1}{x_n-x_0} \left( \int_I g(t, x_n) \ \mathrm{d}t - \int_I g(t, x_0) \ \mathrm{d}t \right) = \int_I \frac{g(t, x_n) - g(t, x_0)}{x_n-x_0} \ \mathrm{d}t.
-\end{equation*}
-Chiamiamo l'integranda dell'ultimo integrale $h_n(t)$. Allora l'obiettivo è mostrare, nuovamente, che
-\begin{equation*}
-\lim_{n \ra +\infty} \int_I h_n(t) \ \mathrm{d}t = \int_I h_0(t) \ \mathrm{d}t.
-\end{equation*}
-Si ha la convergenza puntuale di $h_n$ a $h_0$ (per definizione di derivata parziale), ma ciò non è sufficiente. Per il teorema di Lagrange applicato nella variabile $x$,
-\begin{equation*}
-h_n(t) = \frac{g(t, x_n) - g(t, x_0)}{x_n-x_0} = \frac{\pd g}{\pd x}(t, x_0 + \theta(x_n-x_0)).
-\end{equation*}
-La tesi perciò diventa,
-\begin{equation*}
-\lim_{n \ra +\infty} \int_I \frac{\pd g}{\pd x}(t, x_0 + \theta(x_n-x_0)) \ \mathrm{d}t = \int_I \frac{\pd g}{\pd x}(t, x_0) \ \mathrm{d}t.
-\end{equation*}
-Ancora una volta nel caso di Lebesgue questa segue dal teorema della convergenza dominata, mentre nel caso di Riemann da un argomento di convergenza uniforme su un compatto contenuto in $[a,b] \times J$.
-\end{proof}
-\subsection{Modi di convergenza}
-$\sf[L]^1(\mu)$ è dotato di una norma --- questa vi induce una struttura topologica e, dunque, una nozione di convergenza. In particolare, si avrà che $f_n \ra_{\sf[L]^1} f$ se e solo se $\int_X \vert f_n - f \vert \ \mathrm{d}\mu \ra 0$ per $n \ra +\infty$. D'ora in poi denoteremo la convergenza uniforme con $\ra_{\sf[un]}$, la convergenza puntuale con la semplice freccia $\ra$ e la convergenza q.o. con $\ra_{\sf[q.o.]}$. Esiste un ultimo modo di convergenza interessante:
-\begin{Def}
-	Una successione di funzioni $f_n$ misurabili a valori complessi \textbf{converge in misura} ad $f$ ($f_n \ra_{\mu} f$) se per ogni $\kappa > 0$,
-	\begin{equation*}
-	\mu\left(\{x: \vert f_n(x) - f(x) \vert \geq \kappa\}\right) \ra 0,
-	\end{equation*}
-	per $n \ra +\infty$.
-\end{Def}
- Risulta legittimo chiedersi quali siano le implicazioni fra questi modi di convergenza. È noto che la convergenza uniforme implichi quella puntuale, e quest'ultima quella q.o.; tuttavia, non è chiaro in quali casi queste implichino quella $\sf[L]^1$. In effetti, la risposta è \textit{in nessun caso}.
-\begin{Ex}
-	Sia $f_n(x) = \frac{1}{n} \chi_{(0,n)}(x)$. Sia $f(x) = 0$ per ogni $x \in \bb[R]$, allora $f_n \ra f$ e in effetti, dal momento che $\sup_{\bb[R]} f_n = \frac{1}{n}$, $f_n \ra_{\sf[un]} f$. Tuttavia $\int_{\bb[R]} \vert f_n \vert \ \mathrm{d}m = \frac{1}{n}$, dunque non c'è convergenza $\sf[L]^1$ a $f$. Si ha invece convergenza in misura.
-\end{Ex}
-\begin{Ex}
-	Sia $f_n(x) = \chi_{(n, n+1)}(x)$. Per ogni $x \in \bb[R]$, $\lim_{n \ra +\infty} f_n(x) = 0$ (infatti da un certo $n$ in poi $x$ non apparterrà all'intervallo $(n, n+1)$). Tuttavia, $\sup_{\bb[R]} f_n = 1$ che non tende a 0, da cui la convergenza è solo puntuale e non uniforme. L'integrale ancora una volta ha valore 1 costante --- non c'è nemmeno convergenza $\sf[L]^1$.
-\end{Ex}
-\begin{Ex}
-	Sia $f_n(x) = n \chi_{[0, \frac{1}{n}]}$.  Per $x \neq 0$ il limite di $f_n(x)$ tende a zero come nell'esempio precedente; in $x = 0$ il limite diverge a $+\infty$, dunque si ha convergenza solamente q.o.. Anche in questo caso l'integrale vale 1 e non si ha convergenza $\sf[L]^1$. Si ha invece convergenza in misura.
-\end{Ex}
-\begin{Ex}
-	Sia $f_n(x) = \chi_{[j2^{-k}, (j+1)2^{-k}]}$, con $0 \leq j < 2^k$ e $n = j + 2^k$. Si ha che, per ogni $n$ ed ogni $k$, $2^k \leq n \leq 2^{k+1}$, da cui $\int_{\bb[R]} \vert f_n \vert \ \mathrm{d}m = 2^{-k} \ra 0$ per $n \ra +\infty$. Tuttavia, $f_n(x)$ non converge nemmeno q.o. su $[0,1]$ dal momento che il suo valore continua a oscillare fra 0 ed 1 per $n \ra +\infty$. Si ha, inoltre, convergenza in misura.
-\end{Ex}
-L'ipotesi di finitezza sulla misura, tuttavia, è sufficiente a garantire che la convergenza uniforme implichi quella $\sf[L]^1$:
-\begin{Th}
-	Sia $f_n$: X $\ra \bb[R]$ integrabile per ogni $n$, e si abbia $f_n \ra_{\sf[un]} f$ su X. Sia $\mu(X) < +\infty$, allora $f$ è integrabile e $f_n \ra_{\sf[L]^1} f$.
-\end{Th}
-\begin{proof}
-	$f$ risulta misurabile perché la misurabilità passa al limite. Inoltre per la convergenza uniforme si ha che esiste un $N$ tale per cui ogni $n \geq N$ è tale che $\vert f_n(x) - f(x) \vert < 1$ per ogni $x \in X$. Allora in particolare per ogni $x \in X$ si ha $\vert f(x) \vert \leq \vert f - f_N \vert + \vert f_N \vert \leq 1 + \vert f_N \vert$, che per monotonia implica che
-	\begin{equation*}
-	\int_X \vert f \vert \ \mathrm{d}\mu \leq \int_X 1 + \vert f_N \vert \ \mathrm{d}\mu = \mu(X) + \int_X f_N \ \mathrm{d}\mu.
-	\end{equation*}
-	Per ipotesi $\mu(X) < +\infty$ e così l'integrale di $\vert f_N \vert$, dal momento che è integrabile. Segue che anche $f$ è integrabile. Preso comunque $\varepsilon > 0$, inoltre, esiste $N$ tale che ogni $n \geq N$ è tale che $\vert f_n - f\vert < \varepsilon$, dunque $\int_X \vert f_n - f \vert \ \mathrm{d}\mu < \int_X \varepsilon \ \mathrm{d}\mu = \varepsilon \mu(X)$ e siccome $\mu(X) < +\infty$, questo significa che l'integrale di $\vert f_n - f \vert$ tende a zero, ovvero $f_n \ra_{\sf[L]^1} f$.
+		da cui,
+		\begin{equation*}
+		\int_{[a,b]} f_{*} \ \mathrm{d}m = \int_{[a,b]} f^{*} \ \mathrm{d}m.
+		\end{equation*}
+		Dal momento che, per costruzione, $f^{*}(x) - f_{*}(x) \geq 0$ per ogni $x \in [a,b]$, questo significa che
+		\begin{equation*}
+		\int_{[a,b]} \vert f^{*} - f_{*} \vert \ \mathrm{d}m = 0
+		\end{equation*}
+		ovvero che $f^{*}$ e $f_{*}$ sono uguali q.o. su $[a,b]$, ed entrambe sono uguali a $f$ da cui gli integrali vanno a coincidere.
 	\end{proof}
-Inoltre, risulta che la convergenza $\sf[L]^1$ implichi quella in misura:
-\begin{eTh}
-	Sia $f_n \ra_{\sf[L]^1} f$, allora $f_n \ra_{\mu} f$.
-\end{eTh}
-\begin{proof}
-	Per ipotesi $\int_X \vert f_n - f \vert \ \mathrm{d}\mu \ra 0$, ovvero per ogni $\varepsilon > 0$ esiste un $N$ tale che per ogni $n \geq N$, $\int_X \vert f_n - f \vert \ \mathrm{d}\mu < \varepsilon$. Per ogni $n \geq N$ ed ogni $\kappa$, denotiamo con $\Omega_{n, \kappa}$ l'insieme degli $x \in X$ tali che $\vert f_n(x) - f(x) \vert \geq \kappa$. Allora risulterà che 
+	Nel caso di integrali impropri per via del dominio, risulta ancora che gli integrali vanno a coincidere ma, questa volta, si ha un'uguaglianza in $[0, +\infty]$. Infatti vale che:
+	\begin{Th}
+		Sia $f: X \ra [0, +\infty)$ limitata e integrabile secondo Riemann su $[0, \alpha]$ per ogni $\alpha > 0$. Allora si ha che
+		\begin{equation*}
+		\int_{0}^{+\infty} f(x) \ \mathrm{d}x = \int_{[0, +\infty)} f(x) \ \mathrm{d}x.
+		\end{equation*}
+		In particolare, $f$ è integrabile secondo Lebesgue se e solo se il suo integrale improprio secondo Riemann converge.
+	\end{Th}
+	\begin{proof}
+		Per definizione,
+		\begin{equation*}
+		\int_{0}^{+\infty} f(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{0}^{\alpha_n} f(x) \ \mathrm{d}x
+		\end{equation*}
+		per una qualche successione $\alpha_n$ divergente. Per ipotesi, $f$ è Lebesgue-integrabile su $[0, \alpha_n]$ per ogni $n$, per cui
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_{0}^{\alpha_n} f(x) \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{[0, \alpha_n]} f \ \mathrm{d}x = \lim_{n \ra +\infty} \int_{[0, +\infty)} \chi_{[0, \alpha_n]} f \ \mathrm{d}x.
+		\end{equation*}
+		Definiamo $g_n = \chi_{[0, \alpha_n]}f$ ed osserviamo che, per ogni $n$, $\vert g_n \vert \leq \vert f \vert \in \sf[L]^1$. Per il teorema di convergenza dominata, allora
+		\begin{equation*}
+		\int_{0}^{+\infty} f(x) \ \mathrm{d}x = \int_{[0,+\infty)} \lim_{n \ra +\infty}\chi_{[0, \alpha_n]}f \ \mathrm{d}x = \int_{[0, +\infty)} f \ \mathrm{d}x.
+		\end{equation*}
+	\end{proof}
+	\subsection{Misura e probabilità}
+	È possibile rileggere l'intera teoria della probabilità \textit{à la Kolmogorov} in luce della teoria della misura. Diciamo che uno spazio di misura ($\Omega, \ \eu[M], \ \bb[P]$) è uno \textbf{spazio di probabilità} se $\bb[P](\Omega) = 1$. In particolare, gli elementi di $\Omega$ si diranno \textit{eventi}. Allora una funzione $X$: $\Omega \ra \bb[R]$ misurabile verrà detta \textit{variabile aleatoria}: questa permetterà di costruire una \textit{misura indotta} sui boreliani di $\bb[R]$ assegnando, per ogni $B$ boreliano, $\bb[P]_X(B)$ = $\bb[P](X^{-1}(B))$. \\
+	In luce di questo nuovo linguaggio, una variabile aleatoria $X$ si dirà \textit{discreta} se $\bb[P]_X$ è una misura discreta, ovverosia se esiste un sottoinsieme E al più numerabile di $\bb[R]$, E = \{$x_1, x_2, ... x_{n}, x_{n+1}, ...$\}, per cui $\bb[P]_X(E) = 1$ e per ogni boreliano $B$, $\bb[P]_X(B) = \sum_{n: \ x_n \in B} \bb[P]_X(\{x_n\})$. Una variabile aleatoria si dirà invece \textit{assolutamente continua} se $\bb[P]_X$ risulterà assolutamente continua rispetto alla misura di Lebesgue: per il teorema di Radon-Nykodim si avrà che esiste una $f$: $\bb[R] \ra \bb[R]^{+} \in \sf[L]^1(\bb[R], \sf[bor](\bb[R]))$ tale che $\bb[P]_X(B) = \int_B f \ \mathrm{d}m$, la cosiddetta \textit{densità} della variabile aleatoria.
+	\subsection{Integrazione dipendente da un parametro}
+	Siano $I, \ J \sset \bb[R]$, e sia $g$: $I \times J \ra \bb[C]$. Se $g(\cdot, x) \in \sf[L]^1(I, \sf[bor](\bb[R]))$, allora risulta definito l'\textit{integrale dipendente da un parametro} $F$: $J \ra \bb[R] \sset \bb[C]$ dato da
 	\begin{equation*}
-	\int_X \vert f_n - f \vert \ \mathrm{d}\mu \geq \int_{\Omega_{n, \kappa}} \vert f_n - f \vert \ \mathrm{d}\mu \geq \kappa \mu(\Omega_{n, \kappa}),
+	F(x) = \int_I g(t,x) \ \mathrm{d}m(t).
 	\end{equation*}
-	 ovvero presi comunque $\varepsilon > 0$ e $\kappa > 0$, esiste un $N$ per cui ogni $n \geq N$ è tale che $\mu(\Omega_{n, \kappa}) < \varepsilon$, ovverosia $\mu(\Omega_{n, \kappa}) \ra 0$.
-\end{proof}
-Non vi sono altre possibilità di implicazioni fra le convergenze (come testimoniato dagli esempi), tuttavia è possibile un risultato più debole:
-\begin{eTh}[Teorema inverso della convergenza dominata]
-	Sia $f_n \ra_{\sf[L]^1} f$, allora esiste $f_{n_k}$ sottosuccessione tale che $f_{n_k} \ra_{\sf[q.o.]} f$ su $X$ e inoltre esiste $g \in \sf[L]^1(\mu)$ tale che $\vert f_{n_k}(x) \vert \leq g(x)$ per $x \in X$.
-\end{eTh}
-\begin{proof}
-	Il primo passo sarà esibire una sottosuccessione $f_{n_k}$ tale che $\Vert f_{n_{k+1}} - f_{n_k} \Vert_{\sf[L]^1} < \frac{1}{2^k}$.Per ipotesi, $f_n \ra_{\sf[L]^1} f$ e dunque è di Cauchy, ovvero per ogni $\varepsilon > 0$ esiste $N_{\varepsilon}$ tale che ogni $m, n \geq N_{\varepsilon}$ si ha $\Vert f_m - f_n \Vert_{\sf[L]^1} < \varepsilon$. Dunque scelto $\varepsilon = \frac{1}{2}$ ci sarà un $N_1$ tale per cui ogni $m, n \geq N_1$ sia tale che $\Vert f_m - f_n \Vert < \frac{1}{2}$. Poniamo $f_{n_1} = f_{N_1}$. Posto $\varepsilon = \frac{1}{2^2}$ esisterà un $N_2 > N_1$ tale per cui presi $m, n \geq N_2$, $\Vert f_m - f_n \Vert < \frac{1}{2^2}$. Sia $f_{n_2} = f_{N_2}$. In particolare, essendo $N_2, N_1 \geq N_1$, si avrà $\Vert f_{n_2} - f_{n_1} \Vert < \frac{1}{2}$. Iteriamo questa costruzione, al passo $k$ porremo $\varepsilon = \frac{1}{2^k}$ e otterremo un $N_k$ maggiore di tutti i precedenti per cui vale la condizione di Cauchy. Porremo $f_{n_k} = f_{N_k}$. Proprio per la condizione di Cauchy si avrà perciò che, essendo $N_{k+1}, N_k \geq N_k$, si avrà $\Vert f_{N_{k+1}} - f_{N_k} \Vert = \Vert f_{n_{k+1}} - f_{n_k} \Vert < \frac{1}{2^k}$. \\
-	D'ora in poi, chiameremo con un abuso di notazione $f_k = f_{n_k}$. Proviamo che $f_k \ra_{\sf[q.o.]} f$ su X dominata da una $g$. Per ogni $n \in \bb[N]$ ed ogni $x \in X$, poniamo
-	\begin{equation*}
-	g_n(x) = \sum_{i = 1}^{n} \vert f_{i+1}(x) - f_i(x) \vert.
-	\end{equation*}
-	Ogni $g_n$ risulta misurabile in quanto somma di funzioni misurabili, positiva e crescente. Segue che esiste una funzione $g$ (non necessariamente a valori esclusivamente finiti) tale che $g_n \ra g$. Per il teorema della convergenza monotona,
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X g_n \ \mathrm{d}\mu = \lim_{n \ra +\infty} \Vert g_n \Vert_{\sf[L]^1} = \int_X g \ \mathrm{d}\mu.
-	\end{equation*}
-	Si ha inoltre che
-	\begin{equation*}
-	\Vert g_n \Vert_{\sf[L]^1} \leq \sum_{i = 1}^{n} \Vert f_{i+1} - f_{i} \Vert_{\sf[L]^1} < \sum_{i = 1}^{n} \frac{1}{2^i} \leq 1
-	\end{equation*}
-	per come sono state costruite le $f_k$ al primo passo. Segue che, per la conservazione del segno, anche $\int_X g \ \mathrm{d}\mu \leq 1$, in particolare è finito e dunque $g \in \sf[L]^1(\mu)$. Osserviamo che, in particolare, essendo $g \geq 0$ e $\Vert g \Vert_{\sf[L]^1} < +\infty$, allora $g(x) < +\infty$ per q.o. $x \in X$. Proprio per questi particolari $x$ andremo a costruire il limite puntuale delle $f_k$, che dunque risulterà un limite q.o. definito: si ha, infatti, che in questi specifici $x$
-	\begin{align*}
-	& \vert f_m(x) - f_n(x) \vert \\
-	& \leq \vert f_m(x) - f_{m-1}(x) \vert + \vert f_{m-1}(x) - f_{m-2}(x) \vert + ... + \vert f_{n+1}(x) - f_{n}(x) \vert \\
-	& = g_{m-1}(x) - g_n(x) \leq g(x) - g_n(x)
-	\end{align*}
-	per monotonia della successione delle $g_k$. Ora, siccome le $g_n$ convergono a $g$ si ha che per ogni $\varepsilon > 0$ esiste un $N$ per cui ogni $n \geq N$ è tale che $\vert g(x) - g_n(x) \vert < \varepsilon$. Scelto comunque $\varepsilon > 0$, dunque, sia $N$ come appena detto: allora per ogni $m \geq n \geq N$, $\vert f_m(x) - f_n(x) \vert \leq \vert g(x) - g_n(x) \vert < \varepsilon$. In particolare, per q.o. $x \in X$ $f_k(x)$ risulta di Cauchy in $\bb[R]$, dunque converge ad un certo limite $f^{*}(x)$. \\
-	Rimane da mostrare che $f^{*} = f$ e che la convergenza è dominata. È noto che $\vert f_m(x) - f_n(x) \vert \leq g(x) - g_n(x) \leq g(x)$, essendo $g_n(x) \geq 0$ per ogni $x \in X$; allora per $m \ra +\infty$ risulta $\vert f^{*}(x) - f_n(x) \vert \leq g(x)$ q.o. su $X$. Per il teorema della convergenza dominata (essendo $g \in \sf[L]^1(\mu)$) si ha
-	\begin{equation*}
-	\lim_{n \ra +\infty} \int_X \vert f^{*} - f_n \vert \ \mathrm{d}\mu = 0.
-	\end{equation*}
-	Di conseguenza, essendo $\sf[L]^1(\mu)$ normato e dunque Hausdorff, si ha l'unicità del limite e $f = f^{*}$ (in $\sf[L]^1(\mu)$). Infine, $\vert f_n(x) \vert \leq \vert f_n(x) - f(x) \vert + \vert f(x) \vert \leq g(x) + \vert f(x) \vert =: h(x) \in \sf[L]^1(\mu)$ per q.o. $x \in X$.
-\end{proof}
+	\subsection{Proprietà di regolarità}
+	Enunciamo ora un teorema che riassume le proprietà di regolarità dell'integrale dipendente da un parametro nel caso della teoria di Riemann e in quello della teoria di Lebesgue:
+	\begin{eTh}
+		Sia I = $[a,b]$ e $F(x) = \int_{a}^{b} g(t,x) \ \mathrm{d}t$, allora
+		\begin{enumerate}
+			\item se $g$ è continua su $[a,b] \times J$, $F$ è continua su $J$,
+			\item se $g$ e $\frac{\pd g}{\pd x}$ sono continue su $[a,b] \times J$, allora $F$ è derivabile su $J$ e vale
+			\begin{equation*}
+			F'(x) = \int_{a}^{b} \frac{\pd g}{\pd x}(t,x) \ \mathrm{d}t
+			\end{equation*}
+			per ogni $t \in J$.
+		\end{enumerate}
+		Siano invece più in generale $I$ e $J$ sottoinsiemi misurabili di $\bb[R]$ e sia $g(t, \cdot) \in \sf[L]^{1}(I, m)$ per ogni $t \in I$,
+		\begin{enumerate}
+			\item se $g(t, \cdot)$ è continua su $J$ ed esiste $\varphi \in \sf[L]^1(I, m)$ tale che $\vert g(t,x) \vert \leq \varphi(t)$ per ogni $(t,x) \in I \times J$, allora $F$ è continua su $J$,
+			\item se esiste $\frac{\pd g}{\pd x}$ e $\psi \in \sf[L]^1(I, m)$ tale che $\vert \frac{\pd g}{\pd x}(t,x) \vert \leq \psi(t)$ per ogni $(t,x) \in I \times J$, allora $F$ è derivabile su $J$ e vale
+			\begin{equation*}
+			F'(x) = \int_I \frac{\pd g}{\pd x}(t,x) \ \mathrm{d}t
+			\end{equation*}
+			per ogni $x \in J$.
+		\end{enumerate}
+	\end{eTh}
+	\begin{proof}
+		Concentriamoci sui due risultati (1), ovvero di continuità: vogliamo mostrare che $\lim_{x \ra x_0} F(x) = F(x_0) = \int_I g(t,x_0) \ \mathrm{d}t$, o equivalentemente che per ogni successione $x_n$ a valori reali che converga a $x_0$, $\lim_{n \ra +\infty} F(x_n) = F(x_0) = \int_I g(t, x_0) \ \mathrm{d}t$. Definiamo $g(t, x_0) = g_0(t)$ e $g(t, x_n) = g_n(t)$: risulta che, per l'ipotesi di continuità su $g$, $\lim_{n \ra +\infty} g_n(t) = g_0(t)$. Stiamo quindi cercando di mostrare che 
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_I g_n(t) \ \mathrm{d}t = \int_I g_0(t) \ \mathrm{d}t = \int_I \lim_{n \ra +\infty} g_n(t) \ \mathrm{d}t,
+		\end{equation*}
+		ovvero un risultato di passaggio al limite sotto il segno d'integrale. Nel caso di Lebesgue, l'ipotesi ci fornisce una funzione dominatrice --- possiamo concludere immediatamente per il teorema di convergenza dominata. Nel caso di Riemann la questione è più complessa: per poter passare al limite dobbiamo esibire prova di convergenza uniforme della nostra successione $g_n$. Ora, $g$ è continua su $[a,b] \times J$, dunque se $J_0$ è un intervallo compatto a cui appartiene $x_0$ e che è contenuto in $J$, a sua volta $R_0$ = $[a,b] \times J_0$ sarà un compatto contenuto in $[a,b] \times J$ e per il teorema di \textit{Heine-Cantor} si avrà continuità uniforme della $g$ su $R_0$. Questo ci permette di dire che, scelto comunque $\varepsilon > 0$, esiste $\delta > 0$ tale che, per ogni $(t, x), \ (t', x') \in R_0$, se $\Vert (t,x) - (t',x') \Vert \leq \delta$, allora $\vert g(t,x) - g(t',x') \vert < \varepsilon$. Fissiamo $\delta$ come sopra, allora per la convergenza di $x_n$ a $x_0$ si avrà che esiste un $N$ per cui, $\forall n \geq N$ $\vert x_n - x_0 \vert < \delta$. Allora ricordiamo la tesi: vogliamo mostrare che, preso comunque $\varepsilon > 0$, esiste $N \in \bb[N]$ tale per cui $\forall n \geq N$ e $\forall t \in [a,b]$, $\vert g_n(t) - g_0(t) \vert < \varepsilon$. Scelti perciò $\delta$ e $N$ come sopra, si ha che per ogni $n \geq N$ e per ogni $t \in [a,b]$, $\Vert (t, x_n) - (t, x_0) \Vert = \vert x_n - x_0 \vert < \delta$ e perciò $\vert g(t, x_n) - g(t, x_0) \vert = \vert g_n(t) - g_0(t) \vert < \varepsilon$. \\
+		Per i risultati (2) di derivabilità, dapprima lavoriamo sulla tesi: vogliamo provare che, fissato $x_0$,
+		\begin{equation*}
+		\lim_{x \ra x_0} \frac{F(x) - F(x_0)}{x - x_0} = \int_I \frac{\pd g}{\pd x}(t,x) \ \mathrm{d}t,
+		\end{equation*}
+		o equivalentemente che presa comunque $x_n \ra x_0$,
+		\begin{equation*}
+		\lim_{n \ra +\infty} \frac{F(x_n) - F(x_0)}{x_n-x_0} = \int_I \frac{\pd g}{\pd x}(t, x_0) \ \mathrm{d}t.
+		\end{equation*}
+		Detta $\frac{\pd g}{\pd x}(t, x_0) = h_0(t)$, si ha inoltre che
+		\begin{equation*}
+		\frac{F(x_n) - F(x_0)}{x_n-x_0} = \frac{1}{x_n-x_0} \left( \int_I g(t, x_n) \ \mathrm{d}t - \int_I g(t, x_0) \ \mathrm{d}t \right) = \int_I \frac{g(t, x_n) - g(t, x_0)}{x_n-x_0} \ \mathrm{d}t.
+		\end{equation*}
+		Chiamiamo l'integranda dell'ultimo integrale $h_n(t)$. Allora l'obiettivo è mostrare, nuovamente, che
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_I h_n(t) \ \mathrm{d}t = \int_I h_0(t) \ \mathrm{d}t.
+		\end{equation*}
+		Si ha la convergenza puntuale di $h_n$ a $h_0$ (per definizione di derivata parziale), ma ciò non è sufficiente. Per il teorema di Lagrange applicato nella variabile $x$,
+		\begin{equation*}
+		h_n(t) = \frac{g(t, x_n) - g(t, x_0)}{x_n-x_0} = \frac{\pd g}{\pd x}(t, x_0 + \theta(x_n-x_0)).
+		\end{equation*}
+		La tesi perciò diventa,
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_I \frac{\pd g}{\pd x}(t, x_0 + \theta(x_n-x_0)) \ \mathrm{d}t = \int_I \frac{\pd g}{\pd x}(t, x_0) \ \mathrm{d}t.
+		\end{equation*}
+		Ancora una volta nel caso di Lebesgue questa segue dal teorema della convergenza dominata, mentre nel caso di Riemann da un argomento di convergenza uniforme su un compatto contenuto in $[a,b] \times J$.
+	\end{proof}
+	\subsection{Modi di convergenza}
+	$\sf[L]^1(\mu)$ è dotato di una norma --- questa vi induce una struttura topologica e, dunque, una nozione di convergenza. In particolare, si avrà che $f_n \ra_{\sf[L]^1} f$ se e solo se $\int_X \vert f_n - f \vert \ \mathrm{d}\mu \ra 0$ per $n \ra +\infty$. D'ora in poi denoteremo la convergenza uniforme con $\ra_{\sf[un]}$, la convergenza puntuale con la semplice freccia $\ra$ e la convergenza q.o. con $\ra_{\sf[q.o.]}$. Esiste un ultimo modo di convergenza interessante:
+	\begin{Def}
+		Una successione di funzioni $f_n$ misurabili a valori complessi \textbf{converge in misura} ad $f$ ($f_n \ra_{\mu} f$) se per ogni $\kappa > 0$,
+		\begin{equation*}
+		\mu\left(\{x: \vert f_n(x) - f(x) \vert \geq \kappa\}\right) \ra 0,
+		\end{equation*}
+		per $n \ra +\infty$.
+	\end{Def}
+	Risulta legittimo chiedersi quali siano le implicazioni fra questi modi di convergenza. È noto che la convergenza uniforme implichi quella puntuale, e quest'ultima quella q.o.; tuttavia, non è chiaro in quali casi queste implichino quella $\sf[L]^1$. In effetti, la risposta è \textit{in nessun caso}.
+	\begin{Ex}
+		Sia $f_n(x) = \frac{1}{n} \chi_{(0,n)}(x)$. Sia $f(x) = 0$ per ogni $x \in \bb[R]$, allora $f_n \ra f$ e in effetti, dal momento che $\sup_{\bb[R]} f_n = \frac{1}{n}$, $f_n \ra_{\sf[un]} f$. Tuttavia $\int_{\bb[R]} \vert f_n \vert \ \mathrm{d}m = \frac{1}{n}$, dunque non c'è convergenza $\sf[L]^1$ a $f$. Si ha invece convergenza in misura.
+	\end{Ex}
+	\begin{Ex}
+		Sia $f_n(x) = \chi_{(n, n+1)}(x)$. Per ogni $x \in \bb[R]$, $\lim_{n \ra +\infty} f_n(x) = 0$ (infatti da un certo $n$ in poi $x$ non apparterrà all'intervallo $(n, n+1)$). Tuttavia, $\sup_{\bb[R]} f_n = 1$ che non tende a 0, da cui la convergenza è solo puntuale e non uniforme. L'integrale ancora una volta ha valore 1 costante --- non c'è nemmeno convergenza $\sf[L]^1$.
+	\end{Ex}
+	\begin{Ex}
+		Sia $f_n(x) = n \chi_{[0, \frac{1}{n}]}$.  Per $x \neq 0$ il limite di $f_n(x)$ tende a zero come nell'esempio precedente; in $x = 0$ il limite diverge a $+\infty$, dunque si ha convergenza solamente q.o.. Anche in questo caso l'integrale vale 1 e non si ha convergenza $\sf[L]^1$. Si ha invece convergenza in misura.
+	\end{Ex}
+	\begin{Ex}
+		Sia $f_n(x) = \chi_{[j2^{-k}, (j+1)2^{-k}]}$, con $0 \leq j < 2^k$ e $n = j + 2^k$. Si ha che, per ogni $n$ ed ogni $k$, $2^k \leq n \leq 2^{k+1}$, da cui $\int_{\bb[R]} \vert f_n \vert \ \mathrm{d}m = 2^{-k} \ra 0$ per $n \ra +\infty$. Tuttavia, $f_n(x)$ non converge nemmeno q.o. su $[0,1]$ dal momento che il suo valore continua a oscillare fra 0 ed 1 per $n \ra +\infty$. Si ha, inoltre, convergenza in misura.
+	\end{Ex}
+	L'ipotesi di finitezza sulla misura, tuttavia, è sufficiente a garantire che la convergenza uniforme implichi quella $\sf[L]^1$:
+	\begin{Th}
+		Sia $f_n$: X $\ra \bb[R]$ integrabile per ogni $n$, e si abbia $f_n \ra_{\sf[un]} f$ su X. Sia $\mu(X) < +\infty$, allora $f$ è integrabile e $f_n \ra_{\sf[L]^1} f$.
+	\end{Th}
+	\begin{proof}
+		$f$ risulta misurabile perché la misurabilità passa al limite. Inoltre per la convergenza uniforme si ha che esiste un $N$ tale per cui ogni $n \geq N$ è tale che $\vert f_n(x) - f(x) \vert < 1$ per ogni $x \in X$. Allora in particolare per ogni $x \in X$ si ha $\vert f(x) \vert \leq \vert f - f_N \vert + \vert f_N \vert \leq 1 + \vert f_N \vert$, che per monotonia implica che
+		\begin{equation*}
+		\int_X \vert f \vert \ \mathrm{d}\mu \leq \int_X 1 + \vert f_N \vert \ \mathrm{d}\mu = \mu(X) + \int_X f_N \ \mathrm{d}\mu.
+		\end{equation*}
+		Per ipotesi $\mu(X) < +\infty$ e così l'integrale di $\vert f_N \vert$, dal momento che è integrabile. Segue che anche $f$ è integrabile. Preso comunque $\varepsilon > 0$, inoltre, esiste $N$ tale che ogni $n \geq N$ è tale che $\vert f_n - f\vert < \varepsilon$, dunque $\int_X \vert f_n - f \vert \ \mathrm{d}\mu < \int_X \varepsilon \ \mathrm{d}\mu = \varepsilon \mu(X)$ e siccome $\mu(X) < +\infty$, questo significa che l'integrale di $\vert f_n - f \vert$ tende a zero, ovvero $f_n \ra_{\sf[L]^1} f$.
+	\end{proof}
+	Inoltre, risulta che la convergenza $\sf[L]^1$ implichi quella in misura:
+	\begin{eTh}
+		Sia $f_n \ra_{\sf[L]^1} f$, allora $f_n \ra_{\mu} f$.
+	\end{eTh}
+	\begin{proof}
+		Per ipotesi $\int_X \vert f_n - f \vert \ \mathrm{d}\mu \ra 0$, ovvero per ogni $\varepsilon > 0$ esiste un $N$ tale che per ogni $n \geq N$, $\int_X \vert f_n - f \vert \ \mathrm{d}\mu < \varepsilon$. Per ogni $n \geq N$ ed ogni $\kappa$, denotiamo con $\Omega_{n, \kappa}$ l'insieme degli $x \in X$ tali che $\vert f_n(x) - f(x) \vert \geq \kappa$. Allora risulterà che 
+		\begin{equation*}
+		\int_X \vert f_n - f \vert \ \mathrm{d}\mu \geq \int_{\Omega_{n, \kappa}} \vert f_n - f \vert \ \mathrm{d}\mu \geq \kappa \mu(\Omega_{n, \kappa}),
+		\end{equation*}
+		ovvero presi comunque $\varepsilon > 0$ e $\kappa > 0$, esiste un $N$ per cui ogni $n \geq N$ è tale che $\mu(\Omega_{n, \kappa}) < \varepsilon$, ovverosia $\mu(\Omega_{n, \kappa}) \ra 0$.
+	\end{proof}
+	Non vi sono altre possibilità di implicazioni fra le convergenze (come testimoniato dagli esempi), tuttavia è possibile un risultato più debole:
+	\begin{eTh}[Teorema inverso della convergenza dominata]
+		Sia $f_n \ra_{\sf[L]^1} f$, allora esiste $f_{n_k}$ sottosuccessione tale che $f_{n_k} \ra_{\sf[q.o.]} f$ su $X$ e inoltre esiste $g \in \sf[L]^1(\mu)$ tale che $\vert f_{n_k}(x) \vert \leq g(x)$ per $x \in X$.
+	\end{eTh}
+	\begin{proof}
+		Il primo passo sarà esibire una sottosuccessione $f_{n_k}$ tale che $\Vert f_{n_{k+1}} - f_{n_k} \Vert_{\sf[L]^1} < \frac{1}{2^k}$.Per ipotesi, $f_n \ra_{\sf[L]^1} f$ e dunque è di Cauchy, ovvero per ogni $\varepsilon > 0$ esiste $N_{\varepsilon}$ tale che ogni $m, n \geq N_{\varepsilon}$ si ha $\Vert f_m - f_n \Vert_{\sf[L]^1} < \varepsilon$. Dunque scelto $\varepsilon = \frac{1}{2}$ ci sarà un $N_1$ tale per cui ogni $m, n \geq N_1$ sia tale che $\Vert f_m - f_n \Vert < \frac{1}{2}$. Poniamo $f_{n_1} = f_{N_1}$. Posto $\varepsilon = \frac{1}{2^2}$ esisterà un $N_2 > N_1$ tale per cui presi $m, n \geq N_2$, $\Vert f_m - f_n \Vert < \frac{1}{2^2}$. Sia $f_{n_2} = f_{N_2}$. In particolare, essendo $N_2, N_1 \geq N_1$, si avrà $\Vert f_{n_2} - f_{n_1} \Vert < \frac{1}{2}$. Iteriamo questa costruzione, al passo $k$ porremo $\varepsilon = \frac{1}{2^k}$ e otterremo un $N_k$ maggiore di tutti i precedenti per cui vale la condizione di Cauchy. Porremo $f_{n_k} = f_{N_k}$. Proprio per la condizione di Cauchy si avrà perciò che, essendo $N_{k+1}, N_k \geq N_k$, si avrà $\Vert f_{N_{k+1}} - f_{N_k} \Vert = \Vert f_{n_{k+1}} - f_{n_k} \Vert < \frac{1}{2^k}$. \\
+		D'ora in poi, chiameremo con un abuso di notazione $f_k = f_{n_k}$. Proviamo che $f_k \ra_{\sf[q.o.]} f$ su X dominata da una $g$. Per ogni $n \in \bb[N]$ ed ogni $x \in X$, poniamo
+		\begin{equation*}
+		g_n(x) = \sum_{i = 1}^{n} \vert f_{i+1}(x) - f_i(x) \vert.
+		\end{equation*}
+		Ogni $g_n$ risulta misurabile in quanto somma di funzioni misurabili, positiva e crescente. Segue che esiste una funzione $g$ (non necessariamente a valori esclusivamente finiti) tale che $g_n \ra g$. Per il teorema della convergenza monotona,
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X g_n \ \mathrm{d}\mu = \lim_{n \ra +\infty} \Vert g_n \Vert_{\sf[L]^1} = \int_X g \ \mathrm{d}\mu.
+		\end{equation*}
+		Si ha inoltre che
+		\begin{equation*}
+		\Vert g_n \Vert_{\sf[L]^1} \leq \sum_{i = 1}^{n} \Vert f_{i+1} - f_{i} \Vert_{\sf[L]^1} < \sum_{i = 1}^{n} \frac{1}{2^i} \leq 1
+		\end{equation*}
+		per come sono state costruite le $f_k$ al primo passo. Segue che, per la conservazione del segno, anche $\int_X g \ \mathrm{d}\mu \leq 1$, in particolare è finito e dunque $g \in \sf[L]^1(\mu)$. Osserviamo che, in particolare, essendo $g \geq 0$ e $\Vert g \Vert_{\sf[L]^1} < +\infty$, allora $g(x) < +\infty$ per q.o. $x \in X$. Proprio per questi particolari $x$ andremo a costruire il limite puntuale delle $f_k$, che dunque risulterà un limite q.o. definito: si ha, infatti, che in questi specifici $x$
+		\begin{align*}
+		& \vert f_m(x) - f_n(x) \vert \\
+		& \leq \vert f_m(x) - f_{m-1}(x) \vert + \vert f_{m-1}(x) - f_{m-2}(x) \vert + ... + \vert f_{n+1}(x) - f_{n}(x) \vert \\
+		& = g_{m-1}(x) - g_n(x) \leq g(x) - g_n(x)
+		\end{align*}
+		per monotonia della successione delle $g_k$. Ora, siccome le $g_n$ convergono a $g$ si ha che per ogni $\varepsilon > 0$ esiste un $N$ per cui ogni $n \geq N$ è tale che $\vert g(x) - g_n(x) \vert < \varepsilon$. Scelto comunque $\varepsilon > 0$, dunque, sia $N$ come appena detto: allora per ogni $m \geq n \geq N$, $\vert f_m(x) - f_n(x) \vert \leq \vert g(x) - g_n(x) \vert < \varepsilon$. In particolare, per q.o. $x \in X$ $f_k(x)$ risulta di Cauchy in $\bb[R]$, dunque converge ad un certo limite $f^{*}(x)$. \\
+		Rimane da mostrare che $f^{*} = f$ e che la convergenza è dominata. È noto che $\vert f_m(x) - f_n(x) \vert \leq g(x) - g_n(x) \leq g(x)$, essendo $g_n(x) \geq 0$ per ogni $x \in X$; allora per $m \ra +\infty$ risulta $\vert f^{*}(x) - f_n(x) \vert \leq g(x)$ q.o. su $X$. Per il teorema della convergenza dominata (essendo $g \in \sf[L]^1(\mu)$) si ha
+		\begin{equation*}
+		\lim_{n \ra +\infty} \int_X \vert f^{*} - f_n \vert \ \mathrm{d}\mu = 0.
+		\end{equation*}
+		Di conseguenza, essendo $\sf[L]^1(\mu)$ normato e dunque Hausdorff, si ha l'unicità del limite e $f = f^{*}$ (in $\sf[L]^1(\mu)$). Infine, $\vert f_n(x) \vert \leq \vert f_n(x) - f(x) \vert + \vert f(x) \vert \leq g(x) + \vert f(x) \vert =: h(x) \in \sf[L]^1(\mu)$ per q.o. $x \in X$.
+	\end{proof}
 \end{document}
